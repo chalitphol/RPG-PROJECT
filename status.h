@@ -3,12 +3,12 @@ using namespace std;
 
 class status{
 	public:
-		void setatk(int);
-		void setdef(int);
-		void sethp(int);
-		int getatk();
-		int	getdef();
-		int gethp();
+		void setAtk(int);
+		void setDef(int);
+		void setHp(int);
+		int getAtk();
+		int	getDef();
+		int getHp();
 	
 	private:
 		int atk;
