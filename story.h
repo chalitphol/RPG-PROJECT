@@ -3,10 +3,15 @@
 
 class Story{
 	public:
-		void Chapter( );
+		void Chapter(int,int );
+		void Story();
+		int getCM();
+		int getCS();
+		void setCM(int);
+		void setCS(int);
 	private:
-		void C0();
-		void C1();
+		int CM;
+		int CS;
 		
 		
 };
