@@ -1,8 +1,24 @@
-#include <iostream>
+#include "head.h"
 #include "story.h"
 using namespace std;
 
-Story::chapter(int cm,int cs){
+void Story::Walker(){
+	chapter(getCM(),getCS());
+	clear();
+	nextCS();
+	chapter(getCM(),getCS());
+	clear();
+	nextCS();
+	chapter(getCM(),getCS());
+	clear();
+	nextCS();
+	chapter(getCM(),getCS());
+	clear();
+	nextCM();
+	setCS(0); // chapter 0
+}
+
+int Story::chapter(int cm,int cs){
 	string enter;
 	switch(cm){
 		case 0:
@@ -22,6 +38,26 @@ Story::chapter(int cm,int cs){
 					getline(cin,enter);
 					cout << "The people were waiting for a hero to defeat The Dark Lord. "; 
 					break;
+				case 1:
+					cout << "Your family is......";
+					getline(cin,enter);
+					cout << "[1] Hunter family.\n[2] Noble family.\n[3] You don't know your family. You was abandoned since you was young.";
+					do{
+						cin >> enter;
+					}while(enter!=1 || enter!=2 || enter!=3);
+					return atoi(enter.c_str());
+				case 2;
+					cout << "You want to defeat The Dark Lord because......";
+					getline(cin,enter);
+					cout << "[1] You want fame and money.\n[2] Your village was destroyed.Your sister and parent were killed.You want to revenge.\n[3] Your want the highest honor.";
+					do{
+						cin >> enter;
+					}while(enter!=1 || enter!=2 || enter!=3);
+					return atoi(enter.c_str());
+				case 3:
+					cout << "What is your name? ";
+					cin >> enter;
+					return enter;
 			}
 			break;
 		case 1:
@@ -46,7 +82,19 @@ void Story::setCS(int cs){
 	this->CS = cs;
 }
 
-Story::Story(){
+void Story::nextCM(){
+	setCM(getCM()+1);
+}
+
+void Story::nextCS(){
+	setCS(getCS()+1);
+}
+
+void Story::clear(){
+	cout << string(50, '\n');
+}
+
+void Story::Story(){
 	setCM(0);
 	setCS(0);
 }
