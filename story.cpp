@@ -2,7 +2,7 @@
 #include "story.h"
 using namespace std;
 
-Story::chapter(c){
+Story::chapter(){
 	int c = 0;
 	string enter;
 	switch(c){
@@ -12,7 +12,7 @@ Story::chapter(c){
 		case 1;
 			C1();
 			break;
-	}
+	
 }
 Story::C0(){
 	cout << "Once upon a time there has The kingdom was a fertile kingdom.";

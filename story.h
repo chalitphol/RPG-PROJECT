@@ -6,6 +6,7 @@ class Story{
 		void Chapter( );
 	private:
 		void C0();
+		void C1();
 		
 		
 };
