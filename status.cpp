@@ -1,26 +1,26 @@
 #include 'status.h'
 using namespace std;
 
-int status::setatk(){
+int status::getatk(){
 	return this->atk;
 }
 
-int status::setdef(){
+int status::getdef(){
 	return this->def;
 }
 
-int status::sethp(){
+int status::gethp(){
 	return this->hp;
 }
 
-void status::getatk(int a){
+void status::setatk(int a){
 	
 }
 
-void status::getdef(int d){
+void status::setdef(int d){
 
 }
 
-void status::gethp(int h){
+void status::sethp(int h){
 
 }
