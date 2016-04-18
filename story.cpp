@@ -14,13 +14,13 @@ Story::chapter(int cm,int cs){
 					getline(cin,enter);
 					cout <<  "Everyone lived in peace .\n" ;
 					getline(cin,enter);
-					cout << "Until one day the dark lord has appeared."; 
+					cout << "Until one day The Dark Lord has appeared."; 
 					getline(cin,enter);
 					cout << "The peace was gone. People were in fear.";
 					getline(cin,enter); 
 					cout << "The invasion spead out wide.";
 					getline(cin,enter);
-					cout << "The people were waiting for a hero to defeat the dark lord. "; 
+					cout << "The people were waiting for a hero to defeat The Dark Lord. "; 
 					break;
 			}
 			break;
@@ -47,5 +47,6 @@ void Story::setCS(int cs){
 }
 
 Story::Story(){
-	
+	setCM(0);
+	setCS(0);
 }
