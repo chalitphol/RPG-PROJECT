@@ -50,3 +50,12 @@ void player::addCHP(int amount){
 	this->setCHP(this->getCHP() + amount);
 }
 
+int player::getACode(){
+	return this->aCode;
+}
+
+void player::setACode(int target){
+	this->aCode = target;
+}
+
+
