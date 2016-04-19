@@ -65,7 +65,7 @@ int Story::chapter(int cm,int cs){
 		case 1:
 			switch(cs){
 				case 0:
-					
+					cout << 
 			}
 			break;
 	}
