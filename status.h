@@ -3,19 +3,20 @@ using namespace std;
 
 class status{
 	public:
-		void getAtk(int);
-		void getDef(int);
-		void getHp(int);
-		void getMaxhp(int);
-		int setAtk();
-		int	setDef();
-		int setHp();
-		int setMaxhp();
+		void setAtk(int);
+		void setDef(int);
+		void setHp(int);
+		void setMaxhp(int);
+		int getAtk();
+		int	getDef();
+		int getHp();
+		int getMaxhp();
 		void addAtk();
 		void addDef();
 		void addHp();
 		void addMaxhp();
-		setAll(int, int, int);
+		void setAll(int, int, int);
+		status(int,int,int);
 		
 	private:
 		int atk;

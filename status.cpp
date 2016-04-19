@@ -1,39 +1,43 @@
 #include 'status.h'
 using namespace std;
 
-int status::setAtk(){
-	return this->atk;
+int status::getAtk(int a){
+	this->atk=a;
 }
 
-int status::setDef(){
-	return this->def;
+int status::getDef(int d){
+	this->def=d;
 }
 
-int status::setHp(){
-	return this->hp;
+int status::getHp(int h){
+	this->hp=h;
 }
 
-int status::setMaphp()
+int status::getMaphp(int m)
 {
-	return this->mapHp;
+	this->mapHp=m;
 }
 
-void status::getAtk(int a)
+void status::setAtk(int a)
 {
 	this->Atk=a;
 }
 
-void status::getDef(int d)
+void status::setDef(int d)
 {
 	this->def=d;
 }
 
-void status::getHp(int h)
+void status::setHp(int h)
 {
-	this->Hp=h;
+	if(h>maxHp){
+		this->hp=maxHp;
+	}else if(h<=0){
+		this->hp=0;
+	}
 }
 
-void status::getMaxhp(int m)
+void status::setMaxhp(int m)
 {
 	this->maxHp=m;
 }
@@ -56,4 +60,16 @@ void status::addHp(int h)
 void status::addMaxhp(int m)
 {
 	this->setMaphp(getMaxhp()+m);
+}
+
+void status::setAll(int a,int d,int m)
+{
+	this->setAtk(a);
+	this->setDef(d);
+	this->setMaxhp(m);
+}
+
+status::status(int a,int d,int m)
+{
+	this->setAll(a,d,m)
 }
