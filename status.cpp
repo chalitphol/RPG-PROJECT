@@ -71,5 +71,5 @@ void status::setAll(int a,int d,int m)
 
 status::status(int a,int d,int m)
 {
-	this->setAll(a,d,m)
+	this->setAll(a,d,m);
 }
