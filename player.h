@@ -1,5 +1,6 @@
 #include "head.h"
 #include "status.h"
+#include "Item.h"
 
 class player{
 	public:
@@ -7,19 +8,18 @@ class player{
 		status getStat();
 		string getName();
 		int getGold();
-		int getCHP();
 		int getACode();
-		void setStat(int,int,int);
 		void setName(string);
 		void setGold(int);
 		void addGold(int);
-		void setCHP(int);
-		void addCHP(int);
 		void setACode(int);
+		status getStat();
+		void addItem(Item);
+		void delItem(Item);
 	private:
-		int aCode;
-		int curHP;
 		status stat;
+		int aCode;
 		char[12] name;
-		int gold; 
+		int gold;
+		vector<Item> inventory;
 };
