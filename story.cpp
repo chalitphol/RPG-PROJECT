@@ -1,18 +1,20 @@
 #include "head.h"
 #include "story.h"
+#include "player.h"
+#include "status.h"
 using namespace std;
 
 void Story::Walker(){
-	chapter(getCM(),getCS());
+	chapter(getCM(),getCS());//cm0cs0
 	clear();
 	nextCS();
-	chapter(getCM(),getCS());
+	chapter(getCM(),getCS());//cm0cs1
 	clear();
 	nextCS();
-	chapter(getCM(),getCS());
+	chapter(getCM(),getCS());//cm0cs2
 	clear();
 	nextCS();
-	chapter(getCM(),getCS());
+	chapter(getCM(),getCS());//cm0cs3
 	clear();
 	nextCM();
 	setCS(0); // chapter 0
@@ -61,7 +63,10 @@ int Story::chapter(int cm,int cs){
 			}
 			break;
 		case 1:
-
+			switch(cs){
+				case 0:
+					
+			}
 			break;
 	}
 }
