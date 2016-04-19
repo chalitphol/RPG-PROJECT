@@ -1,7 +1,10 @@
 #include "player.h"
 
-player::player(char[12]){
-	
+player::player(char[12] n){
+	this->setName(n);
+	this->stat()
+	this->setGold(0);
+	this->setACode(0);
 }
 
 status player::getStat(){
@@ -29,10 +32,6 @@ void player::addGold(int amount){
 	this->setGold(getGold() + amount);
 }
 
-int player::getCHP(){
-	return this->curHP;
-}
-
 int player::getACode(){
 	return this->aCode;
 }
@@ -43,5 +42,17 @@ void player::setACode(int target){
 
 status player::getStat(){
 	return this->stat;
+}
+
+void player::addItem(Item item){
+	this->getItemList()->push_back(item);
+}
+
+vector*<Item> player::getItemList(){
+	return &this->inventory;
+}
+
+void player::delItem(int index){
+	this->getItemList()->erase(this->getItemList()->begin() + index);
 }
 

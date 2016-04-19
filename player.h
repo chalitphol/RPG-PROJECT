@@ -15,7 +15,8 @@ class player{
 		void setACode(int);
 		status getStat();
 		void addItem(Item);
-		void delItem(Item);
+		void delItem(int);
+		vector*<Item> getItemList();
 	private:
 		status stat;
 		int aCode;
