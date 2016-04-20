@@ -43,7 +43,7 @@ int Story::chapter(int cm,int cs){
 				case 1:
 					cout << "Your family is......";
 					getline(cin,enter);
-					cout << "[1] Hunter family.\n[2] Noble family.\n[3] You don't know your family. You was abandoned since you was young.";
+					cout << "[1] Hunter family.\n[2] Noble family.\n[3] You live in slum with others child.";
 					do{
 						cin >> enter;
 					}while(enter!=1 || enter!=2 || enter!=3);
@@ -51,7 +51,7 @@ int Story::chapter(int cm,int cs){
 				case 2;
 					cout << "You want to defeat The Dark Lord because......";
 					getline(cin,enter);
-					cout << "[1] You want fame and money.\n[2] Your village was destroyed.Your sister and parent were killed.You want to revenge.\n[3] Your want the highest honor.";
+					cout << "[1] You want fame and money.\n[2] Your village was destroyed.Your family were killed.You want to revenge.\n[3] Your want the highest honor.";
 					do{
 						cin >> enter;
 					}while(enter!=1 || enter!=2 || enter!=3);
