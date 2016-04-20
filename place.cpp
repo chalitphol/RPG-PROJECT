@@ -8,10 +8,22 @@ string Place::getName(){
 	return name;
 }
 
-void Place::setId(int i){
-	id = i;
+void Place::setId(int id){
+	id = id;
 }
 
-void Place::setName(string n){
-	name = n;
+void Place::setName(string name){
+	name = name;
+}
+
+vector*<Room> Town::getRoom(){
+	return &roomlist;
+}
+	
+void Town::addRoom(Room r){
+	roomlist.push_back(r);
+}
+
+void Towm::delRoom(Room r){
+
 }

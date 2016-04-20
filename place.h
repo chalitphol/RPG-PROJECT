@@ -13,18 +13,23 @@ class Place{
 		string name;
 };
 
-class room: public Place{
+class Room: public Place{
 	public:
 	protected:
 	
 };
 
-class town: public Place{
+class Town: public Place{
 	public:
+		vector*<Room> getRoom();
+		void addRoom(Room);
+		void delRoom(Room);
+		
 	protected:
+		vector<Room> roomList;
 };
 
-class dungeon: public Place{
+class DunGeon: public Place{
 	public:
 	protected:
 };
