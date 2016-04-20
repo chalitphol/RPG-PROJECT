@@ -1,5 +1,5 @@
-#include 'status.h'
-using namespace std;
+#include "status.h"
+
 
 int status::getAtk(int a){
 	this->atk=a;
@@ -13,9 +13,9 @@ int status::getHp(int h){
 	this->hp=h;
 }
 
-int status::getMaphp(int m)
+int status::getMaxhp(int m)
 {
-	this->mapHp=m;
+	this->maxHp=m;
 }
 
 void status::setAtk(int a)
@@ -59,7 +59,7 @@ void status::addHp(int h)
 
 void status::addMaxhp(int m)
 {
-	this->setMaphp(getMaxhp()+m);
+	this->setMaxhp(getMaxhp()+m);
 }
 
 void status::setAll(int a,int d,int m)
