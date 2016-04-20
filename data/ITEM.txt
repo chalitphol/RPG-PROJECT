@@ -1,2 +1,5 @@
 //ID,NAME,SELL_PRICE,BUY_PRICE,TYPE,iATK,iDEF,iHP,SKILL,DESC
 //00,BANANA_ARMOR,1000,500,ARMOR,0,20,10,NULL,Armor that made from banana skin
+1,DAGGER,25,50,WEAPON,2,0,0,NULL,A knife with a very sharp point.
+2,FEATHER_SUIT,35,80,ARMOR,0,3,0,NULL,A suit that's easily to wear.
+3,HERB,4,10,COMSUMABLE,0,0,0,HEAL1,The plant use for wound healing.
