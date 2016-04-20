@@ -17,13 +17,26 @@ void Place::setName(string name){
 }
 
 vector*<Room> Town::getRoom(){
-	return &roomlist;
+	return &roomList;
 }
 	
 void Town::addRoom(Room r){
-	roomlist.push_back(r);
+	roomList->push_back(r);
 }
 
 void Towm::delRoom(Room r){
 
+
+}
+
+vector*<int> Town::getDistination{
+	return &distinationList;
+}
+
+void Town::addDistination(int d){
+	distinationList->push_back(d)
+}
+
+void Town::delDistination(int d){
+	
 }

@@ -8,7 +8,7 @@ class Place{
 		void setId(int);
 		void setName(string);
 
-	private:
+	protected:
 		int id;
 		string name;
 };
@@ -16,7 +16,7 @@ class Place{
 class Room: public Place{
 	public:
 	protected:
-	
+		
 };
 
 class Town: public Place{
@@ -24,12 +24,18 @@ class Town: public Place{
 		vector*<Room> getRoom();
 		void addRoom(Room);
 		void delRoom(Room);
+		vector*<int> getDistination();
+		void addDistination(int);
+		void delDistination(int);
+		
 		
 	protected:
+		vector<int> distinationList;
 		vector<Room> roomList;
+		
 };
 
-class DunGeon: public Place{
+class Dungeon: public Place{
 	public:
 	protected:
 };
