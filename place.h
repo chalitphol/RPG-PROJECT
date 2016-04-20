@@ -15,18 +15,18 @@ class Place{
 
 class room: public Place{
 	public:
-	protect:
+	protected:
 	
 };
 
 class town: public Place{
 	public:
-	protect:
+	protected:
 };
 
 class dungeon: public Place{
 	public:
-	protect:
+	protected:
 };
 
 
