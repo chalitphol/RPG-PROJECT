@@ -1,5 +1,4 @@
 #include "head.h"
-using namespace std;
 
 class Place{
 	public:
@@ -7,9 +6,9 @@ class Place{
 		string getName();
 		void setId(int);
 		void setName(string);
-		vector*<int> getDistination();
-		void addDistination(int);
-		void delDistination(int);
+		vector*<int> getDestination();
+		void addDestination(int);
+		void delDestination(int);
 		
 	protected:
 		int id;

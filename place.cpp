@@ -16,12 +16,12 @@ void Place::setName(string name){
 	name = name;
 }
 
-vector*<int> Place::getDistination{
-	return &distinationList;
+vector*<int> Place::getDestination{
+	return &destinationList;
 }
 
-void Place::addDistination(int d){
-	distinationList->push_back(d);
+void Place::addDestination(int d){
+	destinationList->push_back(d);
 }
 
 void Place::delDestination(int d){
