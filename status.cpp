@@ -1,5 +1,6 @@
 #include "status.h"
-
+#include<ctime>
+#include<cstdlib>
 
 int status::getAtk(int a){
 	this->atk=a;
@@ -72,4 +73,27 @@ void status::setAll(int a,int d,int m)
 status::status(int a,int d,int m)
 {
 	this->setAll(a,d,m);
+}
+
+status::setstatus()
+{
+	int addA=0,addD=0,addM=0,count=0;
+	srand(time(0));
+	for(int i=0; i<12; i++)
+	{
+		count=rand()%3;
+		if(count=0){
+			addA++;
+		}else if(count=1){
+			addD++;
+		}else if(count=2){
+			addM++;
+		}
+		
+	}
+	this->setAtk(5+addA);
+	this->setDef(5+addD);
+	this->setMaxhp(5+addM);
+	this->setHp(maxHp);
+	
 }

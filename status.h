@@ -17,6 +17,7 @@ class status{
 		void addMaxhp();
 		void setAll(int, int, int);
 		status(int,int,int);
+		setstatus(int,int,int,int);
 		
 	private:
 		int atk;
@@ -25,3 +26,4 @@ class status{
 		int maxHp;
 	
 };
+
