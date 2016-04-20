@@ -75,7 +75,7 @@ status::status(int a,int d,int m)
 	this->setAll(a,d,m);
 }
 
-status::setstatus()
+status::status()
 {
 	int addA=0,addD=0,addM=0,count=0;
 	srand(time(0));
