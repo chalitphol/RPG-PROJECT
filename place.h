@@ -7,10 +7,14 @@ class Place{
 		string getName();
 		void setId(int);
 		void setName(string);
-
+		vector*<int> getDistination();
+		void addDistination(int);
+		void delDistination(int);
+		
 	protected:
 		int id;
 		string name;
+		vector<int> distinationList;
 };
 
 class Room: public Place{
@@ -24,13 +28,8 @@ class Town: public Place{
 		vector*<Room> getRoom();
 		void addRoom(Room);
 		void delRoom(Room);
-		vector*<int> getDistination();
-		void addDistination(int);
-		void delDistination(int);
 		
-		
-	protected:
-		vector<int> distinationList;
+	protected:		
 		vector<Room> roomList;
 		
 };
