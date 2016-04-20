@@ -13,19 +13,20 @@ class Place{
 		string name;
 };
 
-class Room: public Place{
+class room: public Place{
 	public:
-	private:
+	protect:
+	
 };
 
 class town: public Place{
 	public:
-	private:
+	protect:
 };
 
 class dungeon: public Place{
 	public:
-	private:
+	protect:
 };
 
 
