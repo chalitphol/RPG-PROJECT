@@ -13,7 +13,7 @@ class Item{
 		void setPB(int);
 		void setPS(int);
 		void setDetail(string);		
-	private:
+	protected:
 		int itemID;
 		string itemName;
 		int itemPriceB;
@@ -29,7 +29,7 @@ class Weapon:class Item{
 		void setiDef(int);
 		int getiHp();
 		void setiHp(int);
-	private:
+	protected:
 		int iAtk;
 		int iDef;
 		int iHp;
@@ -43,7 +43,7 @@ class Armor:class Item{
 		void setiDef(int);
 		int getiHp();
 		void setiHp(int);
-	private:
+	protected:
 		int iAtk;
 		int iDef;
 		int iHp;
@@ -57,7 +57,7 @@ class Consumable:class Item{
 		void setiDef(int);
 		int getiHp();
 		void setiHp(int);
-	private:
+	protected:
 		int iAtk;
 		int iDef;
 		int iHp;
