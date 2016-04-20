@@ -24,7 +24,7 @@ void Place::addDistination(int d){
 	distinationList->push_back(d);
 }
 
-void Place::delDistination(int d){
+void Place::delDestination(int d){
 	
 }
 

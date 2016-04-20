@@ -14,7 +14,7 @@ class Place{
 	protected:
 		int id;
 		string name;
-		vector<int> distinationList;
+		vector<int> destinationList;
 };
 
 class Room: public Place{
