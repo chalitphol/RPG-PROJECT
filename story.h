@@ -4,7 +4,7 @@
 class Story{
 	public:
 		void Walker();
-		int Chapter(int,int );
+		int Chapter(int,int);
 		void Story();
 		int getCM();
 		int getCS();

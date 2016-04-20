@@ -25,7 +25,7 @@ void player::setGold(int gold){
 }
 
 void player::setName(string tmp){
-	return tmp.substr(0.12);
+	return tmp.substr(0,12);
 }
 
 void player::addGold(int amount){
@@ -55,4 +55,27 @@ vector*<Item> player::getItemList(){
 void player::delItem(int index){
 	this->getItemList()->erase(this->getItemList()->begin() + index);
 }
+void player::setPassive(passive p){
+	this->myPassive.setID(p.getID());
+	this->myPassive.setName(p.getName());
+}
 
+passive player::getPassive(){
+	return this->myPassive;
+}
+
+void player::setWeapon(Weapon w){
+	this->myWeapon.setID(w.getID());
+}
+
+void player::setArmor(Armor a){
+	this->myArmor.setID(a.getID());
+}
+
+Weapon player::getWeapon(){
+	return this->myWeapon;
+}
+
+Armor player::getArmor(){
+	return this->myArmor;
+}

@@ -1,6 +1,7 @@
 #include "head.h"
 #include "status.h"
 #include "Item.h"
+#include "passive.h"
 
 class player{
 	public:
@@ -17,10 +18,19 @@ class player{
 		void addItem(Item);
 		void delItem(int);
 		vector*<Item> getItemList();
+		void setPassive(passive);
+		passive getPassive();
+		void setWeapon(Weapon);
+		void setArmor(Armor);
+		Weapon getWeapon();
+		Armor getArmor();
 	private:
 		status stat;
 		int aCode;
 		char[12] name;
 		int gold;
 		vector<Item> inventory;
+		passive myPassive;
+		Weapon myWeapon;
+		Armor myArmor;
 };

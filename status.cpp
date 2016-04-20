@@ -1,6 +1,4 @@
 #include "status.h"
-#include<ctime>
-#include<cstdlib>
 
 int status::getAtk(int a){
 	this->atk=a;
