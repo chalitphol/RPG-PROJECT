@@ -15,3 +15,7 @@ void passive::setID(int id){
 void passive::setName(string n){
 	this->passiveName = n;
 }
+
+string passive::getType(){
+		return this->typeName;
+	}

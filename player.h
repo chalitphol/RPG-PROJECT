@@ -3,9 +3,12 @@
 #include "Item.h"
 #include "passive.h"
 
+#ifndef PLAYER_H
+#define PLAYER_H
 class player{
 	public:
-		player(char[12]);
+		player(string);
+		player();
 		status getStat();
 		string getName();
 		int getGold();
@@ -14,7 +17,6 @@ class player{
 		void setGold(int);
 		void addGold(int);
 		void setACode(int);
-		status getStatus();
 		void addItem(Item);
 		void delItem(int);
 		vector<Item> getItemList();
@@ -24,6 +26,7 @@ class player{
 		void setArmor(Armor);
 		Weapon getWeapon();
 		Armor getArmor();
+		string getType();
 	private:
 		status stat;
 		int aCode;
@@ -33,4 +36,7 @@ class player{
 		passive myPassive;
 		Weapon myWeapon;
 		Armor myArmor;
+		string typeName = "PLAYER";
 };
+
+#endif

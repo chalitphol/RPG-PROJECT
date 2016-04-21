@@ -1,5 +1,8 @@
 #include "head.h"
 
+#ifndef STATUS_H
+#define STATUS_H
+
 class status{
 	public:
 		void setAtk(int);
@@ -15,7 +18,9 @@ class status{
 		void addHp(int);
 		void addMaxhp(int);
 		void setAll(int, int, int);
+		string getType();
 		status(int,int,int);
+		status(int);
 		status();
 		
 	private:
@@ -23,6 +28,9 @@ class status{
 		int def;
 		int hp;
 		int maxHp;
+		string typeName = "STATUS";
 	
 };
+
+#endif
 

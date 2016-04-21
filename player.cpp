@@ -1,8 +1,11 @@
 #include "player.h"
 
-player::player(char n[12]){
+player::player(){
+
+}
+
+player::player(string n){
 	this->setName(n);
-//	this->stat();
 	this->setGold(0);
 	this->setACode(0);
 }
@@ -40,10 +43,6 @@ void player::setACode(int target){
 	this->aCode = target;
 }
 
-status player::getStatus(){
-	return this->stat;
-}
-
 void player::addItem(Item item){
 	this->getItemList().push_back(item);
 }
@@ -79,3 +78,7 @@ Weapon player::getWeapon(){
 Armor player::getArmor(){
 	return this->myArmor;
 }
+
+string player::getType(){
+		return this->typeName;
+	}

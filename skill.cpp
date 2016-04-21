@@ -15,3 +15,7 @@ void skill::setID(int id){
 void skill::setName(string n){
 	this->skillName = n;
 }
+
+string skill::getType(){
+		return this->typeName;
+	}

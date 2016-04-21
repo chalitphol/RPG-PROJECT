@@ -40,3 +40,6 @@ void Town::delRoom(Room r){
 
 
 }
+string Place::getType(){
+		return this->typeName;
+	}

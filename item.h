@@ -13,7 +13,10 @@ class Item{
 		void setName(string);
 		void setPB(int);
 		void setPS(int);
-		void setDetail(string);		
+		void setDetail(string);
+		string getType();
+	private:
+		string typeName = "ITEM";	
 	protected:
 		int itemID;
 		string itemName;

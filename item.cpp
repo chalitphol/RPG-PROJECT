@@ -119,3 +119,6 @@ void Consumable::setiHp(int a){
 	this->iHp = a;
 }
 
+string Item::getType(){
+		return this->typeName;
+	}

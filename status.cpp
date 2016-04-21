@@ -66,6 +66,7 @@ void status::setAll(int a,int d,int m)
 	this->setAtk(a);
 	this->setDef(d);
 	this->setMaxhp(m);
+	this->setHp(this->maxHp);
 }
 
 status::status(int a,int d,int m)
@@ -73,25 +74,26 @@ status::status(int a,int d,int m)
 	this->setAll(a,d,m);
 }
 
-status::status()
-{
-	int addA=0,addD=0,addM=0,count=0;
+status::status(){
+	int count = 0 , base = 5;
+	this->setAll(base,base,base);
 	srand(time(0));
 	for(int i=0; i<12; i++)
 	{
 		count=rand()%3;
-		if(count=0){
-			addA++;
-		}else if(count=1){
-			addD++;
-		}else if(count=2){
-			addM++;
+		if(count==0){
+			this->setAtk(this->getAtk()+1);
+		}else if(count==1){
+			this->setDef(this->getDef()+1);
+		}else if(count==2){
+			this->setMaxhp(this->getMaxhp()+1);
 		}
 		
 	}
-	this->setAtk(5+addA);
-	this->setDef(5+addD);
-	this->setMaxhp(5+addM);
 	this->setHp(maxHp);
 	
 }
+
+string status::getType(){
+		return this->typeName;
+	}

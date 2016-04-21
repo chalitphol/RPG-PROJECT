@@ -1,5 +1,4 @@
 #include "head.h"
-using namespace std;
 
 #ifndef STORY_H
 #define STORY_H

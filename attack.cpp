@@ -30,3 +30,7 @@ void attack::setFactor(int f){
 void attack::setHitNumber(int h){
 	this->hitNumber = h;
 }
+
+string attack::getType(){
+		return this->typeName;
+	}

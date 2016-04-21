@@ -11,6 +11,10 @@ class Place{
 		vector<int> getDestination();
 		void addDestination(int);
 		void delDestination(int);
+		string getType();
+		
+	private:
+		string typeName = "PLACE";
 		
 	protected:
 		int id;

@@ -4,14 +4,14 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o
-LINKOBJ  = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o
+OBJ      = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o GAME.o utility.o monster.o
+LINKOBJ  = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o GAME.o utility.o monster.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = CPERPG.exe
-CXXFLAGS = $(CXXINCS) 
-CFLAGS   = $(INCS) 
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -53,3 +53,12 @@ skill.o: skill.cpp
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+GAME.o: GAME.cpp
+	$(CPP) -c GAME.cpp -o GAME.o $(CXXFLAGS)
+
+utility.o: utility.cpp
+	$(CPP) -c utility.cpp -o utility.o $(CXXFLAGS)
+
+monster.o: monster.cpp
+	$(CPP) -c monster.cpp -o monster.o $(CXXFLAGS)
