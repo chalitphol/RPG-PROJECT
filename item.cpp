@@ -1,6 +1,4 @@
 #include "item.h"
-#include <iostream>
-using namespace std;
 
 //Class Item
 
@@ -76,6 +74,36 @@ string Item::getItemType(){
 	return this->itemType;
 }
 
-void Item::setItemType(string name){
-	this->itemType = name;
+void Item::setItemType(string typ){
+	this->itemType = typ;
 }
+
+string Item::getProp(){
+	return this->property;
+}
+
+void Item::setProp(string p){
+	this->property = p;
+}
+
+void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,string desc){
+	this->setID(id);
+	this->setName(name);
+	this->setPS(SP);
+	this->setPB(BP);
+	this->setItemType(type);
+	this->setiAtk(atk);
+	this->setiDef(def);
+	this->setiHp(hp);
+	this->setProp(skill);
+	this->setDetail(desc);
+}
+
+Item::Item(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,string desc){
+	this->setAll(id,name,SP,BP,type,atk,def,hp,skill,desc);
+}
+
+Item::Item(){
+//	this->setAll(0,"DUMMY",0,0,"WEAPON",0,0,0,"NULL","NULL");
+}
+

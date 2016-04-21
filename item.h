@@ -23,9 +23,15 @@ class Item{
 		void setiHp(int);
 		string getItemType();
 		void setItemType(string);
+		string getProp();
+		void setProp(string);
+		void setAll(int,string,int,int,string,int,int,int,string,string);
+		Item(int,string,int,int,string,int,int,int,string,string);
+		Item();
+		string itemType = " ";
+		string property = " ";
 	private:
-		string typeName = "ITEM";	
-	protected:
+		string typeName = "ITEM";
 		int itemID;
 		string itemName;
 		int itemPriceB;
@@ -34,7 +40,7 @@ class Item{
 		int iAtk;
 		int iDef;
 		int iHp;
-		string itemType;
+		
 };
 
 //class Weapon: public Item{
