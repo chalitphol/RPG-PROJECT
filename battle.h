@@ -6,5 +6,5 @@ class battle{
 	public:
 		
 	private:
-	
+		
 };
