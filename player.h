@@ -22,10 +22,10 @@ class player{
 		vector<Item> getItemList();
 		void setPassive(passive);
 		passive getPassive();
-		void setWeapon(Weapon);
-		void setArmor(Armor);
-		Weapon getWeapon();
-		Armor getArmor();
+		void setWeapon(int);
+		void setArmor(int);
+		Item getWeapon();
+		Item getArmor();
 		string getType();
 	private:
 		status stat;
@@ -34,8 +34,8 @@ class player{
 		int gold;
 		vector<Item> inventory;
 		passive myPassive;
-		Weapon myWeapon;
-		Armor myArmor;
+		Item myWeapon;
+		Item myArmor;
 		string typeName = "PLAYER";
 };
 

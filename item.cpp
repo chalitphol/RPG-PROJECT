@@ -44,81 +44,38 @@ void Item::setDetail(string a){
 	this->itemDetail = a;
 }
 
-//Class Weapon
 
-int Weapon::getiAtk(){
+int Item::getiAtk(){
 	return this->iAtk;
 }
 
-int Weapon::getiDef(){
+int Item::getiDef(){
 	return this->iDef;
 }
-int Weapon::getiHp(){
+int Item::getiHp(){
 	return this->iHp;
 }
 
-void Weapon::setiAtk(int a){
+void Item::setiAtk(int a){
 	this->iAtk = a;
 }
 
-void Weapon::setiDef(int a){
+void Item::setiDef(int a){
 	this->iDef = a;
 }
 
-void Weapon::setiHp(int a){
-	this->iHp = a;
-}
-
-//Class Armor
-
-int Armor::getiAtk(){
-	return this->iAtk;
-}
-
-int Armor::getiDef(){
-	return this->iDef;
-}
-int Armor::getiHp(){
-	return this->iHp;
-}
-
-void Armor::setiAtk(int a){
-	this->iAtk = a;
-}
-
-void Armor::setiDef(int a){
-	this->iDef = a;
-}
-
-void Armor::setiHp(int a){
-	this->iHp = a;
-}
-
-//Class Consumable
-
-int Consumable::getiAtk(){
-	return this->iAtk;
-}
-
-int Consumable::getiDef(){
-	return this->iDef;
-}
-int Consumable::getiHp(){
-	return this->iHp;
-}
-
-void Consumable::setiAtk(int a){
-	this->iAtk = a;
-}
-
-void Consumable::setiDef(int a){
-	this->iDef = a;
-}
-
-void Consumable::setiHp(int a){
+void Item::setiHp(int a){
 	this->iHp = a;
 }
 
 string Item::getType(){
 		return this->typeName;
-	}
+}
+
+string Item::getItemType(){
+	return this->itemType;
+}
+
+void Item::setItemType(string name){
+	this->itemType = name;
+}

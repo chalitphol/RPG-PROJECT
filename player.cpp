@@ -63,19 +63,19 @@ passive player::getPassive(){
 	return this->myPassive;
 }
 
-void player::setWeapon(Weapon w){
-	this->myWeapon.setID(w.getID());
+void player::setWeapon(int w){
+	this->myWeapon.setID(w);
 }
 
-void player::setArmor(Armor a){
-	this->myArmor.setID(a.getID());
+void player::setArmor(int a){
+	this->myArmor.setID(a);
 }
 
-Weapon player::getWeapon(){
+Item player::getWeapon(){
 	return this->myWeapon;
 }
 
-Armor player::getArmor(){
+Item player::getArmor(){
 	return this->myArmor;
 }
 

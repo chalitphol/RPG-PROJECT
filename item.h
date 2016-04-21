@@ -15,6 +15,14 @@ class Item{
 		void setPS(int);
 		void setDetail(string);
 		string getType();
+		int getiAtk();
+		void setiAtk(int);
+		int getiDef();
+		void setiDef(int);
+		int getiHp();
+		void setiHp(int);
+		string getItemType();
+		void setItemType(string);
 	private:
 		string typeName = "ITEM";	
 	protected:
@@ -23,47 +31,49 @@ class Item{
 		int itemPriceB;
 		int itemPriceS;
 		string itemDetail;
-};
-
-class Weapon: public Item{
-	public:
-		int getiAtk();
-		void setiAtk(int);
-		int getiDef();
-		void setiDef(int);
-		int getiHp();
-		void setiHp(int);
-	protected:
 		int iAtk;
 		int iDef;
 		int iHp;
+		string itemType;
 };
 
-class Armor: public Item{
-	public:
-		int getiAtk();
-		void setiAtk(int);
-		int getiDef();
-		void setiDef(int);
-		int getiHp();
-		void setiHp(int);
-	protected:
-		int iAtk;
-		int iDef;
-		int iHp;
-};
-
-class Consumable: public Item{
-	public:
-		int getiAtk();
-		void setiAtk(int);
-		int getiDef();
-		void setiDef(int);
-		int getiHp();
-		void setiHp(int);
-	protected:
-		int iAtk;
-		int iDef;
-		int iHp;
-};
+//class Weapon: public Item{
+//	public:
+//		int getiAtk();
+//		void setiAtk(int);
+//		int getiDef();
+//		void setiDef(int);
+//		int getiHp();
+//		void setiHp(int);
+//	protected:
+//		
+//};
+//
+//class Armor: public Item{
+//	public:
+//		int getiAtk();
+//		void setiAtk(int);
+//		int getiDef();
+//		void setiDef(int);
+//		int getiHp();
+//		void setiHp(int);
+//	protected:
+//		int iAtk;
+//		int iDef;
+//		int iHp;
+//};
+//
+//class Consumable: public Item{
+//	public:
+//		int getiAtk();
+//		void setiAtk(int);
+//		int getiDef();
+//		void setiDef(int);
+//		int getiHp();
+//		void setiHp(int);
+//	protected:
+//		int iAtk;
+//		int iDef;
+//		int iHp;
+//};
 #endif

@@ -46,5 +46,15 @@ string GAME::getType(){
 	}
 	
 void GAME::loadItemData(){
-	
+	ifstream src;
+	src.open("data/ITEM.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+			cout<<line<<endl;
+			string type = line.substr(line.find_first_of(',')+1,line.find_first_of('\0')).substr(line.find_first_of(',')+1,line.find_first_of('\0')).substr(line.find_first_of(',')+1,line.find_first_of('\0')).substr(line.find_first_of(',')+1,line.find_first_of('\0')).substr(0,line.find_first_of(','));
+
+			
+		}
+    }
 }

@@ -22,6 +22,7 @@ class GAME{
 		string typeName = "GAME";
 		template <class T>
 		void addData(vector<T>&,T);
+
 		
 	public:
 		GAME();

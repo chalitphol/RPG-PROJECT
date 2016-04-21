@@ -4,5 +4,5 @@
 #include <fstream>
 #include <vector>
 #include <ctime>
-
+#include <conio.h>
 using namespace std;
