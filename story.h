@@ -1,11 +1,15 @@
+#include "head.h"
+using namespace std;
+
 #ifndef STORY_H
 #define STORY_H
 
 class Story{
 	public:
+		Story();
+		int chapter(int,int);
 		void Walker();
 		int Chapter(int,int);
-		void Story();
 		int getCM();
 		int getCS();
 		void setCM(int);

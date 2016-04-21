@@ -4,11 +4,11 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = story.o
-LINKOBJ  = story.o
-LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
-CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+OBJ      = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o
+LINKOBJ  = story.o player.o status.o item.o place.o attack.o battle.o passive.o skill.o main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = CPERPG.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
@@ -26,3 +26,30 @@ $(BIN): $(OBJ)
 
 story.o: story.cpp
 	$(CPP) -c story.cpp -o story.o $(CXXFLAGS)
+
+player.o: player.cpp
+	$(CPP) -c player.cpp -o player.o $(CXXFLAGS)
+
+status.o: status.cpp
+	$(CPP) -c status.cpp -o status.o $(CXXFLAGS)
+
+item.o: item.cpp
+	$(CPP) -c item.cpp -o item.o $(CXXFLAGS)
+
+place.o: place.cpp
+	$(CPP) -c place.cpp -o place.o $(CXXFLAGS)
+
+attack.o: attack.cpp
+	$(CPP) -c attack.cpp -o attack.o $(CXXFLAGS)
+
+battle.o: battle.cpp
+	$(CPP) -c battle.cpp -o battle.o $(CXXFLAGS)
+
+passive.o: passive.cpp
+	$(CPP) -c passive.cpp -o passive.o $(CXXFLAGS)
+
+skill.o: skill.cpp
+	$(CPP) -c skill.cpp -o skill.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

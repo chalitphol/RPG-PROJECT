@@ -1,25 +1,25 @@
 #include "status.h"
 
-int status::getAtk(int a){
-	this->atk=a;
+int status::getAtk(){
+	return this->atk;
 }
 
-int status::getDef(int d){
-	this->def=d;
+int status::getDef(){
+	return this->def;
 }
 
-int status::getHp(int h){
-	this->hp=h;
+int status::getHp(){
+	return this->hp;
 }
 
-int status::getMaxhp(int m)
+int status::getMaxhp()
 {
-	this->maxHp=m;
+	return this->maxHp;
 }
 
 void status::setAtk(int a)
 {
-	this->Atk=a;
+	this->atk = a;
 }
 
 void status::setDef(int d)

@@ -10,10 +10,10 @@ class status{
 		int	getDef();
 		int getHp();
 		int getMaxhp();
-		void addAtk();
-		void addDef();
-		void addHp();
-		void addMaxhp();
+		void addAtk(int);
+		void addDef(int);
+		void addHp(int);
+		void addMaxhp(int);
 		void setAll(int, int, int);
 		status(int,int,int);
 		status();

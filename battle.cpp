@@ -1,3 +1,3 @@
-#include "battle.cpp"
+#include "battle.h"
 
 

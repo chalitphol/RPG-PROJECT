@@ -14,10 +14,10 @@ class player{
 		void setGold(int);
 		void addGold(int);
 		void setACode(int);
-		status getStat();
+		status getStatus();
 		void addItem(Item);
 		void delItem(int);
-		vector*<Item> getItemList();
+		vector<Item> getItemList();
 		void setPassive(passive);
 		passive getPassive();
 		void setWeapon(Weapon);
@@ -27,7 +27,7 @@ class player{
 	private:
 		status stat;
 		int aCode;
-		char[12] name;
+		string name;
 		int gold;
 		vector<Item> inventory;
 		passive myPassive;

@@ -1,4 +1,4 @@
-#include "skill.cpp"
+#include "skill.h"
 
 int skill::getID(){
 	return this->skillID;

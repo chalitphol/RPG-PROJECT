@@ -1,3 +1,4 @@
+#include "head.h"
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -21,7 +22,7 @@ class Item{
 		string itemDetail;
 };
 
-class Weapon:class Item{
+class Weapon: public Item{
 	public:
 		int getiAtk();
 		void setiAtk(int);
@@ -35,7 +36,7 @@ class Weapon:class Item{
 		int iHp;
 };
 
-class Armor:class Item{
+class Armor: public Item{
 	public:
 		int getiAtk();
 		void setiAtk(int);
@@ -49,7 +50,7 @@ class Armor:class Item{
 		int iHp;
 };
 
-class Consumable:class Item{
+class Consumable: public Item{
 	public:
 		int getiAtk();
 		void setiAtk(int);

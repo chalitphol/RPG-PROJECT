@@ -1,5 +1,4 @@
 #include "head.h"
-#include "status.h"
 
 class monster{
 	public:

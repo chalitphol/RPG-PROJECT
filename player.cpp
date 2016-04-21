@@ -1,8 +1,8 @@
 #include "player.h"
 
-player::player(char[12] n){
+player::player(char n[12]){
 	this->setName(n);
-	this->stat()
+//	this->stat();
 	this->setGold(0);
 	this->setACode(0);
 }
@@ -25,7 +25,7 @@ void player::setGold(int gold){
 }
 
 void player::setName(string tmp){
-	return tmp.substr(0,12);
+	this->name = tmp;
 }
 
 void player::addGold(int amount){
@@ -40,20 +40,20 @@ void player::setACode(int target){
 	this->aCode = target;
 }
 
-status player::getStat(){
+status player::getStatus(){
 	return this->stat;
 }
 
 void player::addItem(Item item){
-	this->getItemList()->push_back(item);
+	this->getItemList().push_back(item);
 }
 
-vector*<Item> player::getItemList(){
-	return &this->inventory;
+vector<Item> player::getItemList(){
+	return this->inventory;
 }
 
 void player::delItem(int index){
-	this->getItemList()->erase(this->getItemList()->begin() + index);
+	this->getItemList().erase(this->getItemList().begin() + index);
 }
 void player::setPassive(passive p){
 	this->myPassive.setID(p.getID());

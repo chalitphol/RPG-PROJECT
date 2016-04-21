@@ -1,4 +1,6 @@
 #include "head.h"
+#ifndef PLACE_H
+#define PLACE_H
 
 class Place{
 	public:
@@ -6,7 +8,7 @@ class Place{
 		string getName();
 		void setId(int);
 		void setName(string);
-		vector*<int> getDestination();
+		vector<int> getDestination();
 		void addDestination(int);
 		void delDestination(int);
 		
@@ -24,7 +26,7 @@ class Room: public Place{
 
 class Town: public Place{
 	public:
-		vector*<Room> getRoom();
+		vector<Room> getRoom();
 		void addRoom(Room);
 		void delRoom(Room);
 		
@@ -37,5 +39,7 @@ class Dungeon: public Place{
 	public:
 	protected:
 };
+
+#endif
 
 
