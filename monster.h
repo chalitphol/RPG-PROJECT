@@ -1,6 +1,5 @@
 #include "head.h"
-#include "status.h"
-
+//#include "status.h"
 #ifndef MONSTER_H
 #define MONSTER_H
 class monster{

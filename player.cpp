@@ -44,15 +44,15 @@ void player::setACode(int target){
 }
 
 void player::addItem(Item item){
-	this->getItemList().push_back(item);
+	this->getItemList()->push_back(item);
 }
 
-vector<Item> player::getItemList(){
-	return this->inventory;
+vector<Item>* player::getItemList(){
+	return &this->inventory;
 }
 
 void player::delItem(int index){
-	this->getItemList().erase(this->getItemList().begin() + index);
+	this->getItemList()->erase(this->getItemList()->begin() + index);
 }
 void player::setPassive(passive p){
 	this->myPassive.setID(p.getID());
@@ -81,4 +81,12 @@ Item player::getArmor(){
 
 string player::getType(){
 		return this->typeName;
-	}
+}
+
+void player::addSkill(skill sk){
+	this->getSkillList()->push_back(sk);
+}
+
+vector<skill>* player::getSkillList(){
+	return &this->mySkill;
+}

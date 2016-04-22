@@ -1,7 +1,4 @@
 #include "head.h"
-#include "status.h"
-#include "Item.h"
-#include "passive.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
@@ -19,7 +16,7 @@ class player{
 		void setACode(int);
 		void addItem(Item);
 		void delItem(int);
-		vector<Item> getItemList();
+		vector<Item>* getItemList();
 		void setPassive(passive);
 		passive getPassive();
 		void setWeapon(int);
@@ -27,12 +24,15 @@ class player{
 		Item getWeapon();
 		Item getArmor();
 		string getType();
+		void addSkill(skill);
+		vector<skill>* getSkillList();
 	private:
 		status stat;
 		int aCode;
 		string name;
 		int gold;
 		vector<Item> inventory;
+		vector<skill> mySkill;
 		passive myPassive;
 		Item myWeapon;
 		Item myArmor;

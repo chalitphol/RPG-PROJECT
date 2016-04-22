@@ -1,6 +1,4 @@
 #include "head.h"
-#include "player.h"
-#include "monster.h"
 
 #ifndef BATTLE_H
 #define BATTLE_H
