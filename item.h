@@ -30,6 +30,7 @@ class Item{
 		Item();
 		string itemType = " ";
 		string property = " ";
+		void printItem();
 	private:
 		string typeName = "ITEM";
 		int itemID;

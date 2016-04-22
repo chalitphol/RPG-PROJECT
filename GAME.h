@@ -21,13 +21,14 @@ class GAME{
 		player PLAYER;
 		string typeName = "GAME";
 		template <class T>
-		void addData(vector<T>&,T);
+		void addData(vector<T>*,T);
 
 		
 	public:
 		GAME();
 		GAME(string);
-		vector<Item> getItemData();
+		vector<Item>* getItemData();
+		Item getItemData(int);
 		vector<monster> getMonsterData();
 		vector<skill> getSkillData();
 		vector<passive> getPassiveData();

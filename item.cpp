@@ -107,3 +107,8 @@ Item::Item(){
 //	this->setAll(0,"DUMMY",0,0,"WEAPON",0,0,0,"NULL","NULL");
 }
 
+void Item::printItem(){
+	cout << getID() << ", " << getName() << ", " << getPS() << ", " << getPB() << ", " << getItemType() << ", " << getiAtk() << ", " << 
+			getiDef() << ", " << getiHp() << ", " << getProp() << ", " << getDetail() <<"\n";
+}
+

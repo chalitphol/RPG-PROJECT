@@ -9,16 +9,20 @@ GAME::GAME(string name){
 }
 
 template <class T>
-void GAME::addData(vector<T> &data,T obj){
-	data.push_back(obj);
+void GAME::addData(vector<T> *data,T obj){
+	data->push_back(obj);
 }
 
 player* GAME::getPlayer(){
 	return &this->PLAYER;
 }
 
-vector<Item> GAME::getItemData(){
-	return this->itemData;
+vector<Item>* GAME::getItemData(){
+	return &this->itemData;
+}
+
+Item GAME::getItemData(int index){
+	return this->itemData[index];
 }
 
 vector<monster> GAME::getMonsterData(){
@@ -75,7 +79,13 @@ void GAME::loadItemData(){
 
 			obj->setAll(id,name,SP,BP,type,atk,def,hp,skill,desc);
 			
-			cout<<obj->getID()<<obj->getName()<<obj->getItemType()<<obj->getDetail()<<endl;
+//			cout<<obj->getID()<<obj->getName()<<obj->getItemType()<<obj->getDetail()<<endl;
+			
+			this->addData(this->getItemData(),*obj);
+			
+			//obj->printItem();
 		}
     }
 }
+
+
