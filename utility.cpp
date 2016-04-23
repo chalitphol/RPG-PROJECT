@@ -15,13 +15,22 @@ Item load::getItemData(int itemID){
 vector<monster>* load::getMonsterData(){
 	return &monsterData;
 }
+monster load::getMonsterData(int monID){
+	return monsterData[monID];
+}
 
 vector<skill>* load::getSkillData(){
 	return &skillData;
 }
+skill load::getSkillData(int skillID){
+	return skillData[skillID];
+}
 
 vector<passive>* load::getPassiveData(){
 	return &passiveData;
+}
+passive load::getPassiveData(int passID){
+	return passiveData[passID];
 }
 
 vector<attack>* load::getAttackData(){
@@ -34,13 +43,22 @@ attack load::getAttackData(int attackID){
 vector<Town>* load::getTownData(){
 	return &townData;
 }
+Town load::getTownData(int townID){
+	return townData[townID];
+}
 
 vector<Room>* load::getRoomData(){
 	return &roomData;
 }
+Room load::getRoomData(int roomID){
+	return roomData[roomID];
+}
 
 vector<Dungeon>* load::getDungeonData(){
 	return &dungeonData;
+}
+Dungeon load::getDungeonData(int dunID){
+	return dungeonData[dunID];
 }
 
 void load::loadItemData(){

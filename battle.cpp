@@ -1,5 +1,5 @@
 #include "battle.h"
 
 string battle::getType(){
-		return this->typeName;
-	}
+	return this->typeName;
+}

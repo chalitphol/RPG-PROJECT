@@ -22,6 +22,5 @@ extern vector<attack> attackData;
 extern vector<Town> townData;
 extern vector<Room> roomData;
 extern vector<Dungeon> dungeonData;
+
 #endif
-
-
