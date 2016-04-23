@@ -26,14 +26,8 @@ namespace load{
 	vector<monsterMove>* getMonAttackData();
 	monsterMove getMonAttackData(int);
 	
-	vector<Town>* getTownData();
-	Town getTownData(int);
-	
-	vector<Room>* getRoomData();
-	Room getRoomData(int);
-	
-	vector<Dungeon>* getDungeonData();
-	Dungeon getDungeonData(int);
+	vector<Place>* getPlaceData();
+	Place getPlaceData(int);
 	
 	void loadItemData();
 	void loadMonsterData();
@@ -41,9 +35,7 @@ namespace load{
 	void loadPassiveData();
 	void loadAttackData();
 	void loadMonAttackData();
-	void loadTownData();
-	void loadRoomData();
-	void loadDungeonData();
+	void loadPlaceData();
 	
 }
 

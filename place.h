@@ -4,42 +4,24 @@
 
 class Place{
 	public:
-		int getId();
+		int getID();
 		string getName();
-		void setId(int);
-		void setName(string);
 		vector<int>* getDestination();
-		void addDestination(int);
 		string getType();
+		string getPlaceType();
+		
+		void setID(int);
+		void setName(string);
+		void addDestination(int);
+		void setPlaceType(string);
+		void setAll(int,string,string,string);
 		
 	private:
 		string typeName = "PLACE";
-		
-	protected:
 		int id;
 		string name;
+		string placeType; //TOWN, DUNGEON, SHOP, ROOM
 		vector<int> destinationList;
-};
-
-class Room: public Place{
-	public:
-	protected:
-		
-};
-
-class Town: public Place{
-	public:
-		vector<Room>* getRoom();
-		void addRoom(Room);
-		
-	protected:		
-		vector<Room> roomList;
-		
-};
-
-class Dungeon: public Place{
-	public:
-	protected:
 };
 
 #endif

@@ -47,25 +47,11 @@ monsterMove load::getMonAttackData(int monAttID){
 	return monAttackData[monAttID];
 }
 
-vector<Town>* load::getTownData(){
-	return &townData;
+vector<Place>* load::getPlaceData(){
+	return &placeData;
 }
-Town load::getTownData(int townID){
-	return townData[townID];
-}
-
-vector<Room>* load::getRoomData(){
-	return &roomData;
-}
-Room load::getRoomData(int roomID){
-	return roomData[roomID];
-}
-
-vector<Dungeon>* load::getDungeonData(){
-	return &dungeonData;
-}
-Dungeon load::getDungeonData(int dunID){
-	return dungeonData[dunID];
+Place load::getPlaceData(int placeID){
+	return placeData[placeID];
 }
 
 void load::loadItemData(){
@@ -200,6 +186,29 @@ void load::loadMonAttackData(){
 			obj->setAll(id,name,DmgF,hit,hitC,criC,criF,mhp,php,p,c);
 			
 			load::addData(load::getMonAttackData(),*obj);
+		}
+	}
+}
+
+void load::loadPlaceData(){
+	ifstream src;
+	src.open("data/PLACE.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+		
+			Place *obj = new Place();
+			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string type = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string dest = line.substr(0,line.find_first_of('\0'));
+
+			obj->setAll(id,name,type,dest);
+			
+			load::addData(load::getPlaceData(),*obj);
 		}
 	}
 }

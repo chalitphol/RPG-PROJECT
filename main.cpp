@@ -6,15 +6,14 @@ vector<skill> skillData;
 vector<passive> passiveData;
 vector<attack> attackData;
 vector<monsterMove> monAttackData;
-vector<Town> townData;
-vector<Room> roomData;
-vector<Dungeon> dungeonData;
+vector<Place> placeData;
 
 int main(){
 	load::loadItemData();
 	load::loadAttackData();
 	load::loadMonAttackData();
 	load::loadMonsterData();
+	load::loadPlaceData();
 	GAME *core = new GAME();
 //	cout << "Hi I am " << core->getPlayer()->getName() << endl;
 //	cout << "This is my stat ATK = " << core->getPlayer()->getStat().getAtk() <<" DEF = "<<core->getPlayer()->getStat().getDef()<<" MAXHP = "<<core->getPlayer()->getStat().getMaxhp()<<endl;
@@ -44,6 +43,14 @@ int main(){
 		}
 		cout<<"\n";
 	}
-	cout << "MonsterData size " << monsterData.size()<<endl;
+	cout << "MonsterData size " << monsterData.size()<<endl<<endl;
+	for(int i=0;i<load::getPlaceData()->size();i++){
+		cout << load::getPlaceData(i).getName() <<"--->";
+		for(int j =0;j<load::getPlaceData(i).getDestination()->size();j++){
+			cout<<load::getPlaceData(i).getDestination()->at(j)<<",";
+		}
+		cout<<"\n";
+	}
+	cout << "PlaceData size " << placeData.size()<<endl<<endl;
 	return 0;
 }//	getch();

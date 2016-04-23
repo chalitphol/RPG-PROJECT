@@ -22,7 +22,7 @@ class monster{
 	private:
 		string name;
 		status stat;
-		string Class;
+		string Class;//COMMON, RARE, MINIBOSS, BOSS
 		int monID;
 		vector<monsterMove> attackMove;
 		skill monSkill;
