@@ -4,12 +4,16 @@ player::player(){
 	this->setName("PLAYER");
 	this->setGold(0);
 	this->setACode(0);
+	this->setWeapon(0);
+	this->setArmor(0);
 }
 
 player::player(string n){
 	this->setName(n);
 	this->setGold(0);
 	this->setACode(0);
+	this->setWeapon(0);
+	this->setArmor(0);
 }
 
 status player::getStat(){
@@ -68,9 +72,11 @@ passive player::getPassive(){
 bool player::setWeapon(int w){
 	if(load::getItemData(w).getItemType() == "WEAPON"){
 		this->myWeapon = load::getItemData(w);
+		this->setAttack(load::getItemData(w).getAttackIndex());
 		return true;
 	}else{
 		this->myWeapon = load::getItemData(1);
+		this->setAttack(1);
 		return false;
 	}
 }
@@ -94,7 +100,7 @@ Item player::getArmor(){
 }
 
 string player::getType(){
-		return this->typeName;
+	return this->typeName;
 }
 
 void player::addSkill(skill sk){
@@ -110,5 +116,5 @@ attack player::getAttack(){
 }
 
 void player::setAttack(int att){
-	
+	this->myAttack = load::getAttackData(att);
 }

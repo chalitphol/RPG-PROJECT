@@ -86,7 +86,7 @@ void Item::setProp(string p){
 	this->property = p;
 }
 
-void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,string desc){
+void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,int attIndex,string desc){
 	this->setID(id);
 	this->setName(name);
 	this->setPS(SP);
@@ -96,11 +96,12 @@ void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,i
 	this->setiDef(def);
 	this->setiHp(hp);
 	this->setProp(skill);
+	this->setAttackIndex(attIndex);
 	this->setDetail(desc);
 }
 
-Item::Item(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,string desc){
-	this->setAll(id,name,SP,BP,type,atk,def,hp,skill,desc);
+Item::Item(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,int attIndex,string desc){
+	this->setAll(id,name,SP,BP,type,atk,def,hp,skill,attIndex,desc);
 }
 
 Item::Item(){
@@ -114,5 +115,13 @@ Item::Item(int id){
 void Item::printItem(){
 	cout << getID() << ", " << getName() << ", " << getPS() << ", " << getPB() << ", " << getItemType() << ", " << getiAtk() << ", " << 
 			getiDef() << ", " << getiHp() << ", " << getProp() << ", " << getDetail() <<"\n";
+}
+
+int Item::getAttackIndex(){
+	return this->attackIndex;
+}
+
+void Item::setAttackIndex(int index){
+	this->attackIndex = index;
 }
 

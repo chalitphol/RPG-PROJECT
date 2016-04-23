@@ -26,12 +26,12 @@ class Item{
 		void setItemType(string);
 		string getProp();
 		void setProp(string);
-		void setAll(int,string,int,int,string,int,int,int,string,string);
-		Item(int,string,int,int,string,int,int,int,string,string);
+		void setAll(int,string,int,int,string,int,int,int,string,int,string);
+		Item(int,string,int,int,string,int,int,int,string,int,string);
 		Item(int);
 		Item();
-		string itemType = " ";
-		string property = " ";
+		int getAttackIndex();
+		void setAttackIndex(int);
 		void printItem();
 	private:
 		string typeName = "ITEM";
@@ -43,6 +43,9 @@ class Item{
 		int iAtk;
 		int iDef;
 		int iHp;
+		int attackIndex;
+		string itemType = " ";
+		string property = " ";
 		
 };
 

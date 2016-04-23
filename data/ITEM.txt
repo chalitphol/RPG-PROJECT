@@ -1,7 +1,7 @@
-//ID,NAME,SELL_PRICE,BUY_PRICE,TYPE,iATK,iDEF,iHP,SKILL,DESC
-0,UNKNOW,0,0,QUEST,0,0,0,NULL,Unkown
-1,NO_WEAPON,0,0,WEAPON,0,0,0,NULL,You should find some weapon to equipe.
-2,NO_ARMOR,0,0,ARMOR,0,0,0,NULL,You should find some armor to wear.
-3,DAGGER,25,50,WEAPON,2,0,0,NULL,A knife with a very sharp point.
-4,FEATHER_SUIT,35,80,ARMOR,0,3,0,NULL,A suit that's easily to wear.
-5,HERB,4,10,COMSUMABLE,0,0,0,HEAL1,The plant use for wound healing.
+//ID,NAME,SELL_PRICE,BUY_PRICE,TYPE,iATK,iDEF,iHP,SKILL,ATTACK_INDEX,DESC
+0,UNKNOW,0,0,QUEST,0,0,0,NULL,0,Unkown
+1,NO_WEAPON,0,0,WEAPON,0,0,0,NULL,1,You should find some weapon to equipe.
+2,NO_ARMOR,0,0,ARMOR,0,0,0,NULL,0,You should find some armor to wear.
+3,DAGGER,25,50,WEAPON,2,0,0,NULL,2,A knife with a very sharp point.
+4,FEATHER_SUIT,35,80,ARMOR,0,3,0,NULL,0,A suit that's easily to wear.
+5,HERB,4,10,COMSUMABLE,0,0,0,HEAL1,0,The plant use for wound healing.
