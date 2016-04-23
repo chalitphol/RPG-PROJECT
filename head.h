@@ -19,6 +19,7 @@ extern vector<monster> monsterData;
 extern vector<skill> skillData;
 extern vector<passive> passiveData;
 extern vector<attack> attackData;
+extern vector<monsterMove> monAttackData;
 extern vector<Town> townData;
 extern vector<Room> roomData;
 extern vector<Dungeon> dungeonData;

@@ -9,18 +9,23 @@ class monster{
 		string getName();
 		string getClass();
 		int getMonID();
-		vector<attack>* getAttackMove();
+		vector<monsterMove>* getAttackMove();
+		skill getMonSkill();
 		
 		void setName(string);
 		void setClass(string);
 		void setMonID(int);
+		void addAttack(int);
+		void setSkill(int);
+		void setAll(int,string,int,int,int,string,int,string);
 		
 	private:
 		string name;
 		status stat;
 		string Class;
 		int monID;
-		vector<attack> attackMove;
+		vector<monsterMove> attackMove;
+		skill monSkill;
 		
 		string typeName = "MONSTER";
 };

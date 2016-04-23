@@ -85,3 +85,42 @@ void attack::printItem(){
 	cout << getID() << ", " << getName() << ", " << getDmgFactor() << ", " << getHitNumber() << ", " << getHitChance() << ", " << getCriChance() << ", " << 
 			getCriFactor() << ", " << getDetail() <<"\n";
 }
+
+int monsterMove::getMonHpBelow(){
+	return this->monHpBelow;
+}
+int monsterMove::getPlayerHpBelow(){
+	return this->playerHpBelow;
+}
+int monsterMove::getPeroid(){
+	return this->peroid;
+}
+int monsterMove::getChance(){
+	return this->chance;
+}
+
+void monsterMove::setMonHpBelow(int mhp){
+	this->monHpBelow = mhp;
+}
+void monsterMove::setPlayerHpBelow(int php){
+	this->playerHpBelow = php;
+}
+void monsterMove::setPeroid(int p){
+	this->peroid = p;
+}
+void monsterMove::setChance(int c){
+	this->chance = c;
+}
+void monsterMove::setAll(int id,string name,double dmg,int hit,int hitC,int criC,double criF,int mhp,int php,int p,int c){
+	this->setID(id);
+	this->setName(name);
+	this->setDmgFactor(dmg);
+	this->setHitNumber(hit);
+	this->setHitChance(hitC);
+	this->setCriChance(criC);
+	this->setCriFactor(criF);
+	this->setMonHpBelow(mhp);
+	this->setPlayerHpBelow(php);
+	this->setPeroid(p);
+	this->setChance(c);
+}

@@ -40,6 +40,13 @@ attack load::getAttackData(int attackID){
 	return attackData[attackID];
 }
 
+vector<monsterMove>* load::getMonAttackData(){
+	return &monAttackData;
+}
+monsterMove load::getMonAttackData(int monAttID){
+	return monAttackData[monAttID];
+}
+
 vector<Town>* load::getTownData(){
 	return &townData;
 }
@@ -126,6 +133,73 @@ void load::loadAttackData(){
 			obj->setAll(id,name,DmgF,hit,hitC,criC,criF,desc);
 			
 			load::addData(load::getAttackData(),*obj);
+		}
+	}
+}
+
+void load::loadMonsterData(){
+	ifstream src;
+	src.open("data/MONSTER.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+		
+			monster *obj = new monster();
+			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int atk = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int def = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int hp = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string cls = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int sk = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string move = line.substr(0,line.find_first_of('\0'));
+
+			obj->setAll(id,name,atk,def,hp,cls,sk,move);
+			
+			load::addData(load::getMonsterData(),*obj);
+		}
+	}
+}
+
+void load::loadMonAttackData(){
+	ifstream src;
+	src.open("data/MONSTERMOVE.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+		
+			monsterMove *obj = new monsterMove();
+			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double DmgF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int hit = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int hitC = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int criC = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double criF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			int mhp = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int php = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int p = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int c = atoi( line.substr(0,line.find_first_of('\0')).c_str() );
+
+			obj->setAll(id,name,DmgF,hit,hitC,criC,criF,mhp,php,p,c);
+			
+			load::addData(load::getMonAttackData(),*obj);
 		}
 	}
 }

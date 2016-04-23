@@ -23,6 +23,9 @@ namespace load{
 	vector<attack>* getAttackData();
 	attack getAttackData(int);
 	
+	vector<monsterMove>* getMonAttackData();
+	monsterMove getMonAttackData(int);
+	
 	vector<Town>* getTownData();
 	Town getTownData(int);
 	
@@ -37,6 +40,7 @@ namespace load{
 	void loadSkillData();
 	void loadPassiveData();
 	void loadAttackData();
+	void loadMonAttackData();
 	void loadTownData();
 	void loadRoomData();
 	void loadDungeonData();

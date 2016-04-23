@@ -23,7 +23,7 @@ class attack{
 		string getType();
 		void printItem();
 		void setAll(int,string,double,int,int,int,double,string);
-	private:
+	protected:
 		int attackID;
 		string attackName;
 		double dmgFactor;
@@ -33,6 +33,27 @@ class attack{
 		double criFactor;
 		string detail;
 		string typeName = "ATTACK";
+};
+
+class monsterMove: public attack{
+	public:
+		int getMonHpBelow();
+		int getPlayerHpBelow();
+		int getPeroid();
+		int getChance();
+		
+		void setMonHpBelow(int);
+		void setPlayerHpBelow(int);
+		void setPeroid(int);
+		void setChance(int);
+		void setAll(int,string,double,int,int,int,double,int,int,int,int);
+		
+	private:
+		int monHpBelow;
+		int playerHpBelow;
+		int peroid;
+		int chance;
+
 };
 
 #endif
