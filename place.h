@@ -10,7 +10,6 @@ class Place{
 		void setName(string);
 		vector<int>* getDestination();
 		void addDestination(int);
-		void delDestination(int);
 		string getType();
 		
 	private:
@@ -32,7 +31,6 @@ class Town: public Place{
 	public:
 		vector<Room>* getRoom();
 		void addRoom(Room);
-		void delRoom(Room);
 		
 	protected:		
 		vector<Room> roomList;

@@ -24,10 +24,6 @@ void Place::addDestination(int d){
 	destinationList.push_back(d);
 }
 
-void Place::delDestination(int d){
-	
-}
-
 vector<Room>* Town::getRoom(){
 	return &this->roomList;
 }
@@ -36,10 +32,6 @@ void Town::addRoom(Room r){
 	roomList.push_back(r);
 }
 
-void Town::delRoom(Room r){
-
-
-}
 string Place::getType(){
 		return this->typeName;
 	}
