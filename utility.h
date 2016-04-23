@@ -33,7 +33,13 @@ namespace load{
 	Dungeon getDungeonData(int);
 	
 	void loadItemData();
+	void loadMonsterData();
+	void loadSkillData();
+	void loadPassiveData();
 	void loadAttackData();
+	void loadTownData();
+	void loadRoomData();
+	void loadDungeonData();
 	
 }
 

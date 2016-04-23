@@ -13,6 +13,6 @@ player* GAME::getPlayer(){
 }
 
 string GAME::getType(){
-		return this->typeName;
-	}
+	return this->typeName;
+}
 

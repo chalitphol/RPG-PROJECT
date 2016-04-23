@@ -5,10 +5,10 @@
 
 #include "status.h"
 #include "item.h"
-#include "monster.h"
 #include "skill.h"
 #include "passive.h"
 #include "attack.h"
+#include "monster.h"
 #include "place.h"
 #include "player.h"
 #include "GAME.h"
