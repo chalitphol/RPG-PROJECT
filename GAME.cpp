@@ -1,7 +1,7 @@
 #include "GAME.h"
 
 GAME::GAME(){
-	this->PLAYER.setName("ANNOYVERYMUCH");
+	
 }
 
 GAME::GAME(string name){

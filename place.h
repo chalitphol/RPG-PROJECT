@@ -8,7 +8,7 @@ class Place{
 		string getName();
 		void setId(int);
 		void setName(string);
-		vector<int> getDestination();
+		vector<int>* getDestination();
 		void addDestination(int);
 		void delDestination(int);
 		string getType();
@@ -30,7 +30,7 @@ class Room: public Place{
 
 class Town: public Place{
 	public:
-		vector<Room> getRoom();
+		vector<Room>* getRoom();
 		void addRoom(Room);
 		void delRoom(Room);
 		

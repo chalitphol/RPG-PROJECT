@@ -1,7 +1,9 @@
 #include "player.h"
 
 player::player(){
-
+	this->setName("PLAYER");
+	this->setGold(0);
+	this->setACode(0);
 }
 
 player::player(string n){
@@ -43,8 +45,8 @@ void player::setACode(int target){
 	this->aCode = target;
 }
 
-void player::addItem(Item item){
-	this->getItemList()->push_back(item);
+void player::addItem(int itemID){
+	this->getItemList()->push_back(load::getItemData(itemID));
 }
 
 vector<Item>* player::getItemList(){
@@ -63,12 +65,24 @@ passive player::getPassive(){
 	return this->myPassive;
 }
 
-void player::setWeapon(int w){
-	this->myWeapon.setID(w);
+bool player::setWeapon(int w){
+	if(load::getItemData(w).getItemType() == "WEAPON"){
+		this->myWeapon = load::getItemData(w);
+		return true;
+	}else{
+		this->myWeapon = load::getItemData(1);
+		return false;
+	}
 }
 
-void player::setArmor(int a){
-	this->myArmor.setID(a);
+bool player::setArmor(int a){
+	if(load::getItemData(a).getItemType() == "ARMOR"){
+		this->myArmor = load::getItemData(a);
+		return true;
+	}else{
+		this->myArmor = load::getItemData(2);
+		return false;
+	}
 }
 
 Item player::getWeapon(){
@@ -89,4 +103,12 @@ void player::addSkill(skill sk){
 
 vector<skill>* player::getSkillList(){
 	return &this->mySkill;
+}
+
+attack player::getAttack(){
+	return this->myAttack;
+}
+
+void player::setAttack(int att){
+	
 }

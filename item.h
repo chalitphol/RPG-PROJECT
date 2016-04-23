@@ -28,6 +28,7 @@ class Item{
 		void setProp(string);
 		void setAll(int,string,int,int,string,int,int,int,string,string);
 		Item(int,string,int,int,string,int,int,int,string,string);
+		Item(int);
 		Item();
 		string itemType = " ";
 		string property = " ";

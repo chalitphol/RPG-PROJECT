@@ -14,28 +14,31 @@ class player{
 		void setGold(int);
 		void addGold(int);
 		void setACode(int);
-		void addItem(Item);
+		void addItem(int);
 		void delItem(int);
-		vector<Item>* getItemList();
 		void setPassive(passive);
 		passive getPassive();
-		void setWeapon(int);
-		void setArmor(int);
+		bool setWeapon(int);
+		bool setArmor(int);
 		Item getWeapon();
 		Item getArmor();
 		string getType();
 		void addSkill(skill);
+		vector<Item>* getItemList();
 		vector<skill>* getSkillList();
+		attack getAttack();
+		void setAttack(int);
 	private:
 		status stat;
 		int aCode;
-		string name;
+		string name = "PLAYER";
 		int gold;
 		vector<Item> inventory;
 		vector<skill> mySkill;
 		passive myPassive;
 		Item myWeapon;
 		Item myArmor;
+		attack myAttack;
 		string typeName = "PLAYER";
 };
 

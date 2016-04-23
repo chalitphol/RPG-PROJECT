@@ -16,8 +16,8 @@ void Place::setName(string name){
 	name = name;
 }
 
-vector<int> Place::getDestination(){
-	return this->destinationList;
+vector<int>* Place::getDestination(){
+	return &this->destinationList;
 }
 
 void Place::addDestination(int d){
@@ -28,8 +28,8 @@ void Place::delDestination(int d){
 	
 }
 
-vector<Room> Town::getRoom(){
-	return roomList;
+vector<Room>* Town::getRoom(){
+	return &this->roomList;
 }
 	
 void Town::addRoom(Room r){

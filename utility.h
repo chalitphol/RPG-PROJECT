@@ -9,8 +9,7 @@ namespace load{
 	void addData(vector<T> *data,T obj);
 	
 	vector<Item>* getItemData();
-	
-	Item getItemData(int index);
+	Item getItemData(int);
 	
 	vector<monster>* getMonsterData();
 
@@ -19,6 +18,7 @@ namespace load{
 	vector<passive>* getPassiveData();
 	
 	vector<attack>* getAttackData();
+	attack getAttackData(int);
 	
 	vector<Town>* getTownData();
 	
@@ -27,6 +27,7 @@ namespace load{
 	vector<Dungeon>* getDungeonData();
 	
 	void loadItemData();
+	void loadAttackData();
 	
 }
 
