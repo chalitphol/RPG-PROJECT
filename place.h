@@ -9,6 +9,7 @@ class Place{
 		vector<int>* getDestination();
 		string getType();
 		string getPlaceType();
+		Place getDestination(int);
 		
 		void setID(int);
 		void setName(string);

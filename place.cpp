@@ -15,6 +15,13 @@ string Place::getType(){
 string Place::getPlaceType(){
 	return this->placeType;
 }
+Place Place::getDestination(int index){
+	if(index < this->getDestination()->size()){
+		return load::getPlaceData(this->getDestination()->at(index));
+	}else{
+		return load::getPlaceData(0);
+	}
+}
 
 void Place::setID(int ID){
 	this->id = ID;

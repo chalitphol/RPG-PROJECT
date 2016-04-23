@@ -10,28 +10,31 @@ class Item{
 		int getPB();
 		int getPS();
 		string getDetail();
+		string getType();
+		int getiAtk();
+		int getiDef();
+		int getiHp();
+		string getItemType();
+		string getProp();
+		int getAttackIndex();
+		
 		void setID(int);
 		void setName(string);
 		void setPB(int);
 		void setPS(int);
 		void setDetail(string);
-		string getType();
-		int getiAtk();
 		void setiAtk(int);
-		int getiDef();
 		void setiDef(int);
-		int getiHp();
 		void setiHp(int);
-		string getItemType();
 		void setItemType(string);
-		string getProp();
 		void setProp(string);
 		void setAll(int,string,int,int,string,int,int,int,string,int,string);
+		void setAttackIndex(int);
+		
 		Item(int,string,int,int,string,int,int,int,string,int,string);
 		Item(int);
 		Item();
-		int getAttackIndex();
-		void setAttackIndex(int);
+		
 		void printItem();
 	private:
 		string typeName = "ITEM";
@@ -44,7 +47,7 @@ class Item{
 		int iDef;
 		int iHp;
 		int attackIndex;
-		string itemType = " ";
+		string itemType = " ";//WEAPON,ARMOR,CONSUMABLE,QUEST
 		string property = " ";
 		
 };

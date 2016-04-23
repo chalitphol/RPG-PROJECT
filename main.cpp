@@ -52,5 +52,6 @@ int main(){
 		cout<<"\n";
 	}
 	cout << "PlaceData size " << placeData.size()<<endl<<endl;
+	cout <<"Im at "<< load::getPlaceData(1).getName() <<" I can go to "<<load::getPlaceData(1).getDestination(0).getName();
 	return 0;
 }//	getch();
