@@ -21,6 +21,7 @@ class status{
 		void setMaxhp(int);
 		void setAll(int, int, int);
 		void addAll(int,int,int);
+		void takeDamage(int);
 		
 		void addAtk(int);
 		void addDef(int);

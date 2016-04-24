@@ -9,7 +9,7 @@ class battle{
 
 		string getType();
 		player* getPlayer();
-		monster getMonster();
+		monster* getMonster();
 		int getPFinalDmg();
 		int getEFinalDmg();
 		vector<monsterMove>* getEAttack();
@@ -32,7 +32,7 @@ class battle{
 		void setPSkill(int);
 		void setESkill(int);
 		void setTurn(int);
-		void nextTurn();
+		bool nextTurn();
 		void setEMove(int);
 		void setBanTurn(int);
 		void onCD(int);
@@ -47,6 +47,9 @@ class battle{
 		void pattack();
 		bool useItem(int);
 		bool useSkill(int);
+		void fight();
+		void myTurn();
+		void enemyTurn();
 		
 	private:
 		player* PLAYER;

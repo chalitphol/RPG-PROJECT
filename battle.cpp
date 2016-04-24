@@ -6,6 +6,7 @@ battle::battle(player* p,int m){
 	this->setTurn(1);
 	this->setBanTurn(0);
 	this->setPassive(getPlayer()->getPassive().getID());
+	this->getMonster()->getStat()->setHp(getMonster()->getStat()->getMaxhp());
 }
 
 string battle::getType(){
@@ -14,8 +15,8 @@ string battle::getType(){
 player* battle::getPlayer(){
 	return this->PLAYER;
 }
-monster battle::getMonster(){
-	return this->ENEMY;
+monster* battle::getMonster(){
+	return &this->ENEMY;
 }
 int battle::getPFinalDmg(){
 	return this->pFinalDmg;
@@ -84,8 +85,11 @@ void battle::setESkill(int i){
 void battle::setTurn(int t){
 	this->turn = t;
 }
-void battle::nextTurn(){
+bool battle::nextTurn(){
+	getch();
 	this->setTurn(getTurn()+1);
+	if(getPlayer()->getStat()->getHp()==0 || getMonster()->getStat()->getHp()==0)return false;
+	else return true;
 }
 void battle::setEMove(int i){
 	this->eMove = load::getMonAttackData(i);
@@ -100,7 +104,7 @@ void battle::onCD(int n){
 int battle::calcPDmg(){
 	double tmp = 0;
 	int patk = this->getPlayer()->getStat()->getAtk() + this->getPSkill().getModPlayer(0) + this->getESkill().getModPlayer(0);
-	int edef = this->getMonster().getStat()->getDef() + this->getPSkill().getModMonster(1) + this->getESkill().getModMonster(1);
+	int edef = this->getMonster()->getStat()->getDef() + this->getPSkill().getModMonster(1) + this->getESkill().getModMonster(1);
 	
 	tmp = pow(patk,2) / (patk + edef);
 	if(isCri()){
@@ -123,7 +127,7 @@ int battle::calcPDmg(){
 int battle::calcEDmg(attack move){
 	double tmp = 0;
 	int pdef = this->getPlayer()->getStat()->getDef() + this->getPSkill().getModPlayer(1) + this->getESkill().getModPlayer(1);
-	int eatk = this->getMonster().getStat()->getAtk() + this->getPSkill().getModMonster(0) + this->getESkill().getModMonster(0);
+	int eatk = this->getMonster()->getStat()->getAtk() + this->getPSkill().getModMonster(0) + this->getESkill().getModMonster(0);
 	
 	tmp = pow(eatk,2) / (eatk + pdef);
 	if(isCri()){
@@ -161,13 +165,13 @@ bool battle::isHit(){
 void battle::battleScene(monsterMove move){
 	show::printData(core);
 	cout <<setw(27)<<"ENEMY"<<" TURN  :  "<< this->getTurn() <<endl<<endl;
-	cout <<setw(33)<<this->getMonster().getName()<<"  ["<<this->getMonster().getStat()->getHp()<<"/"<<this->getMonster().getStat()->getMaxhp()<<"]\n\n";
+	cout <<setw(33)<<this->getMonster()->getName()<<"  ["<<this->getMonster()->getStat()->getHp()<<"/"<<this->getMonster()->getStat()->getMaxhp()<<"]\n\n";
 	cout <<setw(35)<<move.getName()<<endl<<endl;
 }
 void battle::battleScene(){
 	show::printData(core);
 	cout <<setw(27)<<"YOUR TURN  :  "<< this->getTurn() <<endl<<endl;
-	cout <<setw(33)<<this->getMonster().getName()<<"  ["<<this->getMonster().getStat()->getHp()<<"/"<<this->getMonster().getStat()->getMaxhp()<<"]\n\n";
+	cout <<setw(33)<<this->getMonster()->getName()<<"  ["<<this->getMonster()->getStat()->getHp()<<"/"<<this->getMonster()->getStat()->getMaxhp()<<"]\n\n";
 	cout <<endl;
 }
 void battle::console(){
@@ -217,9 +221,10 @@ void battle::pattack(){
 	for(int i=0;i<this->getPlayer()->getAttack().getHitNumber();i++){
 		if(isHit()){
 			this->setPFinalDmg(calcPDmg());
-			this->getMonster().getStat()->addHp(0-getPFinalDmg());
+			this->getMonster()->getStat()->takeDamage(getPFinalDmg());
 			this->battleScene();
-			cout << "\tEnemy took damage "<<getPFinalDmg()<<" points";
+			cout << "\tEnemy took damage "<<getPFinalDmg()<<" points "<<this->ENEMY.getStat()->getHp();
+			
 		}else{
 			this->battleScene();
 			cout << "MISS";
@@ -243,4 +248,18 @@ bool battle::useSkill(int index){
 		return true;
 	}
 	return false;
+}
+void battle::fight(){
+	do{
+		myTurn();
+		enemyTurn();	
+	}while(nextTurn());
+	
+}
+void battle::myTurn(){
+	battleScene();
+	console();
+}
+void battle::enemyTurn(){
+	battleScene();
 }
