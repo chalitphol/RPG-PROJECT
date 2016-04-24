@@ -5,24 +5,27 @@
 
 class status{
 	public:
-		void setAtk(int);
-		void setDef(int);
-		void setHp(int);
-		void setMaxhp(int);
-		int getAtk();
-		int	getDef();
-		int getHp();
-		int getMaxhp();
-		void addAtk(int);
-		void addDef(int);
-		void addHp(int);
-		void addMaxhp(int);
-		void setAll(int, int, int);
-		string getType();
 		status(int,int,int);
 		status(int);
 		status();
 		
+		int getAtk();
+		int	getDef();
+		int getHp();
+		int getMaxhp();
+		string getType();
+		
+		void setAtk(int);
+		void setDef(int);
+		void setHp(int);
+		void setMaxhp(int);
+		void setAll(int, int, int);
+		
+		void addAtk(int);
+		void addDef(int);
+		void addHp(int);
+		void addMaxhp(int);
+
 	private:
 		int atk;
 		int def;
