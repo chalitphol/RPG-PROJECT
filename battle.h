@@ -16,6 +16,7 @@ class battle{
 		int getGold();
 		skill getPSkill();
 		skill getESkill();
+		int getTurn();
 		
 		void setPlayer(player*);
 		void setEnemy(int);
@@ -26,10 +27,14 @@ class battle{
 		void setGold(int);
 		void setPSkill(int);
 		void setESkill(int);
+		void setTurn(int);
+		void nextTurn();
 		
 		int calcPDmg();
-		int calcEDmg();
+		int calcEDmg(attack);
 		bool isCri();
+		bool isHit();
+		void battleScene();
 	private:
 		player* PLAYER;
 		monster ENEMY;
@@ -41,6 +46,7 @@ class battle{
 		vector<monsterMove> eAttack;
 		int goldReward;
 		string typeName = "BATTLE";
+		int turn;
 };
 
 #endif

@@ -13,11 +13,12 @@ int main(){
 	GAME *core = new GAME();
 
 	//core->chapter0();
-	cout<< core->getPlayer()->getName()<<endl;
-	cout<< core->getPlayer()->getPassive().getName();
+//	core->getPlayer()->setWeapon(11);
 	show::printData(core);
 	
 	battle *bat = new battle(core->getPlayer(),1);
+	bat->setPSkill(0);bat->setESkill(0);
+	
 	cout << "\n"<<bat->calcPDmg();
 	return 0;
 }//	getch();
