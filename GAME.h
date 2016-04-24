@@ -13,8 +13,11 @@ class GAME{
 	public:
 		GAME();
 		GAME(string);
+		
 		player* getPlayer();
 		string getType();
+		
+		void chapter0();
 };
 
 #endif

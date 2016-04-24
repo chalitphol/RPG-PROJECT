@@ -39,4 +39,9 @@ namespace load{
 	
 }
 
+namespace show{
+	void clear();
+	
+}
+
 #endif

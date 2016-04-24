@@ -17,7 +17,15 @@ int main(){
 	load::loadSkillData();
 	load::loadPassiveData();
 	GAME *core = new GAME();
-//	cout << "Hi I am " << core->getPlayer()->getName() << endl;
+
+	core->chapter0();
+	return 0;
+}//	getch();
+
+
+
+
+//{	cout << "Hi I am " << core->getPlayer()->getName() << endl;
 //	cout << "This is my stat ATK = " << core->getPlayer()->getStat().getAtk() <<" DEF = "<<core->getPlayer()->getStat().getDef()<<" MAXHP = "<<core->getPlayer()->getStat().getMaxhp()<<endl;
 ////	
 //	cout << "ItemData size " << itemData.size()<<endl;
@@ -58,10 +66,8 @@ int main(){
 //		cout<<"\n";
 //	}
 //	cout << "SkillData size " << skillData.size()<<endl<<endl;
-	for(int i=0;i<load::getPassiveData()->size();i++){
-		cout <<"."<<"   "<< passiveData.at(i).getName() <<"--->";
-		cout<<"\n";
-	}
-	cout << "SkillData size " << passiveData.size()<<endl<<endl;
-	return 0;
-}//	getch();
+//	for(int i=0;i<load::getPassiveData()->size();i++){
+//		cout <<"."<<"   "<< passiveData.at(i).getName() <<"--->";
+//		cout<<"\n";
+//	}
+//	cout << "SkillData size " << passiveData.size()<<endl<<endl;}

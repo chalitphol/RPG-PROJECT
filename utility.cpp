@@ -283,3 +283,8 @@ void load::loadPassiveData(){
 		}
 	}
 }
+
+void show::clear(){
+//	cout << string(50, '\n');
+	system("cls");
+}
