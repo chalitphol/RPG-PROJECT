@@ -24,6 +24,7 @@ class passive{
 		void setCriFactor(double);
 		void setCriChanceAdd(int);
 		void setStatAdd(int);
+		void setAll(int,string,double,double,double,double,double,int,int);
 		
 	private:
 		double dmgFactor;

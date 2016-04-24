@@ -251,3 +251,35 @@ void load::loadSkillData(){
 		}
 	}
 }
+
+void load::loadPassiveData(){
+	ifstream src;
+	src.open("data/PASSIVE.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+		
+			passive *obj = new passive();
+			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double dmgF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double mnF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double dF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double stF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			double cF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			int cA = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			int stA = atoi( line.substr(0,line.find_first_of('\0')).c_str() );
+
+			obj->setAll(id,name,dmgF,mnF,dF,stF,cF,cA,stA);
+
+			load::addData(load::getPassiveData(),*obj);
+		}
+	}
+}

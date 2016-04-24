@@ -15,6 +15,7 @@ int main(){
 	load::loadMonsterData();
 	load::loadPlaceData();
 	load::loadSkillData();
+	load::loadPassiveData();
 	GAME *core = new GAME();
 //	cout << "Hi I am " << core->getPlayer()->getName() << endl;
 //	cout << "This is my stat ATK = " << core->getPlayer()->getStat().getAtk() <<" DEF = "<<core->getPlayer()->getStat().getDef()<<" MAXHP = "<<core->getPlayer()->getStat().getMaxhp()<<endl;
@@ -52,10 +53,15 @@ int main(){
 //	cout << "PlaceData size " << placeData.size()<<endl<<endl;
 //	cout <<"Im at "<< load::getPlaceData(1).getName() <<" I can go to "<<load::getPlaceData(1).getDestination(0).getName()<<endl<<endl;
 	
-	for(int i=0;i<load::getSkillData()->size();i++){
-		cout <<"."<<"   "<< skillData.at(i).getName() <<"--->";
+//	for(int i=0;i<load::getSkillData()->size();i++){
+//		cout <<"."<<"   "<< skillData.at(i).getName() <<"--->";
+//		cout<<"\n";
+//	}
+//	cout << "SkillData size " << skillData.size()<<endl<<endl;
+	for(int i=0;i<load::getPassiveData()->size();i++){
+		cout <<"."<<"   "<< passiveData.at(i).getName() <<"--->";
 		cout<<"\n";
 	}
-	cout << "SkillData size " << skillData.size()<<endl<<endl;
+	cout << "SkillData size " << passiveData.size()<<endl<<endl;
 	return 0;
 }//	getch();

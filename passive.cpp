@@ -58,3 +58,15 @@ void passive::setCriChanceAdd(int cA){
 void passive::setStatAdd(int sA){
 	this->statAdd = sA;
 }
+void passive::setAll(int id,string name,double dmgF,double mnF,double dF,double stF,double cF,int cA,int stA){
+	this->setID(id);
+	this->setName(name);
+	this->setDmgFactor(dmgF);
+	this->setMoneyFactor(mnF);
+	this->setDropFactor(dF);
+	this->setStatFactor(stF);
+	this->setCriFactor(cF);
+	this->setCriChanceAdd(cA);
+	this->setStatAdd(stA);
+
+}
