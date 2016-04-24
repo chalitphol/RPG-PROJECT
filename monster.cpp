@@ -58,6 +58,7 @@ void monster::setAll(int id,string name,int atk,int def,int hp,string cls,int sk
 	//this->setSkill(sk);
 
 	move = move.substr(1,move.find_first_of(']'));//  [x,x,x,] -> x,x,x,]
+	
 	while(move != "]"){
 		this->addAttack(atoi(move.substr(0,move.find_first_of(',')).c_str() ));
 		move = move.substr(move.find_first_of(',')+1,move.find_first_of('\0'));

@@ -226,13 +226,27 @@ void load::loadSkillData(){
 			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0')); // z,[x,x,],[y,y,]
+			int dmg = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0')); // [x,x,],[y,y,]
+			string mplayer = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string mweapon = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string marmor = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string pattack = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string mmonster = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string mmattack = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0'));
+			int t = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
-			string type = line.substr(0,line.find_first_of(','));
-			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
-			string dest = line.substr(0,line.find_first_of('\0'));
+			int cd = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 
-			obj->setAll(id,name,dmg,patk,pdef,pmhp,php,pg,watk,wdef,wmhp,aatk,adef,amhp,padmgf,pahn,pahc,pacc,pacf,matk,mdef,mmhp,mhp,mg,madmgf,mahn,mahc,macc,macf,turn,cd);
-			
+			obj->setAll(id,name,dmg,mplayer,mweapon,marmor,pattack,mmonster,mmattack,t,cd);
+
 			load::addData(load::getSkillData(),*obj);
 		}
 	}

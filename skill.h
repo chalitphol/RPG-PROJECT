@@ -7,12 +7,13 @@ class skill{
 		int getID();
 		string getName();
 		string getType();
-		int* getModPlayer();
-		int* getModWeapon();
-		int* getModArmor();
-		double* getModPlayerAttack();
-		int* getModMonster();
-		double* getModMonsterAttack(); 
+		int getModPlayer(int);
+		int getModWeapon(int);
+		int getModArmor(int);
+		double getModPlayerAttack(int);
+		int getModMonster(int);
+		double getModMonsterAttack(int);
+		int getDamage();
 		int getTurn();
 		int getCooldown();
 		
@@ -20,13 +21,13 @@ class skill{
 		void setName(string);
 		void setTurn(int);
 		void setCooldown(int);
-		void setModPlayer(int,int,int,int,int);
-		void setModWeapon(int,int,int);
-		void setModArmor(int,int,int);
-		void setModPlayerAttack(double,double,double,double,double);
-		void setModMonster(int,int,int,int,int);
-		void setModMonsterAttack(double,double,double,double,double);
-		void setAll(int,string,int,int,int,int,int,int,int,int,int,int,int,int,double,double,double,double,double,int,int,int,int,int,double,double,double,double,double,int,int);
+		void setModPlayer(string);//int,int,int,int,int
+		void setModWeapon(string);//int,int,int
+		void setModArmor(string);//int,int,int
+		void setModPlayerAttack(string);//double,double,double,double,double
+		void setModMonster(string);//int,int,int,int,int
+		void setModMonsterAttack(string);//double,double,double,double,double
+		void setAll(int,string,int,string,string,string,string,string,string,int,int);
 		
 	private:
 		int skillID;
