@@ -18,6 +18,7 @@ class GAME{
 		string getType();
 		
 		void chapter0();
+		void chapter1(int);  
 };
 
 #endif

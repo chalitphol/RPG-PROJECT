@@ -74,3 +74,10 @@ void GAME::chapter0(){
 	this->getPlayer()->setName(name);
 	
 }
+
+void GAME::chapter1(int session){
+	switch(session){
+		case 1:
+			cout<<"";
+	}
+}
