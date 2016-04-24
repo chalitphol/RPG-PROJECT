@@ -13,3 +13,4 @@
 11,RED_FLOWER,15,30,WEAPON,1,0,0,NULL,4,The fire that look like a beautiful flower.
 12,MANGO,2,5,COMSUMABLE,0,0,0,HEAL1,0,A fruit use that is full of energy.
 13,SHELL,10,15,WEAPON,1,0,0,NULL,2,The sharp shell form the Angkeaw.
+14,B_AXE,200,0,WEAPON,10,5,0,3,
