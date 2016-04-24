@@ -6,6 +6,8 @@ player::player(){
 	this->setACode(0);
 	this->setWeapon(0);
 	this->setArmor(0);
+	this->setACode(1);
+	this->setPassive(0);
 }
 
 player::player(string n){
@@ -14,6 +16,8 @@ player::player(string n){
 	this->setACode(0);
 	this->setWeapon(0);
 	this->setArmor(0);
+	this->setACode(1);
+	this->setPassive(0);
 }
 
 status player::getStat(){
@@ -41,8 +45,8 @@ void player::addGold(int amount){
 	this->setGold(getGold() + amount);
 }
 
-int player::getACode(){
-	return this->aCode;
+Place player::getACode(){
+	return load::getPlaceData(this->aCode);
 }
 
 void player::setACode(int target){

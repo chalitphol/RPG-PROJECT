@@ -59,10 +59,11 @@ void status::setDef(int d)
 void status::setHp(int h)
 {
 	if(h>maxHp){
-		this->hp=maxHp;
+		h = maxHp;
 	}else if(h<=0){
-		this->hp=0;
+		h = 0;
 	}
+	this->hp = h;
 }
 
 void status::setMaxhp(int m)

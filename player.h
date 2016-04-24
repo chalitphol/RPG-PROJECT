@@ -10,7 +10,7 @@ class player{
 		status getStat();
 		string getName();
 		int getGold();
-		int getACode();
+		Place getACode();
 		passive getPassive();
 		Item getWeapon();
 		Item getArmor();

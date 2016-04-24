@@ -18,9 +18,10 @@ int main(){
 	load::loadPassiveData();
 	GAME *core = new GAME();
 
-	core->chapter0();
+	//core->chapter0();
 	cout<< core->getPlayer()->getName()<<endl;
 	cout<< core->getPlayer()->getPassive().getName();
+	show::printData(core);
 	return 0;
 }//	getch();
 

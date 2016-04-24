@@ -290,3 +290,11 @@ void show::clear(){
 //	cout << string(50, '\n');
 	system("cls");
 }
+
+void show::printData(GAME* game){
+	show::clear();
+	cout<<"-----------------------------------------------------------------------------\n\n";
+	cout<<setw(10)<<game->getPlayer()->getName()<<"\tGold: "<<setw(5)<<game->getPlayer()->getGold()<<"\tWeapon: "<<setw(7)<<game->getPlayer()->getWeapon().getName()<<"\tArmor: "<<setw(7)<<game->getPlayer()->getArmor().getName()<<endl;
+	cout<<setw(11)<<"Place: "<<game->getPlayer()->getACode().getName()<<"\tATK: "<<setw(3)<<game->getPlayer()->getStat().getAtk()<<"\tDEF: "<<setw(3)<<game->getPlayer()->getStat().getDef()<<"\tHP: "<<setw(5)<<game->getPlayer()->getStat().getHp()<<"/"<<game->getPlayer()->getStat().getMaxhp()<<endl;
+	cout<<"\n-----------------------------------------------------------------------------";
+}

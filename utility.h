@@ -41,6 +41,7 @@ namespace load{
 
 namespace show{
 	void clear();
+	void printData(GAME*);
 	
 }
 
