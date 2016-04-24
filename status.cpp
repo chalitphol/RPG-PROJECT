@@ -3,6 +3,7 @@
 status::status(int a,int d,int m)
 {
 	this->setAll(a,d,m);
+	this->setHp(this->maxHp);
 }
 
 status::status(){
@@ -60,7 +61,10 @@ void status::setAll(int a,int d,int m)
 	this->setAtk(a);
 	this->setDef(d);
 	this->setMaxhp(m);
-	this->setHp(this->maxHp);
+}
+
+void status::addAll(int a, int d, int m){
+	this->setAll(this->getAtk()+a,this->getDef()+d,this->getMaxhp()+m);
 }
 
 void status::addAtk(int a)

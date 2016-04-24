@@ -3,6 +3,8 @@
 battle::battle(player* p,int m){
 	this->setPlayer(p);
 	this->setEnemy(m);
+	this->setTurn(1);
+	this->setBanTurn(0);
 }
 
 string battle::getType(){
@@ -34,6 +36,18 @@ skill battle::getESkill(){
 }
 int battle::getTurn(){
 	return this->turn;
+}
+monsterMove battle::getEMove(){
+	return this->eMove;
+}
+int battle::getBanTurn(){
+	return this->banTurn;
+}
+bool battle::isOnban(){
+	if(getBanTurn()>getTurn()){
+		return true;
+	}
+	return false;
 }
 
 void battle::setPlayer(player* pt){
@@ -68,6 +82,15 @@ void battle::setTurn(int t){
 }
 void battle::nextTurn(){
 	this->setTurn(getTurn()+1);
+}
+void battle::setEMove(int i){
+	this->eMove = load::getMonAttackData(i);
+}
+void battle::setBanTurn(int b){
+	this->banTurn = b;
+}
+void battle::onCD(int n){
+	this->setBanTurn(this->getTurn()+(2*n));
 }
 
 int battle::calcPDmg(){
@@ -118,4 +141,72 @@ bool battle::isHit(){
 	}else{
 		return false;
 	}
+}
+void battle::battleScene(monsterMove move){
+	cout <<setw(27)<<((this->getTurn()%2 == 1)?"YOUR":"ENEMY")<<" TURN  :  "<< this->getTurn() <<endl<<endl;
+	cout <<setw(33)<<this->getMonster().getName()<<"  ["<<this->getMonster().getStat()->getHp()<<"/"<<this->getMonster().getStat()->getMaxhp()<<"]\n\n";
+	cout <<setw(35)<<((this->getTurn()%2 == 1)?"":move.getName())<<endl<<endl;
+}
+void battle::console(){
+	string cmd="";
+	int c=0;
+		cout <<"\t"<<"Choose your action.\n";
+		cout <<"\t"<<"[1] ATTACK\n";
+		cout <<"\t"<<"[2] ITEM\n";
+		cout <<"\t"<<"[3] SKILL\n\n";
+		while(cmd != "6969"){
+			do{
+				cout <<"\t"<<"COMMAND: ";
+				getline(cin,cmd);
+			}while(!(cmd == "1" || cmd == "2" || cmd == "3" || cmd == "4"));
+			
+			if(cmd=="1") {
+				this->pattack();
+				cmd = "6969";	
+			}
+			else if(cmd=="2") {
+				if(this->getPlayer()->showItemList("CONSUMABLE")){
+					cout <<"Which item do you want\n";
+					do{
+						cout <<"COMMAND: ";	
+						cin>>c;
+					}while(!useItem(c));
+					cmd = "6969";
+				}
+			}else if(cmd=="3") {
+				if(!isOnban()){
+					if(this->getPlayer()->showSkillList()){
+						do{
+							cout <<"COMMAND: ";	
+							getline(cin,cmd);
+							cin>>c;
+						}while(!useSkill(c));
+						cmd = "6969";
+					}
+				}else{
+					cout<<"On cooldown\n";
+				}
+			}
+		}
+}
+
+void battle::pattack(){
+	
+}
+bool battle::useItem(int index){
+	if(load::getItemData(index).getItemType() == "CONSUMABLE"){
+		this->getPlayer()->getStat()->addAll(load::getItemData(index).getiAtk(),load::getItemData(index).getiDef(),load::getItemData(index).getiMaxHp());
+		this->getPlayer()->getStat()->addHp(load::getItemData(index).getiHp());
+		this->getPlayer()->delItem(index);
+		return true;
+	}
+	return false;
+}
+bool battle::useSkill(int index){
+	if(index>0 && index<this->getPlayer()->getSkillList()->size()){
+		this->setPSkill(this->getPlayer()->getSkillList()->at(index).getID());
+		this->onCD(this->getPSkill().getCooldown());
+		return true;
+	}
+	return false;
 }

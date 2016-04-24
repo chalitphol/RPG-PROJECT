@@ -20,6 +20,7 @@ class status{
 		void setHp(int);
 		void setMaxhp(int);
 		void setAll(int, int, int);
+		void addAll(int,int,int);
 		
 		void addAtk(int);
 		void addDef(int);

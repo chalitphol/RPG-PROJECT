@@ -30,6 +30,9 @@ class player{
 		bool setArmor(int);
 		void addSkill(skill);
 		void setAttack(int);
+		
+		bool showItemList(string);
+		bool showSkillList();
 	private:
 		status stat;
 		int aCode;

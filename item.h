@@ -15,7 +15,7 @@ class Item{
 		int getiDef();
 		int getiHp();
 		string getItemType();
-		string getProp();
+		int getiMaxHp();
 		int getAttackIndex();
 		
 		void setID(int);
@@ -27,11 +27,11 @@ class Item{
 		void setiDef(int);
 		void setiHp(int);
 		void setItemType(string);
-		void setProp(string);
-		void setAll(int,string,int,int,string,int,int,int,string,int,string);
+		void setiMaxHp(int);
+		void setAll(int,string,int,int,string,int,int,int,int,int,string);
 		void setAttackIndex(int);
 		
-		Item(int,string,int,int,string,int,int,int,string,int,string);
+		Item(int,string,int,int,string,int,int,int,int,int,string);
 		Item(int);
 		Item();
 		
@@ -45,10 +45,10 @@ class Item{
 		string itemDetail;
 		int iAtk;
 		int iDef;
+		int iMaxHp;
 		int iHp;
 		int attackIndex;
 		string itemType = " ";//WEAPON,ARMOR,CONSUMABLE,QUEST
-		string property = " ";
 		
 };
 

@@ -123,3 +123,21 @@ attack player::getAttack(){
 void player::setAttack(int att){
 	this->myAttack = load::getAttackData(att);
 }
+bool player::showItemList(string type){
+	bool flag=false;
+	for(int i=0;i<this->getItemList()->size();i++){
+		if(this->getItemList()->at(i).getItemType() == type){
+			flag = true;
+			cout << "["<<i<<"] "<<getItemList()->at(i).getName()<<endl;
+		}
+	}
+	return flag;
+}
+bool player::showSkillList(){
+	bool flag=false;
+	for(int i=0;i<this->getSkillList()->size();i++){
+		flag = true;
+		cout << "["<<i<<"] "<<getItemList()->at(i).getName()<<endl;
+	}
+	return flag;
+}

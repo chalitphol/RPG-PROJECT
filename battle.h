@@ -17,6 +17,9 @@ class battle{
 		skill getPSkill();
 		skill getESkill();
 		int getTurn();
+		monsterMove getEMove();
+		int getBanTurn();
+		bool isOnban();
 		
 		void setPlayer(player*);
 		void setEnemy(int);
@@ -29,24 +32,34 @@ class battle{
 		void setESkill(int);
 		void setTurn(int);
 		void nextTurn();
+		void setEMove(int);
+		void setBanTurn(int);
+		void onCD(int);
 		
 		int calcPDmg();
 		int calcEDmg(attack);
 		bool isCri();
 		bool isHit();
-		void battleScene();
+		void battleScene(monsterMove);
+		void console();
+		void pattack();
+		bool useItem(int);
+		bool useSkill(int);
+		
 	private:
 		player* PLAYER;
 		monster ENEMY;
 		passive PASSIVE;
 		skill pSkill;
 		skill eSkill;
+		monsterMove eMove;
 		int pFinalDmg;
 		int eFinalDmg;
 		vector<monsterMove> eAttack;
 		int goldReward;
 		string typeName = "BATTLE";
 		int turn;
+		int banTurn;
 };
 
 #endif

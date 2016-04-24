@@ -78,13 +78,13 @@ void load::loadItemData(){
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int hp = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
-			string skill = line.substr(0,line.find_first_of(','));
+			int max = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int attIndex = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			string desc = line.substr(0,line.find_first_of('\0'));
 
-			obj->setAll(id,name,SP,BP,type,atk,def,hp,skill,attIndex,desc);
+			obj->setAll(id,name,SP,BP,type,atk,def,hp,max,attIndex,desc);
 			
 			load::addData(load::getItemData(),*obj);
 

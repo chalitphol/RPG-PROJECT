@@ -18,7 +18,8 @@ int main(){
 	
 	battle *bat = new battle(core->getPlayer(),1);
 	bat->setPSkill(0);bat->setESkill(0);
-	
+	bat->battleScene(load::getMonAttackData(1));
+	bat->console();
 	cout << "\n"<<bat->calcPDmg();
 	return 0;
 }//	getch();

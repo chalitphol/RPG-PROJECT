@@ -78,15 +78,15 @@ void Item::setItemType(string typ){
 	this->itemType = typ;
 }
 
-string Item::getProp(){
-	return this->property;
+int Item::getiMaxHp(){
+	return this->iMaxHp;
 }
 
-void Item::setProp(string p){
-	this->property = p;
+void Item::setiMaxHp(int x){
+	this->iMaxHp = x;
 }
 
-void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,int attIndex,string desc){
+void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,int hp,int max,int attIndex,string desc){
 	this->setID(id);
 	this->setName(name);
 	this->setPS(SP);
@@ -95,13 +95,13 @@ void Item::setAll(int id,string name,int SP,int BP,string type,int atk,int def,i
 	this->setiAtk(atk);
 	this->setiDef(def);
 	this->setiHp(hp);
-	this->setProp(skill);
+	this->setiMaxHp(max);
 	this->setAttackIndex(attIndex);
 	this->setDetail(desc);
 }
 
-Item::Item(int id,string name,int SP,int BP,string type,int atk,int def,int hp,string skill,int attIndex,string desc){
-	this->setAll(id,name,SP,BP,type,atk,def,hp,skill,attIndex,desc);
+Item::Item(int id,string name,int SP,int BP,string type,int atk,int def,int hp,int max,int attIndex,string desc){
+	this->setAll(id,name,SP,BP,type,atk,def,hp,max,attIndex,desc);
 }
 
 Item::Item(){
@@ -114,7 +114,7 @@ Item::Item(int id){
 
 void Item::printItem(){
 	cout << getID() << ", " << getName() << ", " << getPS() << ", " << getPB() << ", " << getItemType() << ", " << getiAtk() << ", " << 
-			getiDef() << ", " << getiHp() << ", " << getProp() << ", " << getDetail() <<"\n";
+			getiDef() << ", " << getiHp() << ", " << getiMaxHp() << ", " << getDetail() <<"\n";
 }
 
 int Item::getAttackIndex(){
