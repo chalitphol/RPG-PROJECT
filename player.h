@@ -6,27 +6,29 @@ class player{
 	public:
 		player(string);
 		player();
+		
 		status getStat();
 		string getName();
 		int getGold();
 		int getACode();
+		passive getPassive();
+		Item getWeapon();
+		Item getArmor();
+		string getType();
+		vector<Item>* getItemList();
+		vector<skill>* getSkillList();
+		attack getAttack();
+		
 		void setName(string);
 		void setGold(int);
 		void addGold(int);
 		void setACode(int);
 		void addItem(int);
 		void delItem(int);
-		void setPassive(passive);
-		passive getPassive();
+		void setPassive(int);
 		bool setWeapon(int);
 		bool setArmor(int);
-		Item getWeapon();
-		Item getArmor();
-		string getType();
 		void addSkill(skill);
-		vector<Item>* getItemList();
-		vector<skill>* getSkillList();
-		attack getAttack();
 		void setAttack(int);
 	private:
 		status stat;

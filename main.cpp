@@ -19,6 +19,8 @@ int main(){
 	GAME *core = new GAME();
 
 	core->chapter0();
+	cout<< core->getPlayer()->getName()<<endl;
+	cout<< core->getPlayer()->getPassive().getName();
 	return 0;
 }//	getch();
 

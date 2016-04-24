@@ -60,9 +60,8 @@ vector<Item>* player::getItemList(){
 void player::delItem(int index){
 	this->getItemList()->erase(this->getItemList()->begin() + index);
 }
-void player::setPassive(passive p){
-	this->myPassive.setID(p.getID());
-	this->myPassive.setName(p.getName());
+void player::setPassive(int p){
+	this->myPassive = load::getPassiveData(p);
 }
 
 passive player::getPassive(){

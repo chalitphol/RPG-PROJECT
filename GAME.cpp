@@ -62,4 +62,15 @@ void GAME::chapter0(){
 		cout << "COMMAND : ";
 		getline(cin,cmd);
 	}while(cmd != "1");
+	int pass;
+	if((c1 == "3" && c2 == "2")||(c1 == "1" && c2 =="2"))pass = 1;
+	else if((c1 == "3" && c2 == "1")||(c1 == "2" && c2 =="1"))pass = 2;
+	else if((c1 == "1" && c2 == "1")||(c1 == "2" && c2 =="2"))pass = 3;
+	else if(c1 == "3" && c2 == "3")pass = 4;
+	else if(c1 == "1" && c2 == "3")pass = 5;
+	else pass = 6;
+	
+	this->getPlayer()->setPassive(pass);
+	this->getPlayer()->setName(name);
+	
 }
