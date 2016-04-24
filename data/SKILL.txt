@@ -1,4 +1,4 @@
 //ID,NAME,DAMAGE,PLAYER[ATK,DEF,MAXHP,HP,GOLD,],WEAPON[ATK,DEF,MAXHP,],ARMOR[ATK,DEF,MAXHP,],PLAYER_ATTACK[dmgFactor , hitNumber , hitChance , criChance , criFactor,],MONSTER[ATK,DEF,MAXHP,HP,GOLD,],MONSTER_ATTACK[dmgFactor , hitNumber , hitChance , criChance , criFactor,],TURN,COOLDOWN
 0,UNKNOW,0,[0,0,0,0,0,],[0,0,0,],[0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],0,0
-1,HEAL_1,0,[0,0,0,10,0],[0,0,0,],[0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],0,3
-2,HEAL_2,0,[0,0,0,20,0],[0,1,0,],[0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],0,3
+1,HEAL_1,0,[0,0,0,10,0,],[0,0,0,],[0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],0,3
+2,HEAL_2,0,[0,0,0,20,0,],[0,1,0,],[0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],[0,0,0,0,0,],0,3
