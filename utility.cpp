@@ -144,10 +144,12 @@ void load::loadMonsterData(){
 			string cls = line.substr(0,line.find_first_of(','));
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int sk = atoi( line.substr(0,line.find_first_of(',')).c_str() );
-			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
-			string move = line.substr(0,line.find_first_of('\0'));
-
-			obj->setAll(id,name,atk,def,hp,cls,sk,move);
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0')); // [x,x,],[y,y,]
+			string move = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0')); // [y,y,]
+			string drop = line.substr(0,line.find_first_of('\0'));
+			
+			obj->setAll(id,name,atk,def,hp,cls,sk,move,drop);
 			
 			load::addData(load::getMonsterData(),*obj);
 		}
@@ -213,4 +215,25 @@ void load::loadPlaceData(){
 	}
 }
 
+void load::loadSkillData(){
+	ifstream src;
+	src.open("data/SKILL.txt");
+	string line;
+	while(getline(src, line)){// .substr(0,textline.find_first_of(':'))
+		if(line.substr(0,line.find_first_of('/')+1) != "/"){
+		
+			skill *obj = new skill();
+			int id = atoi( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string name = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string type = line.substr(0,line.find_first_of(','));
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
+			string dest = line.substr(0,line.find_first_of('\0'));
 
+			obj->setAll(id,name,dmg,patk,pdef,pmhp,php,pg,watk,wdef,wmhp,aatk,adef,amhp,padmgf,pahn,pahc,pacc,pacf,matk,mdef,mmhp,mhp,mg,madmgf,mahn,mahc,macc,macf,turn,cd);
+			
+			load::addData(load::getSkillData(),*obj);
+		}
+	}
+}
