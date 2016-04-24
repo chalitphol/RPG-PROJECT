@@ -19,4 +19,6 @@
 17,PILL,20,40,COMSUMABLE,0,0,0,HEAL1,0,A medicine form hospital.
 18,BROKEN_KNIFE,25,0,ETC,0,0,0,0,0,A broken knife can't equipe to weapon.
 19,RUSTY_SWORD,30,0,ETC,0,0,0,0,0,A rusty sword can't equipe to weapon.
-20,HANDY_SWORD,40,0,WEAPON,5,0,0,0,0,A small blade easy to use.
+20,HANDY_SWORD,40,0,WEAPON,5,0,0,NULL,2,A small blade easy to use.
+21,MEAT,0,0,ETC,0,0,0,0,0,A raw meal.
+22,MACE,50,0,WEAPON,7,0,0,NULL,7,A hammer used by orc. 
