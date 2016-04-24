@@ -10,12 +10,14 @@ class Place{
 		string getType();
 		string getPlaceType();
 		Place getDestination(int);
+		vector<int>* getMonsterList();
 		
 		void setID(int);
 		void setName(string);
 		void addDestination(int);
+		void addMonsterList(int);
 		void setPlaceType(string);
-		void setAll(int,string,string,string);
+		void setAll(int,string,string,string,string);
 		
 	private:
 		string typeName = "PLACE";
@@ -23,6 +25,7 @@ class Place{
 		string name;
 		string placeType; //TOWN, DUNGEON, SHOP, ROOM
 		vector<int> destinationList;
+		vector<int> monsterList;
 };
 
 #endif

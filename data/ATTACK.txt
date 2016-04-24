@@ -3,6 +3,6 @@
 1,SLAP,1,1,90,0,1,Slap that bit*h.
 2,STAB,1,1,90,10,1.1,Gimme your back.
 3,BROKEN,0.5,4,90,0,1,Spread damage.
-4,INSURGENT,2,1,80,0,1,Burn.
+4,INSURGENT,2,1,80,0,1,Burn baby burn.
 5,HEADSHOOT,1,1,60,2,1,Shoot head.
 6,SLASH,1,1,80,10,1.2,Slash.

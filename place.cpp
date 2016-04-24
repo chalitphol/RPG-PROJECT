@@ -22,6 +22,9 @@ Place Place::getDestination(int index){
 		return load::getPlaceData(0);
 	}
 }
+vector<int>* Place::getMonsterList(){
+	return &this->monsterList;
+}
 
 void Place::setID(int ID){
 	this->id = ID;
@@ -32,10 +35,13 @@ void Place::setName(string name){
 void Place::addDestination(int d){
 	this->destinationList.push_back(d);
 }
+void Place::addMonsterList(int index){
+	this->monsterList.push_back(index);
+}
 void Place::setPlaceType(string place){
 	this->placeType = place;
 }
-void Place::setAll(int id,string n,string type,string dest){
+void Place::setAll(int id,string n,string type,string dest,string mons){
 	this->setID(id);
 	this->setName(n);
 	this->setPlaceType(type);
@@ -44,5 +50,11 @@ void Place::setAll(int id,string n,string type,string dest){
 	while(dest != "]"){
 		this->addDestination(atoi(dest.substr(0,dest.find_first_of(',')).c_str() ));
 		dest = dest.substr(dest.find_first_of(',')+1,dest.find_first_of('\0'));
+	}
+	
+	mons = mons.substr(1,mons.find_first_of(']'));//  [x,x,x,] -> x,x,x,]
+	while(mons != "]"){
+		this->addMonsterList(atoi(mons.substr(0,mons.find_first_of(',')).c_str() ));
+		mons = mons.substr(mons.find_first_of(',')+1,mons.find_first_of('\0'));
 	}
 }

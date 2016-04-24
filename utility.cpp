@@ -206,9 +206,11 @@ void load::loadPlaceData(){
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			string type = line.substr(0,line.find_first_of(','));
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
-			string dest = line.substr(0,line.find_first_of('\0'));
+			string dest = line.substr(0,line.find_first_of(']')+1);
+			line = line.substr(line.find_first_of(']')+2,line.find_first_of('\0'));
+			string mons = line.substr(0,line.find_first_of('\0'));
 
-			obj->setAll(id,name,type,dest);
+			obj->setAll(id,name,type,dest,mons);
 			
 			load::addData(load::getPlaceData(),*obj);
 		}
