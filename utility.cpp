@@ -286,6 +286,36 @@ void load::loadPassiveData(){
 	}
 }
 
+void load::loadData(){
+	cout <<"Now loading ItemData\n";
+	load::loadItemData();
+	cout <<"ItemData loading success\n\n";
+	
+	cout <<"Now loading AttackData\n";
+	load::loadAttackData();
+	cout <<"AttackData loading success\n\n";
+	
+	cout <<"Now loading MonsterAttackData\n";
+	load::loadMonAttackData();
+	cout <<"MonsterAttackData loading success\n\n";
+	
+	cout <<"Now loading SkillData\n";
+	load::loadSkillData();
+	cout <<"SkillData loading success\n\n";
+	
+	cout <<"Now loading MonsterData\n";
+	load::loadMonsterData();
+	cout <<"MonsterData loading success\n\n";
+	
+	cout <<"Now loading PlaceData\n";
+	load::loadPlaceData();
+	cout <<"PlaceData loading success\n\n";
+	
+	cout <<"Now loading PassiveData\n";
+	load::loadPassiveData();
+	cout <<"PassiveData loading success\n\n";
+}
+
 void show::clear(){
 //	cout << string(50, '\n');
 	system("cls");
@@ -295,6 +325,6 @@ void show::printData(GAME* game){
 	show::clear();
 	cout<<"-----------------------------------------------------------------------------\n\n";
 	cout<<setw(10)<<game->getPlayer()->getName()<<"\tGold: "<<setw(5)<<game->getPlayer()->getGold()<<"\tWeapon: "<<setw(7)<<game->getPlayer()->getWeapon().getName()<<"\tArmor: "<<setw(7)<<game->getPlayer()->getArmor().getName()<<endl;
-	cout<<setw(11)<<"Place: "<<game->getPlayer()->getACode().getName()<<"\tATK: "<<setw(3)<<game->getPlayer()->getStat().getAtk()<<"\tDEF: "<<setw(3)<<game->getPlayer()->getStat().getDef()<<"\tHP: "<<setw(5)<<game->getPlayer()->getStat().getHp()<<"/"<<game->getPlayer()->getStat().getMaxhp()<<endl;
-	cout<<"\n-----------------------------------------------------------------------------";
+	cout<<setw(11)<<"Place: "<<game->getPlayer()->getACode().getName()<<"\tATK: "<<setw(3)<<game->getPlayer()->getStat()->getAtk()<<"\tDEF: "<<setw(3)<<game->getPlayer()->getStat()->getDef()<<"\tHP: "<<setw(5)<<game->getPlayer()->getStat()->getHp()<<"/"<<game->getPlayer()->getStat()->getMaxhp()<<endl;
+	cout<<"\n-----------------------------------------------------------------------------\n";
 }

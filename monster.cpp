@@ -1,10 +1,12 @@
 #include "monster.h"
 
+
+
 string monster::getType(){
 	return this->typeName;
 }
-status monster::getStat(){
-	return this->stat;
+status* monster::getStat(){
+	return &this->stat;
 }
 string monster::getName(){
 	return this->name;
@@ -53,9 +55,9 @@ void monster::setAll(int id,string name,int atk,int def,int hp,string cls,int sk
 
 	this->setMonID(id);
 	this->setName(name);
-	this->getStat().setAll(atk,def,hp);
+	this->getStat()->setAll(atk,def,hp);
 	this->setClass(cls);
-	//this->setSkill(sk);
+	this->setSkill(sk);
 
 	move = move.substr(1,move.find_first_of(']'));//  [x,x,x,] -> x,x,x,]
 	

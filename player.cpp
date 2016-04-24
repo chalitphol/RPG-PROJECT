@@ -8,6 +8,7 @@ player::player(){
 	this->setArmor(0);
 	this->setACode(1);
 	this->setPassive(0);
+	this->getStat()->randomize();
 }
 
 player::player(string n){
@@ -18,10 +19,11 @@ player::player(string n){
 	this->setArmor(0);
 	this->setACode(1);
 	this->setPassive(0);
+	this->getStat()->randomize();
 }
 
-status player::getStat(){
-	return this->stat;
+status* player::getStat(){
+	return &this->stat;
 }
 
 string player::getName(){

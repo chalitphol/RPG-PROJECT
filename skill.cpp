@@ -1,5 +1,12 @@
 #include "skill.h"
 
+//skill::skill(int i){
+//	*this = load::getSkillData(i);
+//}
+//skill::skill(){
+//	*this = load::getSkillData(0);
+//}
+
 int skill::getID(){
 	return this->skillID;
 }

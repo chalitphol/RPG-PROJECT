@@ -4,6 +4,9 @@
 #define SKILL_H
 class skill{
 	public:
+//		skill();
+//		skill(int);
+		
 		int getID();
 		string getName();
 		string getType();

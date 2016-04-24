@@ -13,12 +13,15 @@
 11,RED_FLOWER,15,30,WEAPON,1,0,0,NULL,4,The fire that look like a beautiful flower.
 12,MANGO,2,5,COMSUMABLE,0,0,0,HEAL1,0,A fruit use that is full of energy.
 13,SHELL,10,15,WEAPON,1,0,0,NULL,2,The sharp shell form the Angkeaw.
-14,B_AXE,200,0,WEAPON,10,5,0,3,The giant axe droped by Behemoth.
-15,HORSE_SHOE,20,0,ETC,0,0,0,0,A horse shoe.
+14,B_AXE,200,0,WEAPON,10,5,NULL,3,The giant axe droped by Behemoth.
+15,HORSE_SHOE,20,0,ETC,0,0,NULL,0,A horse shoe.
 16,CANDY,5,15,COMSUMABLE,0,0,0,HEAL1,0,A candy is so sweet.
 17,PILL,20,40,COMSUMABLE,0,0,0,HEAL1,0,A medicine form hospital.
-18,BROKEN_KNIFE,25,0,ETC,0,0,0,0,0,A broken knife can't equipe to weapon.
-19,RUSTY_SWORD,30,0,ETC,0,0,0,0,0,A rusty sword can't equipe to weapon.
+18,BROKEN_KNIFE,25,0,ETC,0,0,0,NULL,0,A broken knife can't equipe to weapon.
+19,RUSTY_SWORD,30,0,ETC,0,0,0,NULL,0,A rusty sword can't equipe to weapon.
 20,HANDY_SWORD,40,0,WEAPON,5,0,0,NULL,2,A small blade easy to use.
-21,MEAT,0,0,ETC,0,0,0,0,0,A raw meal.
-22,MACE,50,0,WEAPON,7,0,0,NULL,7,A hammer used by orc. 
+21,MEAT,0,0,ETC,0,0,0,NULL,0,A raw meal.
+22,MACE,50,0,WEAPON,7,0,0,NULL,7,A hammer used by orc.
+23,RUBY_CRYSTAL,300,900,CONSUMABLE,3,0,0,NULL,0,Rare gem that can permanantly increase ATK by 3 points.
+24,EMERALD_CRYSTAL,300,900,CONSUMABLE,0,3,0,NULL,0,Rare gem that can permanantly increase DEF by 3 points.
+25,SAPPHIRE_CRYSTAL,300,900,CONSUMABLE,0,0,3,NULL,0,Rare gem that can permanantly increase MaxHP by 3 points.

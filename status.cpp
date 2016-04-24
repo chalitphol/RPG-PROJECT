@@ -6,23 +6,7 @@ status::status(int a,int d,int m)
 }
 
 status::status(){
-	int count = 0 , base = 5;
-	this->setAll(base,base,base);
-	srand(time(0));
-	for(int i=0; i<12; i++)
-	{
-		count=rand()%3;
-		if(count==0){
-			this->setAtk(this->getAtk()+1);
-		}else if(count==1){
-			this->setDef(this->getDef()+1);
-		}else if(count==2){
-			this->setMaxhp(this->getMaxhp()+1);
-		}
-		
-	}
-	this->setHp(maxHp);
-	
+	this->setAll(0,0,0);
 }
 
 int status::getAtk(){
@@ -97,4 +81,23 @@ void status::addHp(int h)
 void status::addMaxhp(int m)
 {
 	this->setMaxhp(getMaxhp()+m);
+}
+
+void status::randomize(){
+	int count = 0 , base = 5;
+	this->setAll(base,base,base);
+	srand(time(0));
+	for(int i=0; i<12; i++)
+	{
+		count=rand()%3;
+		if(count==0){
+			this->setAtk(this->getAtk()+1);
+		}else if(count==1){
+			this->setDef(this->getDef()+1);
+		}else if(count==2){
+			this->setMaxhp(this->getMaxhp()+1);
+		}
+		
+	}
+	this->setHp(maxHp);
 }

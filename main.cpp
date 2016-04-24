@@ -9,19 +9,16 @@ vector<monsterMove> monAttackData;
 vector<Place> placeData;
 
 int main(){
-	load::loadItemData();
-	load::loadAttackData();
-	load::loadMonAttackData();
-	load::loadMonsterData();
-	load::loadPlaceData();
-	load::loadSkillData();
-	load::loadPassiveData();
+	load::loadData();
 	GAME *core = new GAME();
 
 	//core->chapter0();
 	cout<< core->getPlayer()->getName()<<endl;
 	cout<< core->getPlayer()->getPassive().getName();
 	show::printData(core);
+	
+	battle *bat = new battle(core->getPlayer(),1);
+	cout << "\n"<<bat->calcPDmg();
 	return 0;
 }//	getch();
 

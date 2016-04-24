@@ -36,6 +36,8 @@ namespace load{
 	void loadAttackData();
 	void loadMonAttackData();
 	void loadPlaceData();
+	void loadData();
+	
 	
 }
 

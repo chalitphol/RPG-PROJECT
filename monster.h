@@ -4,8 +4,9 @@
 #define MONSTER_H
 class monster{
 	public:
+
 		string getType();
-		status getStat();
+		status* getStat();
 		string getName();
 		string getClass();
 		int getMonID();

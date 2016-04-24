@@ -7,7 +7,7 @@ class player{
 		player(string);
 		player();
 		
-		status getStat();
+		status* getStat();
 		string getName();
 		int getGold();
 		Place getACode();

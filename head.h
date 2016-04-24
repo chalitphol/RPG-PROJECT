@@ -13,6 +13,7 @@
 #include "player.h"
 #include "GAME.h"
 #include "utility.h"
+#include "battle.h"
 
 extern vector<Item> itemData;
 extern vector<monster> monsterData;

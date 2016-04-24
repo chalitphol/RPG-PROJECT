@@ -25,6 +25,8 @@ class status{
 		void addDef(int);
 		void addHp(int);
 		void addMaxhp(int);
+		
+		void randomize();
 
 	private:
 		int atk;

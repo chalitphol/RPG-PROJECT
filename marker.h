@@ -9,6 +9,7 @@
 #include <ctime>
 #include <conio.h>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
