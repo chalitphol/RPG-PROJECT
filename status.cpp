@@ -8,6 +8,7 @@ status::status(int a,int d,int m)
 
 status::status(){
 	this->setAll(0,0,0);
+	this->setHp(this->maxHp);
 }
 
 int status::getAtk(){

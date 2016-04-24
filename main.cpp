@@ -7,16 +7,16 @@ vector<passive> passiveData;
 vector<attack> attackData;
 vector<monsterMove> monAttackData;
 vector<Place> placeData;
+GAME* core;
 
 int main(){
 	load::loadData();
-	GAME *core = new GAME();
+	core = new GAME();
 
 	//core->chapter0();
 //	core->getPlayer()->setWeapon(11);
-	show::printData(core);
 	
-	battle *bat = new battle(core->getPlayer(),1);
+	battle *bat = new battle(core->getPlayer(),2);
 	bat->setPSkill(0);bat->setESkill(0);
 	bat->battleScene(load::getMonAttackData(1));
 	bat->console();

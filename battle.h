@@ -20,6 +20,7 @@ class battle{
 		monsterMove getEMove();
 		int getBanTurn();
 		bool isOnban();
+		passive getPASSIVE();
 		
 		void setPlayer(player*);
 		void setEnemy(int);
@@ -41,6 +42,7 @@ class battle{
 		bool isCri();
 		bool isHit();
 		void battleScene(monsterMove);
+		void battleScene();
 		void console();
 		void pattack();
 		bool useItem(int);

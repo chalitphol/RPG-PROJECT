@@ -5,6 +5,7 @@ battle::battle(player* p,int m){
 	this->setEnemy(m);
 	this->setTurn(1);
 	this->setBanTurn(0);
+	this->setPassive(getPlayer()->getPassive().getID());
 }
 
 string battle::getType(){
@@ -48,6 +49,9 @@ bool battle::isOnban(){
 		return true;
 	}
 	return false;
+}
+passive battle::getPASSIVE(){
+	return this->PASSIVE;
 }
 
 void battle::setPlayer(player* pt){
@@ -101,10 +105,19 @@ int battle::calcPDmg(){
 	tmp = pow(patk,2) / (patk + edef);
 	if(isCri()){
 		tmp = tmp * this->getPSkill().getModPlayerAttack(4) * this->getESkill().getModPlayerAttack(4) * this->getPlayer()->getAttack().getCriFactor();
+		if(getPASSIVE().getName() == "HUNTER"){
+			tmp *= getPASSIVE().getCriFactor();
+		}
 	}
 	
 	tmp = tmp * this->getPSkill().getModPlayerAttack(0) * this->getESkill().getModPlayerAttack(0) * this->getPlayer()->getAttack().getDmgFactor();
 	
+	if(getPASSIVE().getName() == "PRIDE"){
+		tmp *= getPASSIVE().getDmgFactor();
+	}
+	if(getPASSIVE().getName() == "REVENGER" && (getPlayer()->getStat()->getHp() < 5)){
+		tmp *= getPASSIVE().getDmgFactor();
+	}
 	return tmp;
 }
 int battle::calcEDmg(attack move){
@@ -118,11 +131,14 @@ int battle::calcEDmg(attack move){
 	}
 	
 	tmp = tmp * this->getPSkill().getModMonsterAttack(0) * this->getESkill().getModMonsterAttack(0) * move.getDmgFactor();
-	
+
 	return tmp;
 }
 bool battle::isCri(){
 	int value = this->getPlayer()->getAttack().getCriChance() + this->getPSkill().getModPlayerAttack(3) + this->getESkill().getModPlayerAttack(3);
+	if(getPASSIVE().getName() == "HUNTER"){
+		value += getPASSIVE().getCriChanceAdd();
+	}
 	if(value > 100)value = 100;
 	else if(value < 0)value = 0;
 	if(value >= (rand()%100 +1)){
@@ -143,9 +159,16 @@ bool battle::isHit(){
 	}
 }
 void battle::battleScene(monsterMove move){
-	cout <<setw(27)<<((this->getTurn()%2 == 1)?"YOUR":"ENEMY")<<" TURN  :  "<< this->getTurn() <<endl<<endl;
+	show::printData(core);
+	cout <<setw(27)<<"ENEMY"<<" TURN  :  "<< this->getTurn() <<endl<<endl;
 	cout <<setw(33)<<this->getMonster().getName()<<"  ["<<this->getMonster().getStat()->getHp()<<"/"<<this->getMonster().getStat()->getMaxhp()<<"]\n\n";
-	cout <<setw(35)<<((this->getTurn()%2 == 1)?"":move.getName())<<endl<<endl;
+	cout <<setw(35)<<move.getName()<<endl<<endl;
+}
+void battle::battleScene(){
+	show::printData(core);
+	cout <<setw(27)<<"YOUR TURN  :  "<< this->getTurn() <<endl<<endl;
+	cout <<setw(33)<<this->getMonster().getName()<<"  ["<<this->getMonster().getStat()->getHp()<<"/"<<this->getMonster().getStat()->getMaxhp()<<"]\n\n";
+	cout <<endl;
 }
 void battle::console(){
 	string cmd="";
@@ -191,7 +214,18 @@ void battle::console(){
 }
 
 void battle::pattack(){
-	
+	for(int i=0;i<this->getPlayer()->getAttack().getHitNumber();i++){
+		if(isHit()){
+			this->setPFinalDmg(calcPDmg());
+			this->getMonster().getStat()->addHp(0-getPFinalDmg());
+			this->battleScene();
+			cout << "\tEnemy took damage "<<getPFinalDmg()<<" points";
+		}else{
+			this->battleScene();
+			cout << "MISS";
+		}
+		getch();
+	}
 }
 bool battle::useItem(int index){
 	if(load::getItemData(index).getItemType() == "CONSUMABLE"){
