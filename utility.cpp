@@ -177,6 +177,7 @@ void load::loadMonAttackData(){
 			int criC = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			double criF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int mhp = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int php = atoi( line.substr(0,line.find_first_of(',')).c_str() );

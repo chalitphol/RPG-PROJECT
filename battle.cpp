@@ -268,7 +268,10 @@ void battle::myTurn(){
 	console();
 }
 void battle::enemyTurn(){
+	
 	battleScene();
+	emoveSelect();
+	getch();
 }
 void battle::emoveSelect(){
 	int pHp = this->getPlayer()->getStat()->getHp();
@@ -278,22 +281,24 @@ void battle::emoveSelect(){
 	for(int i=0;i< this->getMonster()->getAttackMove()->size();i++ ){
 		pool += this->getMonster()->getAttackMove()->at(i).getChance();
 	}
-	int pick = rand() % pool + 1;
-	for(int i=0;i< this->getMonster()->getAttackMove()->size();i++ ){
-		if(pick <= this->getMonster()->getAttackMove()->at(i).getChance()){
-			if(checkHpCon(this->getMonster()->getAttackMove()->at(i))){
-				this->setEMove(this->getMonster()->getAttackMove()->at(i).getID());  //result here
-				break;
+	for(int j = 0;j<3;j++){
+		int pick = rand() % pool + 1;
+		for(int i=0;i< this->getMonster()->getAttackMove()->size();i++ ){
+			if(pick <= this->getMonster()->getAttackMove()->at(i).getChance()){
+				if(checkHpCon(this->getMonster()->getAttackMove()->at(i))){
+					this->setEMove(this->getMonster()->getAttackMove()->at(i).getID());  //result here
+					break;
+				}else{
+					pick += this->getMonster()->getAttackMove()->at(i).getChance();
+				}
 			}else{
-				pick += this->getMonster()->getAttackMove()->at(i).getChance();
+				pick -= this->getMonster()->getAttackMove()->at(i).getChance();
 			}
-		}else{
-			pick -= this->getMonster()->getAttackMove()->at(i).getChance();
-		}
+		}	
 	}
 }
 bool battle::checkHpCon(monsterMove move){
-	if(getPhpCon(move) >= this->getPlayer()->getStat()->getHp() && getEhpCon(move) >= this->getMonster()->getStat()->getHp()){
+	if((getPhpCon(move) >= this->getPlayer()->getStat()->getHp()) && (getEhpCon(move) >= this->getMonster()->getStat()->getHp())){
 		return true;
 	}else{
 		return false;
