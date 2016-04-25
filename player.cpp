@@ -66,6 +66,17 @@ vector<Item>* player::getItemList(){
 void player::delItem(int index){
 	this->getItemList()->erase(this->getItemList()->begin() + index);
 }
+void player::delItem(int id,int amount){
+	for(int j=0;j<amount;j++){
+		for(int i=0;i<getItemList()->size();i++){
+			if(getItemList()->at(i).getID() == id){
+				this->delItem(i);
+				break;
+			}
+		}
+	}
+	
+}
 void player::setPassive(int p){
 	this->myPassive = load::getPassiveData(p);
 }
@@ -176,3 +187,20 @@ void player::use(int index){
 	}
 	getch();
 }
+
+int player::countItem(int id){
+	int c=0;
+	for(int i=0;i<getItemList()->size();i++){
+		if(getItemList()->at(i).getID() == id){
+			c++;
+		}
+	}
+	return 0;
+}
+
+
+
+
+
+
+

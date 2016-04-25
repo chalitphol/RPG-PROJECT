@@ -411,6 +411,7 @@ void battle::endBattle(){
 	if(flag){
 		cout<<"\t You got nothing from "<<getMonster()->getName()<<endl;
 	}
+	getch();
 	this->takeGold();
 	getPlayer()->addGold(getGold());
 	show::printData(core);

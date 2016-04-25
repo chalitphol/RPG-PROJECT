@@ -10,6 +10,7 @@ class GAME{
 		int subPt = 0;
 		string typeName = "GAME";
 		string gStatus = "OKAY";
+		bool free;
 
 	public:
 		GAME();
@@ -20,12 +21,19 @@ class GAME{
 		int getSubPt();
 		int getMainPt();
 		string getGStatus();
+		bool getFree();
 		
 		void setSubPt(int);
 		void setMainPt(int);
 		void nextSubPt();
 		void nextMainPt();
 		void gameOver();
+		void setFree(bool);
+		void busy();
+		void notBusy();
+		void goTo(int);
+		int eventCheck(int);
+		void engaging();
 		
 		void chapter0();
 		void chapter1(int);

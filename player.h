@@ -25,12 +25,14 @@ class player{
 		void setACode(int);
 		void addItem(int);
 		void delItem(int);
+		void delItem(int,int);
 		void setPassive(int);
 		bool setWeapon(int);
 		bool setArmor(int);
 		void addSkill(int);
 		void setAttack(int);
 		void use(int);//inventory index
+		int countItem(int);
 		
 		bool showItemList();
 		bool showItemList(string);

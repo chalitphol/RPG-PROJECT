@@ -30,6 +30,9 @@ int GAME::getSubPt(){
 string GAME::getGStatus(){
 	return this->gStatus;
 }
+bool GAME::getFree(){
+	return this->free;
+}
 
 void GAME::setSubPt(int s){
 	this->subPt = s;
@@ -45,6 +48,16 @@ void GAME::nextMainPt(){
 }
 void GAME::gameOver(){
 	this->gStatus = "GAMEOVER";
+	busy();
+}
+void GAME::setFree(bool x){
+	this->free = x;
+}
+void GAME::busy(){
+	this->setFree(false);
+}
+void GAME::notBusy(){
+	this->setFree(true);
 }
 
 
@@ -155,8 +168,9 @@ void GAME::chapter1(int session){
 			
 			Battle = new battle(getPlayer(),3);
 			
+			busy();
 			nextSubPt();
-			show::clear();
+			
 			break;
 		case 2:
 			show::printData(core);
@@ -197,6 +211,7 @@ void GAME::chapter1(int session){
 			cout << "\tQuest: Collect the herb.\n\tDetail:: Collect 5 herb from the monster in forest and send it to the mayor.";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 3:
@@ -209,6 +224,7 @@ void GAME::chapter1(int session){
 			cout << "\tQuest: Go to the forest\n\tDetail: There will be something going on.";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 4:
@@ -220,6 +236,7 @@ void GAME::chapter1(int session){
 			cout <<  "\n\tSee injured man with monster around.";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 5:
@@ -256,6 +273,7 @@ void GAME::chapter1(int session){
 			cout << "\tQuest: Help the girl\n\tDetail: go to the deepest part of the forest ";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 6:
@@ -283,7 +301,7 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tThe man: Give my sister back!!";
 			getline(cin,enter);
-			cout << "\tBehemoth:Wonderful! To help family. What an impressive story.\n\tBut I can't let that happen. This girl has a powerful magic power if My lord get this power.\n\tThere will no one in this land can against him.";
+			cout << "\tBehemoth: Wonderful! To help family. What an impressive story.\n\tBut I can't let that happen. This girl has a powerful magic power if My lord get this power.\n\tThere will no one in this land can against him.";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Then we have to use force to bring her back.";
 			getline(cin,enter);
@@ -293,6 +311,10 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tBehemoth: Haha! Then show me your strength";
 			getline(cin,enter);
+			
+			Battle = new battle(getPlayer(),2);
+			
+			busy();
 			nextSubPt();
 			show::clear();
 			break;
@@ -372,6 +394,7 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			nextMainPt();
 			setSubPt(1);
+			notBusy();
 			show::clear();
 			break;
 	}

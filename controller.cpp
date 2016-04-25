@@ -42,3 +42,59 @@ void GAME::console(){
 			}
 		}
 }
+
+void GAME::goTo(int dest){
+	int path = eventCheck(dest);
+	if(path){
+		getPlayer()->setACode(dest);
+		cout << "You are going to "<<load::getPlaceData(dest).getName()<<endl;
+	}else{
+		cout << "You cant go to "<<load::getPlaceData(dest).getName()<<endl;
+	}
+	if(path==1){
+		
+	}
+}
+
+int GAME::eventCheck(int dest){
+	int mp = getMainPt();
+	int sp = getSubPt();
+	if(mp == 1){
+		if(dest == 6)return 0;
+		if(dest == 5){
+			if(sp < 6)return 0;
+		}
+		if(dest == 1){
+			if(sp == 3){
+				if(getPlayer()->countItem(5) >= 5){
+					getPlayer()->delItem(5,5);
+					busy();
+					return -1;
+				}
+			}
+		}
+		if(dest == 2){
+			if(sp == 4){
+				busy();
+				return -1;
+			}
+		}
+		if(dest == 3){
+			if(sp == 5){
+				busy();
+				return -1;
+			}
+		}
+		if(dest == 5){
+			if(sp == 6){
+				busy();
+				return -1;
+			}
+		}
+	}
+	return 1;
+}
+
+void GAME::engaging(){
+	
+}

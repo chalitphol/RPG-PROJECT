@@ -24,15 +24,15 @@ int main(){
 		core->getPlayer()->addSkill(i);
 	}
 	//core->chapter0();
-	while(core->getGStatus() != "GAMEOVER"){
+	do{
 		show::printData(core);
-		if(core->getMainPt()==1)core->chapter1(1);
-//		cout <<core->getMainPt()<"  "<core->getSubPt();
-//		getch();
-//		if(core->getMainPt()==2)core->chapter2(core->getSubPt());
-//		if(core->getMainPt()==3)core->chapter3(core->getSubPt());	
-		core->console();
-	}
+		if(core->getMainPt()==1 && !core->getFree())core->chapter1(core->getSubPt());
+		if(core->getMainPt()==2 && !core->getFree())core->chapter2(core->getSubPt());
+		if(core->getMainPt()==3 && !core->getFree())core->chapter3(core->getSubPt());	
+		show::printData(core);	
+		if(core->getFree())core->console();
+	}while(core->getGStatus() != "GAMEOVER");
+	
 	
 
 
