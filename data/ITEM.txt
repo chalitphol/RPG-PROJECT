@@ -33,3 +33,9 @@
 31,SNEKE_GUARD,40,70,ARMOR,0,5,0,0,0,A suit that's look sneke save you.
 32,STEEL_BUBBLE,50,70,ARMOR,0,7,0,0,0,A strong bubble for protect you.
 33,PAPAYAPOKPOK,5,15,CO'M'SUMABLE,0,0,0,0,0,A fruit that so spicy.
+34,GOBLIN_MASK,45,0,ETC,0,0,0,0,0,WHY GOBLIN HAS MASK.
+35,ORC_BONE,50,0,ETC,0,0,0,0,0,Huge bone.
+36,ORC_HEART,70,0,ETC,0,0,0,0,0,Orc will love you.
+37,OAK_STAFF,90,0,WEAPON,12,2,0,0,1,Alternative of wooden staff.
+38,DEMON_STONE_FRAGMENT,60,0,ETC,0,0,0,0,0,A stone that wa used as a power source of demon.
+39,DEMON_DOLL_CORE,70,0,ETC,0,0,0,0,0,A core that wa used as a power source of demon doll.
