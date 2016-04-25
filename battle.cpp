@@ -405,8 +405,12 @@ void battle::endBattle(){
 		}
 	}
 	if(flag){
-		cout<<"\t You got nothing from "<<getMonster()->getName();
+		cout<<"\t You got nothing from "<<getMonster()->getName()<<endl;
 	}
+	this->takeGold();
+	getPlayer()->addGold(getGold());
+	show::printData(core);
+	cout << "\tYou got money from "<<getMonster()->getName()<<" ["<<getGold()<<"]\n";
 	getch();
 }
 int battle::dropCtran(string str){
@@ -426,4 +430,19 @@ bool battle::takeDrop(string str){
 		return true;
 	}
 	return false;
+}
+void battle::takeGold(){
+	//COMMON, RARE, MINIBOSS, BOSS
+	string cls = getMonster()->getClass();
+	int base;
+	if(cls == "COMMON")base = (rand()%5);
+	else if(cls == "RARE")base = (rand()%100)+200;
+	else if(cls == "MINIBOSS")base = (rand()%100+100);
+	else if(cls == "BOSS")base = (rand()%200+300);
+	
+	if(getPASSIVE().getName() == "AMBITIONS"){
+		base *= getPASSIVE().getMoneyFactor();
+	}
+	
+	this->setGold(base);
 }

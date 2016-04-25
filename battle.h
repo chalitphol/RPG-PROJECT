@@ -68,6 +68,7 @@ class battle{
 		int dropCtran(string);
 		int dropIDtran(string);
 		bool takeDrop(string);
+		void takeGold();
 		
 	private:
 		player* PLAYER;
