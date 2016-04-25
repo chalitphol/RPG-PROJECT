@@ -4,7 +4,7 @@
 2,NO_ARMOR,0,0,ARMOR,0,0,0,0,0,You should find some armor to wear.
 3,DAGGER,25,50,WEAPON,2,0,0,0,2,A knife with a very sharp point.
 4,FEATHER_SUIT,35,80,ARMOR,0,3,0,0,0,A suit that's easily to wear.
-5,HERB,4,10,CO'M'SUMABLE,0,0,0,0,0,The plant use for wound healing.
+5,HERB,4,10,CONSUMABLE,0,0,0,0,0,The plant use for wound healing.
 6,RING,10,15,ARMOR,0,1,0,NULL,0,The ring of protection.
 7,GREEN_SOLUTION,5,15,CONSUMABLE,0,0,0,0,0,The water form Chumeang for healing.
 8,BLADE,15,30,WEAPON,1,0,0,0,2,The small knife that is very sharp.
