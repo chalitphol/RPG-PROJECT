@@ -55,6 +55,12 @@ bool battle::isOnban(){
 passive battle::getPASSIVE(){
 	return this->PASSIVE;
 }
+int battle::getPhpCon(monsterMove move){
+	return ((getPlayer()->getStat()->getMaxhp() * move.getPlayerHpBelow()) / 100);
+}
+int battle::getEhpCon(monsterMove move){
+	return ((getMonster()->getStat()->getMaxhp() * move.getMonHpBelow() / 100);
+}
 
 void battle::setPlayer(player* pt){
 	this->PLAYER = pt;
@@ -268,5 +274,5 @@ void battle::emoveSelect(){
 	int pHp = this->getPlayer()->getStat()->getHp();
 	int eHp = this->getMonster()->getStat()->getHp();
 	
-	int pTheshold()
+	for(int i=0;i< getMonster()- )
 }

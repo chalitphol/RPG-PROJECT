@@ -21,6 +21,8 @@ class battle{
 		int getBanTurn();
 		bool isOnban();
 		passive getPASSIVE();
+		int getPhpCon(monsterMove);
+		int getEhpCon(monsterMove);
 		
 		void setPlayer(player*);
 		void setEnemy(int);
