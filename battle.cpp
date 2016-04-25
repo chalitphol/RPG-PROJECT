@@ -59,7 +59,7 @@ int battle::getPhpCon(monsterMove move){
 	return ((getPlayer()->getStat()->getMaxhp() * move.getPlayerHpBelow()) / 100);
 }
 int battle::getEhpCon(monsterMove move){
-	return ((getMonster()->getStat()->getMaxhp() * move.getMonHpBelow() / 100);
+	return ((getMonster()->getStat()->getMaxhp() * move.getMonHpBelow()) / 100);
 }
 
 void battle::setPlayer(player* pt){
@@ -273,6 +273,29 @@ void battle::enemyTurn(){
 void battle::emoveSelect(){
 	int pHp = this->getPlayer()->getStat()->getHp();
 	int eHp = this->getMonster()->getStat()->getHp();
+	int pool = 0;
 	
-	for(int i=0;i< getMonster()- )
+	for(int i=0;i< this->getMonster()->getAttackMove()->size();i++ ){
+		pool += this->getMonster()->getAttackMove()->at(i).getChance();
+	}
+	int pick = rand() % pool + 1;
+	for(int i=0;i< this->getMonster()->getAttackMove()->size();i++ ){
+		if(pick <= this->getMonster()->getAttackMove()->at(i).getChance()){
+			if(checkHpCon(this->getMonster()->getAttackMove()->at(i))){
+				this->setEMove(this->getMonster()->getAttackMove()->at(i).getID());  //result here
+				break;
+			}else{
+				pick += this->getMonster()->getAttackMove()->at(i).getChance();
+			}
+		}else{
+			pick -= this->getMonster()->getAttackMove()->at(i).getChance();
+		}
+	}
+}
+bool battle::checkHpCon(monsterMove move){
+	if(getPhpCon(move) >= this->getPlayer()->getStat()->getHp() && getEhpCon(move) >= this->getMonster()->getStat()->getHp()){
+		return true;
+	}else{
+		return false;
+	}
 }

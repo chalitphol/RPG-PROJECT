@@ -53,6 +53,7 @@ class battle{
 		void myTurn();
 		void enemyTurn();
 		void emoveSelect();
+		bool checkHpCon(monsterMove);
 		
 	private:
 		player* PLAYER;
