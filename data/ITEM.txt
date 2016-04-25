@@ -24,3 +24,12 @@
 22,MACE,50,0,WEAPON,7,0,0,0,7,A hammer used by orc. 
 23,AP_WAND,450,0,WEAPON,15,0,5,0,8,A magic rod drop by Apocarypse.
 24,DARK_SWORD,450,0,WEAPON,15,2,0,0,5,A cruse sword of dark soldier.
+25,WATER,10,20,COMSUMABLE,0,0,0,0,0,A fresh water form the sky.
+26,LASER,40,80,WEAPON,6,0,0,0,0,The light can cuting everything.
+27,FLOWER,10,0,ETC,0,0,0,0,0,A real beautiful flower.
+28,HONEY,40,0,ETC,0,0,0,0,0,The sweet water form bees.
+29,WOOD,5,0,ETC,0,0,0,0,0,A little part of the tree.
+30,BLADE_STONE,30,60,WEAPON,4,0,0,0,2,The blade that strong like stone.
+31,SNEKE_GUARD,40,70,ARMOR,0,5,0,0,0,A suit that's look sneke save you.
+32,STEEL_BUBBLE,50,70,ARMOR,0,7,0,0,0,A strong bubble for protect you.
+33,PAPAYAPOKPOK,5,15,COMSUMABLE,0,0,0,0,0,A fruit that so spicy.
