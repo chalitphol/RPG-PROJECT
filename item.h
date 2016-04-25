@@ -48,7 +48,7 @@ class Item{
 		int iMaxHp;
 		int iHp;
 		int attackIndex;
-		string itemType = " ";//WEAPON,ARMOR,CONSUMABLE,QUEST
+		string itemType = " ";//WEAPON,ARMOR,CONSUMABLE,ETC
 		
 };
 

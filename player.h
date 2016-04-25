@@ -28,9 +28,11 @@ class player{
 		void setPassive(int);
 		bool setWeapon(int);
 		bool setArmor(int);
-		void addSkill(skill);
+		void addSkill(int);
 		void setAttack(int);
+		void use(int);//inventory index
 		
+		bool showItemList();
 		bool showItemList(string);
 		bool showSkillList();
 	private:

@@ -29,6 +29,8 @@ class GAME{
 		void chapter2(int);
 		void chapter3(int);
 		
+		void console();
+		
 };
 
 #endif

@@ -108,8 +108,8 @@ string player::getType(){
 	return this->typeName;
 }
 
-void player::addSkill(skill sk){
-	this->getSkillList()->push_back(sk);
+void player::addSkill(int sk){
+	this->getSkillList()->push_back(load::getSkillData(sk));
 }
 
 vector<skill>* player::getSkillList(){
@@ -122,6 +122,14 @@ attack player::getAttack(){
 
 void player::setAttack(int att){
 	this->myAttack = load::getAttackData(att);
+}
+bool player::showItemList(){
+	bool flag=false;
+	for(int i=0;i<this->getItemList()->size();i++){
+		flag = true;
+		cout << "\t["<<i<<"] "<<setw(15)<<getItemList()->at(i).getName()<<setw(15)<<"["<<getItemList()->at(i).getDetail()<<"]"<<endl;
+	}
+	return flag;
 }
 bool player::showItemList(string type){
 	bool flag=false;
@@ -137,7 +145,34 @@ bool player::showSkillList(){
 	bool flag=false;
 	for(int i=0;i<this->getSkillList()->size();i++){
 		flag = true;
-		cout << "["<<i<<"] "<<getItemList()->at(i).getName()<<endl;
+		cout << "\t["<<i<<"] "<<setw(15)<<getSkillList()->at(i).getName()<<endl;
 	}
 	return flag;
+}
+void player::use(int index){
+	//WEAPON,ARMOR,CONSUMABLE,ETC
+	Item tmp = load::getItemData(getItemList()->at(index).getID());
+	if(tmp.getItemType() == "WEAPON"){
+		getStat()->addAll(0-getWeapon().getiAtk(),0-getWeapon().getiDef(),0-getWeapon().getiMaxHp());
+		getItemList()->at(index) = load::getItemData(getWeapon().getID());
+		if(getItemList()->at(index).getID() == 1)delItem(index);
+		setWeapon(tmp.getID());
+		getStat()->addAll(tmp.getiAtk(),tmp.getiDef(),tmp.getiMaxHp());
+		cout << "\n\tEquipe "<<tmp.getName()<<endl;
+	}else if(tmp.getItemType() == "ARMOR"){
+		getStat()->addAll(0-getArmor().getiAtk(),0-getArmor().getiDef(),0-getArmor().getiMaxHp());
+		getItemList()->at(index) = load::getItemData(getArmor().getID());
+		if(getItemList()->at(index).getID() == 2)delItem(index);
+		setArmor(tmp.getID());
+		getStat()->addAll(tmp.getiAtk(),tmp.getiDef(),tmp.getiMaxHp());
+		cout << "\n\tEquipe "<<tmp.getName()<<endl;
+	}else if(tmp.getItemType() == "CONSUMABLE"){
+		getStat()->addAll(tmp.getiAtk(),tmp.getiDef(),tmp.getiMaxHp());
+		getStat()->addHp(tmp.getiHp());
+		delItem(index);
+		cout << "\tUse "<<tmp.getName()<<endl;
+	}else{
+		cout << "\n\tCannot use "<<tmp.getName()<<endl;
+	}
+	getch();
 }

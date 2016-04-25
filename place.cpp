@@ -58,3 +58,9 @@ void Place::setAll(int id,string n,string type,string dest,string mons){
 		mons = mons.substr(mons.find_first_of(',')+1,mons.find_first_of('\0'));
 	}
 }
+
+void Place::printDestinationList(){
+	for(int i=0;i<this->getDestination()->size();i++){
+		cout << "\n\t["<<i<<"] "<<load::getPlaceData(getDestination()->at(i)).getName()<<endl;
+	}
+}

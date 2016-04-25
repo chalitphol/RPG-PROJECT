@@ -18,6 +18,7 @@ class Place{
 		void addMonsterList(int);
 		void setPlaceType(string);
 		void setAll(int,string,string,string,string);
+		void printDestinationList();
 		
 	private:
 		string typeName = "PLACE";
