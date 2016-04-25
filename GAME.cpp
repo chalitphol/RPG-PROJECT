@@ -465,7 +465,7 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\t"<<  PLAYER.getName() << ": What is the message ?";
 			getline(cin,enter);
-			cout << "\tVillage elder: Hero I will waiting for you at my castle on west land.\n\tIf you don't come, next time it will not just be a curse.";
+			cout << "\tVillage elder: Hero I will waiting for you at my fortress on west land.\n\tIf you don't come, next time it will not just be a curse.";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": What is that monster name?";
 			getline(cin,enter);
