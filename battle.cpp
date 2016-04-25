@@ -187,7 +187,8 @@ void battle::battleScene(skill smove){
 	show::printData(core);
 	cout <<setw(27)<<"ENEMY"<<" TURN  :  "<< this->getTurn() <<endl<<endl;
 	cout <<setw(33)<<this->getMonster()->getName()<<"  ["<<this->getMonster()->getStat()->getHp()<<"/"<<this->getMonster()->getStat()->getMaxhp()<<"]\n\n";
-	cout <<setw(35)<<smove.getName()<<endl<<endl;
+	cout <<setw(35)<<"---------{"<<smove.getName()<<"}---------"<<endl;
+	cout <<setw(44)<<"{ACTIVATION}"<<endl<<endl;
 }
 void battle::battleScene(){
 	show::printData(core);
@@ -267,14 +268,14 @@ bool battle::useSkill(int index){
 	if(index>0 && index<this->getPlayer()->getSkillList()->size()){
 		this->setPSkill(this->getPlayer()->getSkillList()->at(index).getID());
 		this->onCD(this->getPSkill().getCooldown());
-		this->setPSkillT(this->getPSkill().getCooldown()*2);
+		this->setPSkillT(this->getPSkill().getCooldown()*2+1);
 		return true;
 	}
 	return false;
 }
 void battle::useMonSkill(){
-	this->setESkill(getESkill().getID());
-	this->setESkillT(getESkill().getCooldown()*2);
+	this->setESkill(getMonster()->getMonSkill().getID());
+	this->setESkillT(getESkill().getTurn()*2+1);
 }
 
 void battle::fight(){
@@ -292,6 +293,7 @@ void battle::myTurn(){
 void battle::enemyTurn(){
 	if(checkHeat() && getESkillT()==0){
 		this->useMonSkill();
+		battleScene(getESkill());
 	}else{
 		emoveSelect();
 		battleScene(getEMove());
@@ -332,8 +334,12 @@ bool battle::checkHpCon(monsterMove move){
 	}
 }
 bool battle::checkHeat(){
-	if((this->getMonster()->getStat()->getMaxhp()/2) > this->getMonster()->getStat()->getHp()){
-		if(rand()%100+1 < 33)return true;
+	static bool chFlag = true;
+	if(((this->getMonster()->getStat()->getMaxhp()/2) > this->getMonster()->getStat()->getHp()) && chFlag){
+		if(rand()%100+1 < 33){
+			chFlag = false;
+			return true;	
+		}
 	}
 	return false;
 }
@@ -344,18 +350,22 @@ bool battle::nextTurn(){
 	else return true;
 }
 void battle::revertPSkill(){
+	cout << "\t Player : "<<getPSkill().getName()<<" effect were off\n";
 	this->setPSkill(0);
+	getch();
 }
 void battle::revertESkill(){
+	cout <<"\t Enemy : "<< getESkill().getName()<<" effect were off\n";
 	this->setESkill(0);
+	getch();
 }
 void battle::updateSkill(){
 	this->setPSkillT(getPSkillT()-1);
 	this->setESkillT(getESkillT()-1);
-	if(getPSkillT()==0){
+	if(getPSkillT()==0 && getPSkill().getID()!=0){
 		this->revertPSkill();
 	}
-	if(getESkillT()){
+	if(getESkillT() == 0 && getESkill().getID()!=0){
 		this->revertESkill();
 	}
 }
