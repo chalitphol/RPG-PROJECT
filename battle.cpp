@@ -61,6 +61,12 @@ int battle::getPhpCon(monsterMove move){
 int battle::getEhpCon(monsterMove move){
 	return ((getMonster()->getStat()->getMaxhp() * move.getMonHpBelow()) / 100);
 }
+int battle::getPSkillT(){
+	return this->pSkillT;
+}
+int battle::getESkillT(){
+	return this->eSkillT;
+}
 
 void battle::setPlayer(player* pt){
 	this->PLAYER = pt;
@@ -92,12 +98,6 @@ void battle::setESkill(int i){
 void battle::setTurn(int t){
 	this->turn = t;
 }
-bool battle::nextTurn(){
-	
-	this->setTurn(getTurn()+1);
-	if(getPlayer()->getStat()->getHp()==0 || getMonster()->getStat()->getHp()==0)return false;
-	else return true;
-}
 void battle::setEMove(int i){
 	this->eMove = load::getMonAttackData(i);
 }
@@ -106,6 +106,14 @@ void battle::setBanTurn(int b){
 }
 void battle::onCD(int n){
 	this->setBanTurn(this->getTurn()+(2*n));
+}
+void battle::setPSkillT(int p){
+	if(p<0)p=0;
+	this->pSkillT = p;
+}
+void battle::setESkillT(int e){
+	if(e<0)e=0;
+	this->eSkillT = e;
 }
 
 int battle::calcPDmg(){
@@ -175,6 +183,12 @@ void battle::battleScene(monsterMove move){
 	cout <<setw(33)<<this->getMonster()->getName()<<"  ["<<this->getMonster()->getStat()->getHp()<<"/"<<this->getMonster()->getStat()->getMaxhp()<<"]\n\n";
 	cout <<setw(35)<<move.getName()<<endl<<endl;
 }
+void battle::battleScene(skill smove){
+	show::printData(core);
+	cout <<setw(27)<<"ENEMY"<<" TURN  :  "<< this->getTurn() <<endl<<endl;
+	cout <<setw(33)<<this->getMonster()->getName()<<"  ["<<this->getMonster()->getStat()->getHp()<<"/"<<this->getMonster()->getStat()->getMaxhp()<<"]\n\n";
+	cout <<setw(35)<<smove.getName()<<endl<<endl;
+}
 void battle::battleScene(){
 	show::printData(core);
 	cout <<setw(27)<<"YOUR TURN  :  "<< this->getTurn() <<endl<<endl;
@@ -225,16 +239,17 @@ void battle::console(){
 }
 
 void battle::pattack(){
+	this->battleScene();
 	for(int i=0;i<this->getPlayer()->getAttack().getHitNumber();i++){
 		if(isHit()){
 			this->setPFinalDmg(calcPDmg());
 			this->getMonster()->getStat()->takeDamage(getPFinalDmg());
-			this->battleScene();
-			cout << "\tEnemy took damage "<<getPFinalDmg()<<" points "<<this->ENEMY.getStat()->getHp();
 			
+			cout << "\tEnemy took damage "<<getPFinalDmg()<<" points\n";
+		
 		}else{
-			this->battleScene();
-			cout << "\tMISS";
+
+			cout << "\tMISS\n";
 		}
 		getch();
 	}
@@ -252,13 +267,20 @@ bool battle::useSkill(int index){
 	if(index>0 && index<this->getPlayer()->getSkillList()->size()){
 		this->setPSkill(this->getPlayer()->getSkillList()->at(index).getID());
 		this->onCD(this->getPSkill().getCooldown());
+		this->setPSkillT(this->getPSkill().getCooldown()*2);
 		return true;
 	}
 	return false;
 }
+void battle::useMonSkill(){
+	this->setESkill(getESkill().getID());
+	this->setESkillT(getESkill().getCooldown()*2);
+}
+
 void battle::fight(){
 	do{
 		myTurn();
+		if(!nextTurn())break;
 		enemyTurn();
 	}while(nextTurn());
 	
@@ -268,9 +290,14 @@ void battle::myTurn(){
 	console();
 }
 void battle::enemyTurn(){
+	if(checkHeat() && getESkillT()==0){
+		this->useMonSkill();
+	}else{
+		emoveSelect();
+		battleScene(getEMove());
+	}
 	
-	battleScene();
-	emoveSelect();
+	
 	getch();
 }
 void battle::emoveSelect(){
@@ -302,5 +329,33 @@ bool battle::checkHpCon(monsterMove move){
 		return true;
 	}else{
 		return false;
+	}
+}
+bool battle::checkHeat(){
+	if((this->getMonster()->getStat()->getMaxhp()/2) > this->getMonster()->getStat()->getHp()){
+		if(rand()%100+1 < 33)return true;
+	}
+	return false;
+}
+bool battle::nextTurn(){
+	this->updateSkill();
+	this->setTurn(getTurn()+1);
+	if(getPlayer()->getStat()->getHp()==0 || getMonster()->getStat()->getHp()==0)return false;
+	else return true;
+}
+void battle::revertPSkill(){
+	this->setPSkill(0);
+}
+void battle::revertESkill(){
+	this->setESkill(0);
+}
+void battle::updateSkill(){
+	this->setPSkillT(getPSkillT()-1);
+	this->setESkillT(getESkillT()-1);
+	if(getPSkillT()==0){
+		this->revertPSkill();
+	}
+	if(getESkillT()){
+		this->revertESkill();
 	}
 }

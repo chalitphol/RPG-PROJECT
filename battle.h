@@ -23,6 +23,8 @@ class battle{
 		passive getPASSIVE();
 		int getPhpCon(monsterMove);
 		int getEhpCon(monsterMove);
+		int getESkillT();
+		int getPSkillT();
 		
 		void setPlayer(player*);
 		void setEnemy(int);
@@ -38,12 +40,15 @@ class battle{
 		void setEMove(int);
 		void setBanTurn(int);
 		void onCD(int);
+		void setESkillT(int);
+		void setPSkillT(int);
 		
 		int calcPDmg();
 		int calcEDmg(attack);
 		bool isCri();
 		bool isHit();
 		void battleScene(monsterMove);
+		void battleScene(skill);
 		void battleScene();
 		void console();
 		void pattack();
@@ -54,6 +59,11 @@ class battle{
 		void enemyTurn();
 		void emoveSelect();
 		bool checkHpCon(monsterMove);
+		bool checkHeat();
+		void useMonSkill();
+		void revertPSkill();
+		void revertESkill();
+		void updateSkill();
 		
 	private:
 		player* PLAYER;
@@ -69,6 +79,8 @@ class battle{
 		string typeName = "BATTLE";
 		int turn;
 		int banTurn;
+		int pSkillT;
+		int eSkillT;
 };
 
 #endif
