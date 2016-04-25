@@ -131,7 +131,7 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tCentaur A: Hey! Why you don't run?";
 			getline(cin,enter);
-			cout << "\t"<<PLAYER.getName() << "....";
+			cout << "\t"<<PLAYER.getName() << ": ....";
 			getline(cin,enter);
 			cout << "\tCentaur B: I think this guy is fear and go mad.";
 			getline(cin,enter);
@@ -192,11 +192,13 @@ void GAME::chapter1(int session){
 			break;
 		case 3:
 			show::printData(core);
-			cout << "\tMayor: You help us a lot. I want to give this to you. It's not something important but keep it.";
+			cout << "\tMayor: You help us a lot. I want to give this to you. \n\tIt's not something important but keep it.";
 			getline(cin,enter);
 			cout << "\tYou got skill: Heal1";
+			getline(cin,enter);
 			show::printData(core);
 			cout << "\tQuest: Go to the forest\n\tDetail: There will be something going on.";
+			getline(cin,enter);
 			nextSubPt();
 			show::clear();
 			break;
@@ -229,7 +231,7 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": What they caught your sister for?";
 			getline(cin,enter);
-			cout << "\tThe man: three year ago after The Dark Lord come.\n\tIn addition to the occupation,he caught many people who have a magic power to drain their power for increase his strength.\n\tMy sister Her power has awakened lately. she has a strong magic power but can't control it perfectly.\n\tSo we decide to go to the city to find someone that can teach her how to control it.\n\tBut on the way we were attacked. \n(smash the ground) I can't do anything.(…crying)";
+			cout << "\tThe man: three year ago after The Dark Lord come.\n\tIn addition to the occupation,he caught many people who have a magic power \n\tto drain their power for increase his strength.\n\tMy sister Her power has awakened lately. she has a strong magic power but can't control it perfectly.\n\tSo we decide to go to the city to find someone \n\tthat can teach her how to control it.\n\tBut on the way we were attacked. \n\t(smash the ground) I can't do anything.(…crying)";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Do you know where they go?";
 			getline(cin,enter);
@@ -272,9 +274,9 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tThe man: Give my sister back!!";
 			getline(cin,enter);
-			cout << "\tBehemoth:Wonderful! To help family. What an impressive story.\nBut I can't let that happen. This girl has a powerful magic power if My lord get this power.\nThere will no one in this land can against him.";
+			cout << "\tBehemoth:Wonderful! To help family. What an impressive story.\n\tBut I can't let that happen. This girl has a powerful magic power if My lord get this power.\n\tThere will no one in this land can against him.";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << "Then we have to use force to bring her back.";
+			cout << "\t"<< PLAYER.getName() << ": Then we have to use force to bring her back.";
 			getline(cin,enter);
 			cout << "\tBehemoth: Oh! What a brave young men. Who are you?";
 			getline(cin,enter);
@@ -287,7 +289,7 @@ void GAME::chapter1(int session){
 			break;
 		case 7:
 			show::printData(core);
-			cout << "\tBehemoth: argh!! You are so strong. Maybe you are someone who can defeat my lord.\n\tBut I can't let's that happen. because I am Behemoth the one of the two Knights. ";
+			cout << "\tBehemoth: argh!! You are so strong. \n\tMaybe you are someone who can defeat my lord.\n\tBut I can't let's that happen. \n\tbecause I am Behemoth the one of the two Knights. ";
 			getline(cin,enter);
 			cout << "\tBehemoth's body begin to emitting light";
 			getline(cin,enter);
@@ -306,11 +308,11 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tIn front of us have the girl use a barrier protected us.";
 			getline(cin,enter);
-			cout << "\tMy sis!! You save us. Are you ok? Do you have any wound.";
+			cout << "\tThe man: My sis!! You save us. Are you ok? Do you have any wound.";
 			getline(cin,enter);
 			cout << "\tThe girl: I'm okay bro. thank you for coming to help me. And you are?";
 			getline(cin,enter);
-			cout << "\t"<<  PLAYER.getName() << "I'm " << PLAYER.getName();
+			cout << "\t"<<  PLAYER.getName() << ": I'm " << PLAYER.getName();
 			getline(cin,enter);
 			cout << "\tThe girl: Thank you very much. If you don't come with my brother,he will be died for sure.";
 			getline(cin,enter);
@@ -320,17 +322,18 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tThe man: Argh...";
 			getline(cin,enter);
-			cout << "\tHah hah ha";
+			cout << "\tThe girl: Hah hah ha";
 			getline(cin,enter);
 			cout << "\t"<<  PLAYER.getName() << ": Let's get out of here.";
 			getline(cin,enter);
+			show::printData(core);
 			cout << "\tWalking.";
 			getline(cin,enter);
-			cout << "\tThe man: What do you intend to do next?";
+			cout << "\n\tThe man: What do you intend to do next?";
 			getline(cin,enter);
-			cout << "\t"<<  PLAYER.getName() << ": My aim is kill the dark lord. Now ,The first obstacle was eliminated. I will fight for peace of all.";
+			cout << "\t"<<  PLAYER.getName() << ": My aim is kill the dark lord. Now ,The first obstacle was eliminated. \n\tI will fight for peace of all.";
 			getline(cin,enter);
-			cout << "\tlet I go with you.\nI forgot to introduce myself. My name is Guitar. \nI'm martial art master. I can help you more or less";
+			cout << "\tThe man: let I go with you.\n\tI forgot to introduce myself. My name is Guitar. \n\tI'm martial art master. \n\tI can help you more or less";
 			getline(cin,enter);
 			cout << "\t"<<  PLAYER.getName() <<": but…";
 			getline(cin,enter);
@@ -348,7 +351,7 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tGuitar: ugh..";
 			getline(cin,enter);
-			cout << "\tThe girl: Agree then. Mister " << PLAYER.getName() << " I'm Asuna nice to meet you. I'm just a trainee magician but I think I'm useful more than my brother anyway.";
+			cout << "\tThe girl: Agree then. Mister " << PLAYER.getName() << " I'm Asuna nice to meet you. \n\tI'm just a trainee magician \n\tbut I think I'm useful more than my brother anyway.";
 			getline(cin,enter);
 			cout << "\tGuitar: Hey!!";
 			getline(cin,enter);
@@ -358,7 +361,8 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\tGuitar and Asuna: Yeahh!!";
 			getline(cin,enter);
-			nextSubPt();
+			nextMainPt();
+			setSubPt(0);
 			show::clear();
 			break;
 	}
@@ -572,7 +576,8 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\tGo to next place next to the west land.";
 			getline(cin,enter);
-			nextSubPt();
+			nextMainPt();
+			setSubPt(0);
 			show::clear();
 			break;
 	}
@@ -754,6 +759,8 @@ void GAME::chapter3(int session){
 			show::printData(core);
 			cout << "\tFin.";
 			getline(cin,enter);
+			nextMainPt();
+			setSubPt(0);
 			show::clear();
 		}
 }
