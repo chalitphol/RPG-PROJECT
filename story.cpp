@@ -26,7 +26,7 @@ int Story::chapter(int cm,int cs){
 					getline(cin,enter);
 					cout << "The population was well happy.";
 					getline(cin,enter);
-					cout <<  "Everyone lived in peace .\n" ;
+					cout <<  "Everyone lived in peace ." ;
 					getline(cin,enter);
 					cout << "Until one day The Dark Lord has appeared."; 
 					getline(cin,enter);
