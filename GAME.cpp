@@ -362,7 +362,7 @@ void GAME::chapter1(int session){
 			cout << "\tGuitar and Asuna: Yeahh!!";
 			getline(cin,enter);
 			nextMainPt();
-			setSubPt(0);
+			setSubPt(1);
 			show::clear();
 			break;
 	}
@@ -395,7 +395,7 @@ void GAME::chapter2(int session){
 			cout << "\t"<< PLAYER.getName() << ": Okay , Let's go!!";
 			getline(cin,enter);
 			show::printData(core);
-			cout << "\tQuest: Find the clue in the forest.\nDetail: Go to Dark Forest.";
+			cout << "\tQuest: Find the clue in the forest.\n\tDetail: Go to Dark Forest.";
 			getline(cin,enter);
 			nextSubPt();
 			show::clear();
@@ -412,6 +412,7 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\tAsuna: Perhaps In the cave there has something.";
 			getline(cin,enter);
+			show::printData(core);
 			cout << "\n\tIn the cave.";
 			getline(cin,enter);
 			cout << "\n\tGuitar: Look like this is the end of the cave.";
@@ -441,7 +442,7 @@ void GAME::chapter2(int session){
 			show::clear();
 			break;
 		case 3:
-			show::clear();
+			show::printData(core);
 			cout << "\t"<< PLAYER.getName() << ": Now destroy the crystal.";
 			getline(cin,enter);
 			cout << "\tAsuna: Leave it to me. Explosionnnnnn!!";
@@ -454,7 +455,7 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\tVillage elder: You save our village. Could you tell me your name?";
 			getline(cin,enter);
-			cout << "\t"<<  PLAYER.getName() << "I'm " << PLAYER.getName();
+			cout << "\t"<<  PLAYER.getName() << ": I'm " << PLAYER.getName();
 			getline(cin,enter);
 			cout << "\tVillage elder: OH! You're the hero in the rumor. Thank you so much.";
 			getline(cin,enter);
@@ -498,7 +499,7 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Why you call me here?";
 			getline(cin,enter);
-			cout << "\tApocalypse: I heard you can defeat behemoth. So I call you for invite you to be one of two knight instead of him. \nIf you are one of us. You will get everything after our lord dominate this world. \nIs it sound interesting?";
+			cout << "\tApocalypse: I heard you can defeat behemoth. \n\tSo I call you for invite you to be one of two knight instead of him. \n\tIf you are one of us. You will get everything after our lord dominate this world. \n\tIs it sound interesting?";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Yes, but I will get everything I want after you all are eliminated. ";
 			getline(cin,enter);
@@ -526,7 +527,7 @@ void GAME::chapter2(int session){
 			cout << "\n\tHave a light from the crystal to Hero.";
 			getline(cin,enter);
 			show::printData(core);
-			cout << "\t"<< PLAYER.getName() << "What happen to my body. Look like the power from crystals is sent to me too.";
+			cout << "\t"<< PLAYER.getName() << ": What happen to my body. Look like the power from crystals is sent to me too.";
 			getline(cin,enter);
 			cout << "\tApocalypse: now die!!";
 			getline(cin,enter);
@@ -534,15 +535,16 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\tApocalypse: W..what a power?";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": You told this was your power but it's not. This power of the land . \nIt's power for everyone not just for you. Time to end this.\nYahhhh!!";
+			cout << "\t"<< PLAYER.getName() << ": You told this was your power but it's not. This's power of the land . \n\tIt's power for everyone not just for you. \n\tTime to end this!!\n\tYahhhh!!";
 			getline(cin,enter);
-			cout << "\tApocalypse was cut into 2 parts.";
+			cout << "\n\tApocalypse was cut into 2 parts.";
 			getline(cin,enter);
-			cout << "\tApocalypse: unbelievable….";
+			cout << "\n\tApocalypse: unbelievable….";
 			getline(cin,enter);
-			cout << "\tThe body of Apocalypse is disappered.";
+			cout << "\n\tThe body of Apocalypse is disappered.";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": I need to destroy the crystal to bring the energy back to where it should be.\nHah!!";
+			show::printData(core);
+			cout << "\t"<< PLAYER.getName() << ": I need to destroy the crystal to bring the energy back to where it should be.\n\tHah!!";
 			getline(cin,enter);
 			cout << "\tSome of Energy are going into Hero's body.";
 			getline(cin,enter);
@@ -554,7 +556,7 @@ void GAME::chapter2(int session){
 			show::printData(core);
 			cout << "\tGo back to the village.";
 			getline(cin,enter);
-			cout << "\tGuitar: Are you ok?";
+			cout << "\n\tGuitar: Are you ok?";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Yes, I'm okay.";
 			getline(cin,enter);
@@ -562,6 +564,7 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() <<": Sorry for making you worried.";
 			getline(cin,enter);
+			show::printData(core);
 			cout << "\tGuitar: It's time to go.";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Okay.";
@@ -569,15 +572,16 @@ void GAME::chapter2(int session){
 			cout << "\tVillage elder:  Wait a minute. Please bring this with you. This is the sacred item of our village.";
 			getline(cin,enter);
 			show::printData(core);
-			cout << "\tYou get Holy stone.";
+			cout << "\tYou got Holy stone.";
 			getline(cin,enter);
 			show::printData(core);
 			cout << "\t"<< PLAYER.getName() << ": Thank you. we're going now .";
 			getline(cin,enter);
-			cout << "\tGo to next place next to the west land.";
+			show::printData(core);
+			cout << "\tQuest:Go to The dark lord's castle.\n\tDetail: Go to the place next to the west land.";
 			getline(cin,enter);
 			nextMainPt();
-			setSubPt(0);
+			setSubPt(1);
 			show::clear();
 			break;
 	}
@@ -590,7 +594,7 @@ void GAME::chapter3(int session){
 			show::printData(core);
 			cout << "\tIn front of a military camp.";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": Hello we want to pass the camp. Can you open the door?";
+			cout << "\n\t"<< PLAYER.getName() << ": Hello we want to pass the camp. Can you open the door?";
 			getline(cin,enter);
 			cout << "\n\tThe gate open and a lot of soldier are coming out.";
 			getline(cin,enter);
@@ -606,7 +610,7 @@ void GAME::chapter3(int session){
 			show::clear();
 			break;
 		case 2:
-			show::clear();
+			show::printData(core);
 			cout << "\tHoly Stone emit light.";
 			getline(cin,enter);
 			cout << "\tCommander: Arghhh…What happen to us. We remember we're fighting the dark lord why we are here?";
@@ -615,7 +619,7 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\tCommander:  If that Thank you very much for help us. you are?";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": I'm " << PLAYER.getName() << "We're taking an adventure for defeat the dark lord.";
+			cout << "\t"<< PLAYER.getName() << ": I'm " << PLAYER.getName() << " We're taking an adventure for defeat the dark lord.";
 			getline(cin,enter);
 			cout << "\tCommander: Oh you're the hero that save the village.";
 			getline(cin,enter);
@@ -658,7 +662,7 @@ void GAME::chapter3(int session){
 			show::clear();
 			break;
 		case 5:
-			show::clear();
+			show::printData(core);
 			cout << "\tAt the top of castle.";
 			getline(cin,enter);
 			cout << "\n\tThe Dark Lord AJK: Finally you're coming hero.";
@@ -701,7 +705,7 @@ void GAME::chapter3(int session){
 			show::clear();
 			break;
 		case 6:
-			show::clear();
+			show::printData(core);
 			cout << "\tThe Dark Lord AJK: Not bad! Take this! My Finish move. Dark Bane!!!!!";
 			getline(cin,enter);
 			cout << "\tAsuna: Grab my hand I will send you my power.";
@@ -714,22 +718,22 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\tBody of The Dark Lord AJK is disappeared.";
 			getline(cin,enter);
+			show::printData(core);
 			cout << "\t"<< PLAYER.getName() << ": It's end now.";
 			getline(cin,enter);
 			cout << "\tAsuna: Yes.";
 			getline(cin,enter);
-			show::printData(core);
-			cout << "\tThe castle is shaking.";
+			cout << "\n\tThe castle is shaking.";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": What happen!!";
 			getline(cin,enter);
-			cout << "\tThe Dark Lord AJK sound : Bwah hah hah Although I lost, but you had to die too. \nI left my mind in this castle. This castle will be exploded in 3 minute. \nDie all. Bwah hah hah!!";
+			cout << "\tThe Dark Lord AJK sound : Bwah hah hah Although I lost, but you had to die too. \n\tI left my mind in this castle. This castle will be exploded in 3 minute. \n\tDie all. Bwah hah hah!!";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() <<": It seems every soldier's getting out now.";
 			getline(cin,enter);
 			cout << "\tAsuna: We need to run too.";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": That's impossible. It must have someone control the power of explosion. If not everyone will die anyway.";
+			cout << "\t"<< PLAYER.getName() << ": That's impossible. It must have someone control the power of explosion. \n\tIf not everyone will die anyway.";
 			getline(cin,enter);
 			cout << "\tAsuna: If that I will..";
 			getline(cin,enter);
@@ -741,13 +745,13 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\tAsuna: ..." << PLAYER.getName() << "..I love you.";
 			getline(cin,enter);
-			cout << "\t"<< PLAYER.getName() << ": ……thank I love you too.";
+			cout << "\t"<< PLAYER.getName() << ": ……Thank I love you too.";
 			getline(cin,enter);
 			cout << "\tAsuna: (crying)";
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Go now!!";
 			getline(cin,enter);
-			cout << "\tAsuna is teleported";
+			cout << "\tAsuna is teleported.";
 			getline(cin,enter);
 			show::printData(core);
 			cout << "\tThe dark lord's castle was exploded.";
@@ -760,7 +764,7 @@ void GAME::chapter3(int session){
 			cout << "\tFin.";
 			getline(cin,enter);
 			nextMainPt();
-			setSubPt(0);
+			setSubPt(1);
 			show::clear();
 		}
 }
