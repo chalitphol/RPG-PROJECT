@@ -50,6 +50,7 @@ class battle{
 		void fight();
 		void myTurn();
 		void enemyTurn();
+		void emoveSelect();
 		
 	private:
 		player* PLAYER;

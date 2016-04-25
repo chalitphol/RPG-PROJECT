@@ -7,6 +7,7 @@ battle::battle(player* p,int m){
 	this->setBanTurn(0);
 	this->setPassive(getPlayer()->getPassive().getID());
 	this->getMonster()->getStat()->setHp(getMonster()->getStat()->getMaxhp());
+	this->setEAtack(*(getMonster()->getAttackMove()));
 }
 
 string battle::getType(){
@@ -86,7 +87,7 @@ void battle::setTurn(int t){
 	this->turn = t;
 }
 bool battle::nextTurn(){
-	getch();
+	
 	this->setTurn(getTurn()+1);
 	if(getPlayer()->getStat()->getHp()==0 || getMonster()->getStat()->getHp()==0)return false;
 	else return true;
@@ -227,7 +228,7 @@ void battle::pattack(){
 			
 		}else{
 			this->battleScene();
-			cout << "MISS";
+			cout << "\tMISS";
 		}
 		getch();
 	}
@@ -252,7 +253,7 @@ bool battle::useSkill(int index){
 void battle::fight(){
 	do{
 		myTurn();
-		enemyTurn();	
+		enemyTurn();
 	}while(nextTurn());
 	
 }
@@ -262,4 +263,10 @@ void battle::myTurn(){
 }
 void battle::enemyTurn(){
 	battleScene();
+}
+void battle::emoveSelect(){
+	int pHp = this->getPlayer()->getStat()->getHp();
+	int eHp = this->getMonster()->getStat()->getHp();
+	
+	int pTheshold()
 }
