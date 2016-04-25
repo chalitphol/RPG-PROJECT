@@ -276,6 +276,7 @@ void load::loadPassiveData(){
 			double stF = atof( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			double cF = atof( line.substr(0,line.find_first_of(',')).c_str() );
+			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int cA = atoi( line.substr(0,line.find_first_of(',')).c_str() );
 			line = line.substr(line.find_first_of(',')+1,line.find_first_of('\0'));
 			int stA = atoi( line.substr(0,line.find_first_of('\0')).c_str() );

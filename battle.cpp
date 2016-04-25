@@ -8,6 +8,14 @@ battle::battle(player* p,int m){
 	this->setPassive(getPlayer()->getPassive().getID());
 	this->getMonster()->getStat()->setHp(getMonster()->getStat()->getMaxhp());
 	this->setEAtack(*(getMonster()->getAttackMove()));
+	if(getPASSIVE().getName() == "BRAVER"){
+		getPlayer()->getStat()->addAll(getPASSIVE().getStatAdd(),getPASSIVE().getStatAdd(),getPASSIVE().getStatAdd());
+		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
+	}
+	if(getPASSIVE().getName() == "ARROGANCE"){
+		getPlayer()->getStat()->addAll(getPlayer()->getWeapon().getiAtk() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiDef() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiMaxHp() * getPASSIVE().getStatFactor());
+		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
+	}
 }
 
 string battle::getType(){
@@ -120,8 +128,8 @@ int battle::calcPDmg(){
 	double tmp = 0;
 	int patk = this->getPlayer()->getStat()->getAtk() + this->getPSkill().getModPlayer(0) + this->getESkill().getModPlayer(0);
 	int edef = this->getMonster()->getStat()->getDef() + this->getPSkill().getModMonster(1) + this->getESkill().getModMonster(1);
-	
 	tmp = pow(patk,2) / (patk + edef);
+	
 	if(isCri()){
 		tmp = tmp * this->getPSkill().getModPlayerAttack(4) * this->getESkill().getModPlayerAttack(4) * this->getPlayer()->getAttack().getCriFactor();
 		if(getPASSIVE().getName() == "HUNTER"){
@@ -148,7 +156,7 @@ int battle::calcEDmg(attack move){
 	if(isCri()){
 		tmp = tmp * this->getPSkill().getModMonsterAttack(4) * this->getESkill().getModMonsterAttack(4) * move.getCriFactor();
 	}
-	
+
 	tmp = tmp * this->getPSkill().getModMonsterAttack(0) * this->getESkill().getModMonsterAttack(0) * move.getDmgFactor();
 
 	return tmp;
@@ -284,7 +292,14 @@ void battle::fight(){
 		if(!nextTurn())break;
 		enemyTurn();
 	}while(nextTurn());
-	
+	battleScene();
+	if(getMonster()->getStat()->getHp()==0){
+		cout <<"\t CONGRATULATION You Win.\n";
+	}else{
+		cout <<"\t You Died.\n";
+	}
+	getch();
+	endBattle();
 }
 void battle::myTurn(){
 	battleScene();
@@ -296,7 +311,11 @@ void battle::enemyTurn(){
 		battleScene(getESkill());
 	}else{
 		emoveSelect();
+		this->setEFinalDmg(calcEDmg(getEMove()));
+		this->getPlayer()->getStat()->takeDamage(getEFinalDmg());
 		battleScene(getEMove());
+		getch();
+		cout << "\tYou take damages " <<getEFinalDmg()<<" points\n";
 	}
 	
 	
@@ -335,7 +354,7 @@ bool battle::checkHpCon(monsterMove move){
 }
 bool battle::checkHeat(){
 	static bool chFlag = true;
-	if(((this->getMonster()->getStat()->getMaxhp()/2) > this->getMonster()->getStat()->getHp()) && chFlag){
+	if(((this->getMonster()->getStat()->getMaxhp()/2) > this->getMonster()->getStat()->getHp()) && chFlag &&getMonster()->getMonSkill().getID() != 0){
 		if(rand()%100+1 < 33){
 			chFlag = false;
 			return true;	
@@ -368,4 +387,43 @@ void battle::updateSkill(){
 	if(getESkillT() == 0 && getESkill().getID()!=0){
 		this->revertESkill();
 	}
+}
+void battle::endBattle(){
+	if(getPASSIVE().getName() == "BRAVER"){
+		getPlayer()->getStat()->addAll(0-getPASSIVE().getStatAdd(),0-getPASSIVE().getStatAdd(),0-getPASSIVE().getStatAdd());
+		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
+	}
+	if(getPASSIVE().getName() == "ARROGANCE"){
+		getPlayer()->getStat()->addAll(0-getPlayer()->getWeapon().getiAtk() * getPASSIVE().getStatFactor(), 0-getPlayer()->getWeapon().getiDef() * getPASSIVE().getStatFactor(), 0-getPlayer()->getWeapon().getiMaxHp() * getPASSIVE().getStatFactor());
+		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
+	}
+	show::printData(core);
+	bool flag = true;
+	for(int i=0;i<getMonster()->getDropList()->size();i++){
+		if(this->takeDrop(getMonster()->getDropList()->at(i))){
+			flag = false;
+		}
+	}
+	if(flag){
+		cout<<"\t You got nothing from "<<getMonster()->getName();
+	}
+	getch();
+}
+int battle::dropCtran(string str){
+	return atoi( str.substr(str.find_first_of(':')+1,str.find_first_of('\0')).c_str());
+}
+int battle::dropIDtran(string str){
+	return atoi( str.substr(0,str.find_first_of(':')).c_str());
+}
+bool battle::takeDrop(string str){
+	int chance = dropCtran(str);
+	if(getPASSIVE().getName() == "AMBITIONS"){
+		chance *= getPASSIVE().getDropFactor();
+	}
+	if(rand()%100+1 < chance){
+		getPlayer()->addItem(dropIDtran(str));
+		cout << "\tYou got "<< load::getItemData(dropIDtran(str)).getName() <<" from "<<getMonster()->getName()<<endl;
+		return true;
+	}
+	return false;
 }

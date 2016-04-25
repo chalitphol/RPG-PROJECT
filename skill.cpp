@@ -94,7 +94,7 @@ void skill::setModMonster(string pack){//int,int,int,int,int
 void skill::setModMonsterAttack(string pack){//double,double,double,double,double
 	pack = pack.substr(1,pack.find_first_of(']')-1);//  [x,x,x,x,x,] -> x,x,x,x,x, unpack
 	for(int i=0; i<5;i++){
-		this->modMonster[i] = atoi(pack.substr(0,pack.find_first_of(',')).c_str());
+		this->modMonsterAttack[i] = atoi(pack.substr(0,pack.find_first_of(',')).c_str());
 		pack = pack.substr(pack.find_first_of(',')+1,pack.find_first_of('\0'));
 	}
 }

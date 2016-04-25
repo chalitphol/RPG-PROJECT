@@ -64,6 +64,10 @@ class battle{
 		void revertPSkill();
 		void revertESkill();
 		void updateSkill();
+		void endBattle();
+		int dropCtran(string);
+		int dropIDtran(string);
+		bool takeDrop(string);
 		
 	private:
 		player* PLAYER;

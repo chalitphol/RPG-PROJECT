@@ -15,8 +15,9 @@ int main(){
 
 	//core->chapter0();
 //	core->getPlayer()->setWeapon(11);
-	
-	battle *bat = new battle(core->getPlayer(),2);
+	core->getPlayer()->setPassive(3);
+	core->getPlayer()->setWeapon(14);
+	battle *bat = new battle(core->getPlayer(),1);
 	bat->setPSkill(0);bat->setESkill(0);
 	bat->fight();
 //	bat->battleScene(load::getMonAttackData(1));

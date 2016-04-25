@@ -106,7 +106,7 @@ void status::randomize(){
 		}else if(count==1){
 			this->setDef(this->getDef()+1);
 		}else if(count==2){
-			this->setMaxhp(this->getMaxhp()+1);
+			this->setMaxhp(this->getMaxhp()+3);
 		}
 		
 	}
