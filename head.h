@@ -24,5 +24,6 @@ extern vector<monsterMove> monAttackData;
 extern vector<Place> placeData;
 
 extern GAME* core;
+extern battle* Battle;
 
 #endif

@@ -5,6 +5,7 @@ battle::battle(player* p,int m){
 	this->setEnemy(m);
 	this->setTurn(1);
 	this->setBanTurn(0);
+	this->setPSkill(0);this->setESkill(0);
 	this->setPassive(getPlayer()->getPassive().getID());
 	this->getMonster()->getStat()->setHp(getMonster()->getStat()->getMaxhp());
 	this->setEAtack(*(getMonster()->getAttackMove()));
@@ -16,6 +17,7 @@ battle::battle(player* p,int m){
 		getPlayer()->getStat()->addAll(getPlayer()->getWeapon().getiAtk() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiDef() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiMaxHp() * getPASSIVE().getStatFactor());
 		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
 	}
+	this->fight();
 }
 
 string battle::getType(){
@@ -295,11 +297,13 @@ void battle::fight(){
 	battleScene();
 	if(getMonster()->getStat()->getHp()==0){
 		cout <<"\t CONGRATULATION You Win.\n";
+		getch();
+		endBattle();
 	}else{
 		cout <<"\t You Died.\n";
+		core->gameOver();
 	}
-	getch();
-	endBattle();
+	
 }
 void battle::myTurn(){
 	battleScene();

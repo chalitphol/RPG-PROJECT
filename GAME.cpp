@@ -27,6 +27,9 @@ int GAME::getMainPt(){
 int GAME::getSubPt(){
 	return this->subPt;
 }
+string GAME::getGStatus(){
+	return this->gStatus;
+}
 
 void GAME::setSubPt(int s){
 	this->subPt = s;
@@ -39,6 +42,9 @@ void GAME::nextSubPt(){
 }
 void GAME::nextMainPt(){
 	this->setMainPt(getMainPt()+1);
+}
+void GAME::gameOver(){
+	this->gStatus = "GAMEOVER";
 }
 
 
@@ -146,6 +152,9 @@ void GAME::chapter1(int session){
 			getline(cin,enter);
 			cout << "\t"<<PLAYER.getName() << ": I will kill you all.";
 			getline(cin,enter); 
+			
+			Battle = new battle(getPlayer(),3);
+			
 			nextSubPt();
 			show::clear();
 			break;

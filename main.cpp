@@ -8,6 +8,7 @@ vector<attack> attackData;
 vector<monsterMove> monAttackData;
 vector<Place> placeData;
 GAME* core;
+battle* Battle;
 
 int main(){
 	load::loadData();
@@ -23,9 +24,9 @@ int main(){
 		core->getPlayer()->addSkill(i);
 	}
 	//core->chapter0();
-	while(true){
+	while(core->getGStatus() != "GAMEOVER"){
 		show::printData(core);
-//		if(core->getMainPt()==1)core->chapter1(7);
+		if(core->getMainPt()==1)core->chapter1(1);
 //		cout <<core->getMainPt()<"  "<core->getSubPt();
 //		getch();
 //		if(core->getMainPt()==2)core->chapter2(core->getSubPt());

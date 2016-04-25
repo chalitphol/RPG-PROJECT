@@ -9,6 +9,7 @@ class GAME{
 		int mainPt = 0;
 		int subPt = 0;
 		string typeName = "GAME";
+		string gStatus = "OKAY";
 
 	public:
 		GAME();
@@ -18,11 +19,13 @@ class GAME{
 		string getType();
 		int getSubPt();
 		int getMainPt();
+		string getGStatus();
 		
 		void setSubPt(int);
 		void setMainPt(int);
 		void nextSubPt();
 		void nextMainPt();
+		void gameOver();
 		
 		void chapter0();
 		void chapter1(int);
