@@ -37,5 +37,6 @@
 35,ORC_BONE,50,0,ETC,0,0,0,0,0,Huge bone.
 36,ORC_HEART,70,0,ETC,0,0,0,0,0,Orc will love you.
 37,OAK_STAFF,90,0,WEAPON,12,2,0,0,1,Alternative of wooden staff.
-38,DEMON_STONE_FRAGMENT,60,0,ETC,0,0,0,0,0,A stone that wa used as a power source of demon.
-39,DEMON_DOLL_CORE,70,0,ETC,0,0,0,0,0,A core that wa used as a power source of demon doll.
+38,DEMON_STONE_FRAGMENT,60,0,ETC,0,0,0,0,0,A stone that was used as a power source of demon.
+39,DEMON_DOLL_CORE,70,0,ETC,0,0,0,0,0,A core that was used as a power source of demon doll.
+40,SHADOW_LIQUID,80,0,ETC,0,0,0,0,0,A liquid has a little black power.
