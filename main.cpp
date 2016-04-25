@@ -14,15 +14,14 @@ int main(){
 	core = new GAME();
 
 	//core->chapter0();
-//	core->getPlayer()->setWeapon(11);
-	core->getPlayer()->setPassive(3);
-	core->getPlayer()->setWeapon(14);
-	battle *bat = new battle(core->getPlayer(),1);
-	bat->setPSkill(0);bat->setESkill(0);
-	bat->fight();
-//	bat->battleScene(load::getMonAttackData(1));
-//	bat->console();
-	cout << "\n"<<bat->calcPDmg();
+	while(true){
+		if(core->getMainPt()==1)core->chapter1(core->getSubPt());
+		if(core->getMainPt()==2)core->chapter2(core->getSubPt());
+		if(core->getMainPt()==3)core->chapter3(core->getSubPt());	
+	}
+	
+
+
 	return 0;
 }//	getch();
 

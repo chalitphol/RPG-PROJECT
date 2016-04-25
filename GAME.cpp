@@ -2,9 +2,17 @@
 
 GAME::GAME(){
 	this->PLAYER.setName("PLAYER");
+	this->PLAYER.setPassive(0);
+	
+	this->setMainPt(1);
+	this->setSubPt(1);
 }
 GAME::GAME(string name){
 	this->PLAYER.setName(name);
+	this->PLAYER.setPassive(0);
+	
+	this->setMainPt(1);
+	this->setSubPt(1);
 }
 
 player* GAME::getPlayer(){
@@ -13,6 +21,26 @@ player* GAME::getPlayer(){
 string GAME::getType(){
 	return this->typeName;
 }
+int GAME::getMainPt(){
+	return this->mainPt;
+}
+int GAME::getSubPt(){
+	return this->subPt;
+}
+
+void GAME::setSubPt(int s){
+	this->subPt = s;
+}
+void GAME::setMainPt(int m){
+	this->mainPt = m;
+}
+void GAME::nextSubPt(){
+	this->setSubPt(getSubPt()+1);
+}
+void GAME::nextMainPt(){
+	this->setMainPt(getMainPt()+1);
+}
+
 
 void GAME::chapter0(){
 	string enter,c1,c2,name,cmd;
@@ -73,47 +101,52 @@ void GAME::chapter0(){
 	this->getPlayer()->setPassive(pass);
 	this->getPlayer()->setName(name);
 	
+	this->setMainPt(1);
+	this->setSubPt(1);
 }
 
 void GAME::chapter1(int session){
 	string enter;
 	switch(session){
 		case 1:
-			show::clear();
-			cout << "3 years after The Dark Lord's invasion.";
+			show::printData(core);
+			cout << "\t3 years after The Dark Lord's invasion.";
 			getline(cin,enter);
-			cout << "At the town.";
+			cout << "\tAt the town\n";
 			getline(cin,enter);
-			cout << PLAYER.getName() << ": Miss how much is it?";
+			cout << "\t"<<PLAYER.getName() << ": Miss how much is it?";
 			getline(cin,enter);
-			cout << "Merchant: It's 30 gold";
+			cout << "\tMerchant: It's 30 gold";
 			getline(cin,enter);
-			cout << "Townspeople shouting.";
+			cout << "\tTownspeople shouting.";
 			getline(cin,enter);
-			cout << "Mister A: Monsters !!";
+			show::printData(core);
+			cout << "\tMister A: Monsters !!";
 			getline(cin,enter);
-			cout << "Merchant: Let's escape.";
+			cout << "\tMerchant: Let's escape.";
 			getline(cin,enter);
-			cout << PLAYER.getName() << ":…(Walking to monster)";
+			cout << "\t"<<PLAYER.getName() << ":…(Walking to monster)";
 			getline(cin,enter);
-			cout << "Centaur Leader: Kill them all and take everything.";
+			cout << "\tCentaur Leader: Kill them all and take everything.";
 			getline(cin,enter);
-			cout << "Centaur A: Hey! Why you don't run?";
+			cout << "\tCentaur A: Hey! Why you don't run?";
 			getline(cin,enter);
-			cout << PLAYER.getName() << "....";
+			cout << "\t"<<PLAYER.getName() << "....";
 			getline(cin,enter);
-			cout << "Centaur B: I think this guy is fear and go mad.";
+			cout << "\tCentaur B: I think this guy is fear and go mad.";
 			getline(cin,enter);
-			cout << "Centaurs: Hah hah ha!";
+			cout << "\tCentaurs: Hah hah ha!";
 			getline(cin,enter);
-			cout << "Chop!!";
+			cout << "\tChop!!";
 			getline(cin,enter);
-			cout << "The head of monster are flown away from their shoulder.";
+			show::printData(core);
+			cout << "\tThe head of monster are flown away from their shoulder.";
 			getline(cin,enter);
-			cout << "Centaur Leader: How dare you!!";
+			cout << "\tCentaur Leader: How dare you!!";
 			getline(cin,enter);
-			cout << PLAYER.getName() << "I will kill you all.";
+			cout << "\t"<<PLAYER.getName() << "\tI will kill you all.";
 			getline(cin,enter);
+			nextSubPt();
 			show::clear();
 			break;
 		case 2:
@@ -700,3 +733,4 @@ void GAME::chapter3(int session){
 			show::clear();
 		}
 }
+

@@ -16,6 +16,13 @@ class GAME{
 		
 		player* getPlayer();
 		string getType();
+		int getSubPt();
+		int getMainPt();
+		
+		void setSubPt(int);
+		void setMainPt(int);
+		void nextSubPt();
+		void nextMainPt();
 		
 		void chapter0();
 		void chapter1(int);
