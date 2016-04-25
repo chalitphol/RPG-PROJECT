@@ -47,3 +47,6 @@
 45,KATANA,1000,2000,WEAPON,25,0,0,0,10,a Japanese sword.
 46,GOLDEN_HAMMER,1200,2500,WEAPON,40,5,0,0,11,a hammer that nade by gold.
 47,DIVINE_SWORD,2000,3000,WEAPON,35,0,0,0,12,a sword that have a divine power in it.
+48,HP_INCREASE,150,500,CONSUMABLE,0,0,9,0,0,increase your hp stat +9.
+49,ATK_INCREASE,150,500,CONSUMABLE,3,0,0,0,0,increase your atk stat +3.
+50,DEF_INCREASE,150,500,CONSUMABLE,0,3,0,0,0,increase your def stat +3.
