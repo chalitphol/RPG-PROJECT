@@ -23,3 +23,4 @@
 21,MEAT,0,0,ETC,0,0,0,0,0,A raw meal.
 22,MACE,50,0,WEAPON,7,0,0,0,7,A hammer used by orc. 
 23,AP_WAND,450,0,WEAPON,15,0,5,0,8,A magic rod drop by Apocarypse.
+24,DARK_SWORD,450,0,WEAPON,15,2,0,0,5,A cruse sword of dark soldier.
