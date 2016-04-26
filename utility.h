@@ -46,6 +46,7 @@ namespace show{
 	void printData(GAME*);
 	void printLogo();
 	void printOver();
+	void printFight();
 	
 }
 

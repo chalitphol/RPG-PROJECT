@@ -195,7 +195,7 @@ int player::countItem(int id){
 			c++;
 		}
 	}
-	return 0;
+	return c;
 }
 
 

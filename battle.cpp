@@ -17,6 +17,8 @@ battle::battle(player* p,int m){
 		getPlayer()->getStat()->addAll(getPlayer()->getWeapon().getiAtk() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiDef() * getPASSIVE().getStatFactor(), getPlayer()->getWeapon().getiMaxHp() * getPASSIVE().getStatFactor());
 		getPlayer()->getStat()->setHp(getPlayer()->getStat()->getMaxhp());
 	}
+	show::printFight();
+	getch();
 	this->fight();
 }
 

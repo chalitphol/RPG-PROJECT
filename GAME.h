@@ -41,6 +41,7 @@ class GAME{
 		void chapter3(int);
 		
 		void console();
+		bool start();
 		
 };
 

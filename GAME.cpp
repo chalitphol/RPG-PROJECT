@@ -218,7 +218,7 @@ void GAME::chapter1(int session){
 			show::printData(core);
 			cout << "\tMayor: You help us a lot. I want to give this to you. \n\tIt's not something important but keep it.";
 			getline(cin,enter);
-			cout << "\tYou got skill: Guard.";
+			cout << "\tYou got skill: Heal1";
 			getline(cin,enter);
 			show::printData(core);
 			cout << "\tQuest: Go to the forest\n\tDetail: There will be something going on.";
@@ -427,8 +427,9 @@ void GAME::chapter2(int session){
 			cout << "\t"<< PLAYER.getName() << ": Okay , Let's go!!";
 			getline(cin,enter);
 			show::printData(core);
-			cout << "\tQuest: Find the clue in the forest.\n\tDetail: Go to Dark Forest.";
+			cout << "\tQuest: Find the clue in the forest.\n\tDetail: Go to West Forest.";
 			getline(cin,enter);
+			notBusy();
 			nextSubPt();
 			show::clear();
 			break;
@@ -470,7 +471,11 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": Prepare It's coming.";
 			getline(cin,enter);
+			
+			Battle = new battle(getPlayer(),7);
+			
 			nextSubPt();
+			busy();
 			show::clear();
 			break;
 		case 3:
@@ -517,6 +522,7 @@ void GAME::chapter2(int session){
 			cout << "\tQuest: Defeat The One of Two Knight.\n\tDetail: Go to Westland";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 4:
@@ -537,7 +543,11 @@ void GAME::chapter2(int session){
 			getline(cin,enter);
 			cout << "\tApocalypse: What a shame.";
 			getline(cin,enter);
+			
+			Battle = new battle(getPlayer(),8);
+			
 			nextSubPt();
+			busy();
 			show::clear();
 			break;
 		case 5:
@@ -638,7 +648,11 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\t"<< PLAYER.getName() << ": They are coming. Prepare! ";
 			getline(cin,enter);
+			
+			Battle = new battle(getPlayer(), 9);
+			
 			nextSubPt();
+			busy();
 			show::clear();
 			break;
 		case 2:
@@ -663,6 +677,7 @@ void GAME::chapter3(int session){
 			cout << "\tQuest: Defeat The Dark Lord\n\tDetail: Talk with the commander.";
 			getline(cin,enter);
 			nextSubPt();
+			busy();
 			show::clear();
 			break;
 		case 3:
@@ -677,9 +692,10 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\tCommander: Okay we're ready. Let's go.";
 			getline(cin,enter);
-			cout << "\tSoldiers:Ohhhhhhh!!";
+			cout << "\tSoldiers: Ohhhhhhh!!";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 4:
@@ -691,6 +707,7 @@ void GAME::chapter3(int session){
 			cout << "\tCommander: Leave them to us. Let's go ahead.";
 			getline(cin,enter);
 			nextSubPt();
+			notBusy();
 			show::clear();
 			break;
 		case 5:
@@ -733,7 +750,11 @@ void GAME::chapter3(int session){
 			getline(cin,enter);
 			cout << "\n\tDieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 			getline(cin,enter);
+			
+			Battle = new battle(getPlayer(),15);
+			
 			nextSubPt();
+			busy();
 			show::clear();
 			break;
 		case 6:
